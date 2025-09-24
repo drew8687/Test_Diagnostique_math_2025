@@ -860,7 +860,7 @@ const MathQuiz = () => {
                 </>
               ) : (
                 <>
-                  <option value="2APIC 1">2APIC 2</option>
+                  <option value="2APIC 1">2APIC 1</option>
                   <option value="2APIC 2">2APIC 2</option>
                   
                 </>
