@@ -23,7 +23,7 @@ const MathQuiz = () => {
   const programData = {
     '1APIC': {
       title: "Programme Mathématiques 1APIC",
-      description: "",
+      description: "Année préparatoire intégrée en cycle d'ingénieur",
       objectives: [
         "Acquérir les bases fondamentales en mathématiques",
         "Développer la rigueur de raisonnement",
@@ -687,10 +687,20 @@ const MathQuiz = () => {
         </div>
 
         <div className="bg-green-50 p-6 rounded-lg mb-8">
+          <h2 className="text-xl font-bold text-green-800 mb-4">Système d'Évaluation</h2>
           <div className="grid md:grid-cols-3 gap-4">
-           
-        
-           
+            <div className="text-center p-4 bg-white rounded-lg">
+              <div className="text-2xl font-bold text-green-600 mb-2">{currentProgram.evaluation.continuous.split(' - ')[0]}</div>
+              <div className="text-green-700">{currentProgram.evaluation.continuous.split(' - ')[1]}</div>
+            </div>
+            <div className="text-center p-4 bg-white rounded-lg">
+              <div className="text-2xl font-bold text-green-600 mb-2">{currentProgram.evaluation.exams.split(' - ')[0]}</div>
+              <div className="text-green-700">{currentProgram.evaluation.exams.split(' - ')[1]}</div>
+            </div>
+            <div className="text-center p-4 bg-white rounded-lg">
+              <div className="text-2xl font-bold text-green-600 mb-2">Projet</div>
+              <div className="text-green-700">{currentProgram.evaluation.projects}</div>
+            </div>
           </div>
         </div>
 
@@ -707,18 +717,24 @@ const MathQuiz = () => {
         </div>
 
         <div className="bg-purple-50 p-6 rounded-lg mb-8">
-          <h2 className="text-xl font-bold text-purple-800 mb-4">Calendrier Scolaire {selectedGrade}</h2>
+          <h2 className="text-xl font-bold text-purple-800 mb-4">Calendrier Académique {selectedGrade}</h2>
           <div className="space-y-4">
             <div className="flex justify-between items-center p-3 bg-white rounded-lg">
-              <span className="font-medium">Rentrée scolaire</span>
+              <span className="font-medium">Rentrée académique</span>
               <span className="text-purple-600">Septembre 2024</span>
             </div>
             <div className="flex justify-between items-center p-3 bg-white rounded-lg">
               <span className="font-medium">Contrôle continu</span>
               <span className="text-purple-600">Toute l'année</span>
             </div>
-           
-         
+            <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+              <span className="font-medium">Examens semestriels</span>
+              <span className="text-purple-600">Janvier et Juin 2025</span>
+            </div>
+            <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+              <span className="font-medium">Projets de fin d'année</span>
+              <span className="text-purple-600">Mai 2025</span>
+            </div>
           </div>
         </div>
 
