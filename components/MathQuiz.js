@@ -161,7 +161,11 @@ const MathQuiz = () => {
           duration: "4 semaines"
         }
       ],
-     
+      evaluation: {
+        continuous: "40% - Contrôles continus et devoirs",
+        exams: "50% - Examens semestriels",
+        projects: "10% - Projets et activités pratiques"
+      },
       resources: [
         "Manuel de mathématiques 1APIC",
         "Cahier d'exercices progressifs",
@@ -301,7 +305,11 @@ const MathQuiz = () => {
           duration: "4 semaines"
         }
       ],
-     
+      evaluation: {
+        continuous: "40% - Contrôles continus et exercices",
+        exams: "50% - Examens semestriels",
+        projects: "10% - Problèmes complexes et applications"
+      },
       resources: [
         "Manuel de mathématiques 2APIC - Nombres relatifs et rationnels",
         "Cahier d'exercices progressifs",
@@ -608,6 +616,7 @@ const MathQuiz = () => {
         </div>
 
         <div className="bg-green-50 p-6 rounded-lg mb-8">
+          <h2 className="text-xl font-bold text-green-800 mb-4">Système d'Évaluation</h2>
           <div className="grid md:grid-cols-3 gap-4">
             <div className="text-center p-4 bg-white rounded-lg">
               <div className="text-2xl font-bold text-green-600 mb-2">{programData[selectedProgram].evaluation.continuous.split(' - ')[0]}</div>
