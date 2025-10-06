@@ -24,7 +24,7 @@ const MathQuiz = () => {
   const programData = {
     '1APIC': {
       title: "Programme Mathématiques 1APIC",
-     
+      description: "Année préparatoire intégrée en cycle d'ingénieur - Bases fondamentales",
       objectives: [
         "Acquérir les bases fondamentales en mathématiques",
         "Développer la rigueur de raisonnement",
@@ -607,7 +607,23 @@ const MathQuiz = () => {
           </div>
         </div>
 
-       
+        <div className="bg-green-50 p-6 rounded-lg mb-8">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="text-center p-4 bg-white rounded-lg">
+              <div className="text-2xl font-bold text-green-600 mb-2">{programData[selectedProgram].evaluation.continuous.split(' - ')[0]}</div>
+              <div className="text-green-700">{programData[selectedProgram].evaluation.continuous.split(' - ')[1]}</div>
+            </div>
+            <div className="text-center p-4 bg-white rounded-lg">
+              <div className="text-2xl font-bold text-green-600 mb-2">{programData[selectedProgram].evaluation.exams.split(' - ')[0]}</div>
+              <div className="text-green-700">{programData[selectedProgram].evaluation.exams.split(' - ')[1]}</div>
+            </div>
+            <div className="text-center p-4 bg-white rounded-lg">
+              <div className="text-2xl font-bold text-green-600 mb-2">Projet</div>
+              <div className="text-green-700">{programData[selectedProgram].evaluation.projects}</div>
+            </div>
+          </div>
+        </div>
+
         <div className="bg-yellow-50 p-6 rounded-lg mb-8">
           <h2 className="text-xl font-bold text-yellow-800 mb-4">Ressources Pédagogiques</h2>
           <div className="grid md:grid-cols-2 gap-4">
@@ -621,9 +637,10 @@ const MathQuiz = () => {
         </div>
 
         <div className="bg-purple-50 p-6 rounded-lg mb-8">
-          <h2 className="text-xl font-bold text-purple-800 mb-4">Calendrier Scoalaire {selectedProgram}</h2>
+          <h2 className="text-xl font-bold text-purple-800 mb-4">Calendrier Académique {selectedProgram}</h2>
           <div className="space-y-4">
             <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+              <span className="font-medium">Rentrée académique</span>
               <span className="text-purple-600">Septembre 2024</span>
             </div>
             <div className="flex justify-between items-center p-3 bg-white rounded-lg">
@@ -631,8 +648,11 @@ const MathQuiz = () => {
               <span className="text-purple-600">Toute l'année</span>
             </div>
             <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+              <span className="font-medium">Examens semestriels</span>
+              <span className="text-purple-600">Janvier et Juin 2025</span>
             </div>
             <div className="flex justify-between items-center p-3 bg-white rounded-lg">
+              <span className="font-medium">Projets de fin d'année</span>
               <span className="text-purple-600">Mai 2025</span>
             </div>
           </div>
