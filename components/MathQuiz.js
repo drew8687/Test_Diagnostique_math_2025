@@ -24,7 +24,7 @@ const MathQuiz = () => {
   const programData = {
     '1APIC': {
       title: "Programme Mathématiques 1APIC",
-      description: "Année préparatoire intégrée en cycle d'ingénieur - Bases fondamentales",
+      description: "",
       objectives: [
         "Acquérir les bases fondamentales en mathématiques",
         "Développer la rigueur de raisonnement",
