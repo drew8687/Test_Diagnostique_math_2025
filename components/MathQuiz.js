@@ -1060,51 +1060,97 @@ const MathQuiz = () => {
               </div>
             </div>
 
-            <div className="mb-8">
-              <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 3 : Calculs avec nombres rationnels décimaux</div>
-              <div className="pl-4">
-                <p className="font-bold mb-3">Calculer :</p>
-                <div className="space-y-3">
-                  <p><strong>1)</strong> N = (+7,5) + (-3,8) = ___________</p>
-                  <p><strong>2)</strong> P = (-12,6) - (+5,4) = ___________</p>
-                  <p><strong>3)</strong> Q = (-4,5) × (+2,4) = ___________</p>
-                  <p><strong>4)</strong> R = (-18,9) ÷ (-3) = ___________</p>
+            <div className="space-y-8">
+            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+              <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 3: Nombres Relatifs </h2>
+              <div className="space-y-4 text-lg">
+                <p><strong>1.</strong> Calculer puis simplifier si possible :</p>
+                <div className="ml-8 space-y-2">
+                  <p>D = 2,5 - (-1/2)</p>
+                  <p>E = -3/4 + 0.25</p>
+                  <p>F = 7/(-6) + (-1/4)</p>
+                  <p>G = 3/8 + (7/-24) + 5/12</p>
+                  <p>H = (3/10 - 2/5) + (-3/2 - 4/10)</p>
                 </div>
               </div>
             </div>
 
-            <div className="mb-8">
-              <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 4 : Expressions numériques complexes</div>
-              <div className="pl-4">
-                <p className="font-bold mb-3">Calculer en détaillant les étapes :</p>
-                <div className="space-y-3">
-                  <p><strong>1)</strong> S = (-5) + (+8) × (-2) = ___________</p>
-                  <p><strong>2)</strong> T = [(-6) - (+4)] × (+5) = ___________</p>
-                  <p><strong>3)</strong> U = (-12) ÷ [(+3) + (-1)] = ___________</p>
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 4: Expressions avec Parenthèses </h2>
+              <div className="space-y-4 text-lg">
+                <p><strong>Enlever les parenthèses et les crochets puis calculer :</strong></p>
+                <div className="ml-8 space-y-2">
+                  <p>J = (-2/3 + 5/4) - [(5/12 - 7/4) + 4/3]</p>
+                  <p>K = (5/6 - 1/2) + [(2/3 - 2/9) - 2]</p>
+                </div>
+              </div>
+             </div>
+
+
+      <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+              <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">Exercice 5: Simplification des Rationnels</h2>
+              <div className="space-y-4 text-lg">
+                <p><strong>Simplifier les rationnels suivants :</strong></p>
+                <div className="ml-8 space-y-2">
+                  <p>M = [(-22) × (-35)] / [21 × (-55)]</p>
+                  <p>N = 210 / (-84)</p>
+                  <p>O = -234 / (-52)</p>
+                  <p>P = 204 / 306</p>
+                </div>
+              </div>
+            </div>
+      
+
+
+<div className="bg-red-50 p-6 rounded-lg border border-red-200">
+              <h2 className="text-2xl font-bold text-red-800 mb-4 text-center">Exercice 5: Résolution d'Équations</h2>
+              <div className="space-y-4 text-lg">
+                <p><strong>Déterminer la valeur de x dans chaque cas suivant :</strong></p>
+                <div className="ml-8 space-y-2">
+                  <p>(2x + 1)/(-3 + x) = 3/2</p>
+                  <p>14/(-6) = 18/(-2x)</p>
+                </div>
+              </div>
+            </div>
+       <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
+              <h2 className="text-2xl font-bold text-indigo-800 mb-4 text-center">Exercice 6: Problèmes de Fraction</h2>
+              <div className="space-y-6 text-lg">
+                <div>
+                  <p className="font-semibold mb-2">Problème 1 - Nabil et la tablette :</p>
+                  <p>Nabil désire acheter une tablette. Le modèle qu'il souhaite coûte 2600 DH.</p>
+                  <p>Sa maman lui donne 2/5 du prix et sa grand-mère lui donne 3/4 du reste.</p>
+                  <p className="mt-2 font-semibold">Combien lui manque-t-il d'argent pour pouvoir s'acheter sa tablette ?</p>
+                </div>
+
+      <div>
+                  <p className="font-semibold mb-2">Problème 2 - Saada et son argent de poche :</p>
+                  <p>Saada a dépensé un tiers de ce qu'il lui restait d'argent de poche à la fête d'anniversaire.</p>
+                  <p>Il lui restait 2/5 de ce que sa maman lui avait donné.</p>
+                  <div className="ml-4 mt-2">
+                    <p>1) Quelle fraction de son argent de poche a-t-il dépensé à la fête d'anniversaire ?</p>
+                    <p>2) Sa maman lui avait donné 300 DH. Combien lui reste-t-il après la fête ?</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="mb-8">
-              <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 5 : Problème</div>
-              <div className="pl-4">
-                <p className="mb-4">
-                  Un commerçant fait le bilan de sa journée. Le matin, il a gagné (+350) dirhams. L'après-midi, il a eu des dépenses de (-180) dirhams pour acheter de la marchandise. En fin de journée, il a vendu pour (+420) dirhams, mais il a dû payer une facture de (-95) dirhams.
-                </p>
-                <p className="font-bold mb-3">Questions :</p>
-                <div className="space-y-4">
-                  <div>
-                    <p><strong>1)</strong> Écrire une expression qui représente le bilan total de la journée du commerçant.</p>
-                    <p className="mt-2">Expression : _______________________________________________</p>
-                  </div>
-                  <div>
-                    <p><strong>2)</strong> Calculer ce bilan total. Le commerçant a-t-il gagné ou perdu de l'argent ? Combien ?</p>
-                    <p className="mt-2">Calcul : _______________________________________________</p>
-                    <p className="mt-2">Réponse : _______________________________________________</p>
-                  </div>
+
+       <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+              <h2 className="text-2xl font-bold text-yellow-800 mb-4 text-center">Exercice 5: Calculs de Produits avec Réduction</h2>
+              <div className="space-y-4 text-lg">
+                <p><strong>Calculer les expressions suivantes avec réduction :</strong></p>
+                <div className="ml-8 space-y-3">
+                  <p>A = (1 - 1/2) × (1 - 1/3) × (1 - 1/4) × ... × (1 - 1/99) × (1 - 1/100)</p>
+                  <p>B = (1 + 1/2) × (1 + 1/3) × (1 + 1/4) × ... × (1 + 1/99) × (1 + 1/100)</p>
+                  <p>C = (100 - 1) × (100 - 2) × (100 - 3) × ... × (100 - 120)</p>
                 </div>
               </div>
             </div>
+
+
+      
+
+      
 
             <div className="text-center mt-8 font-bold text-lg">
               Bon travail !
