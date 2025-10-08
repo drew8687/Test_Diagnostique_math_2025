@@ -872,7 +872,7 @@ const MathQuiz = () => {
 
             <div className="space-y-8">
               <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-                <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 1: Nombres Relatifs (3.5 points)</h2>
+                <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 1: Nombres Relatifs </h2>
                 <div className="space-y-4 text-lg">
                   <p><strong>1.</strong> Calculer puis simplifier si possible :</p>
                   <div className="ml-8 space-y-2">
@@ -886,7 +886,7 @@ const MathQuiz = () => {
               </div>
 
               <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-                <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 2: Expressions avec Parenthèses (2 points)</h2>
+                <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 2: Expressions avec Parenthèses </h2>
                 <div className="space-y-4 text-lg">
                   <p><strong>Enlever les parenthèses et les crochets puis calculer :</strong></p>
                   <div className="ml-8 space-y-2">
@@ -943,8 +943,8 @@ const MathQuiz = () => {
                   </div>
                   
                   <div>
-                    <p className="font-semibold mb-2">Problème 2 - Saada et son argent de poche :</p>
-                    <p>Saada a dépensé un tiers de ce qu'il lui restait d'argent de poche à la fête d'anniversaire.</p>
+                    <p className="font-semibold mb-2">Problème 2 - Saad et son argent de poche :</p>
+                    <p>Saad a dépensé un tiers de ce qu'il lui restait d'argent de poche à la fête d'anniversaire.</p>
                     <p>Il lui restait 2/5 de ce que sa maman lui avait donné.</p>
                     <div className="ml-4 mt-2">
                       <p>1) Quelle fraction de son argent de poche a-t-il dépensé à la fête d'anniversaire ?</p>
