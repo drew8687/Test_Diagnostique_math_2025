@@ -792,6 +792,7 @@ const MathQuiz = () => {
       );
     }
 
+
     if (homeworkView === 'devoir1') {
       return (
         <div className="min-h-screen bg-gray-100 py-8 px-4">
@@ -818,7 +819,7 @@ const MathQuiz = () => {
               </div>
             </div>
 
-<div className="mb-8">
+            <div className="mb-8">
               <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 1 : Opérations sur les nombres entiers</div>
               <div className="pl-4">
                 <p className="font-bold mb-3">Calculer les expressions suivantes en détaillant les étapes :</p>
@@ -902,6 +903,30 @@ const MathQuiz = () => {
                 </div>
               </div>
             </div>
+
+            {/* AJOUT: Boutons de navigation manquants */}
+            <div className="flex justify-center gap-4 mt-8">
+              <button
+                onClick={() => setHomeworkView('selection')}
+                className="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                ← Retour
+              </button>
+              <button
+                onClick={handlePrint}
+                className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center"
+              >
+                <Download className="w-5 h-5 mr-2" />
+                Télécharger en PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+
+      
 
       
       );
