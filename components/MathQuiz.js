@@ -909,6 +909,66 @@ const MathQuiz = () => {
                   <p><strong>1)</strong> Quelle longueur de corde a-t-il utilisée pour les plantes ?</p>
                   <p><strong>2)</strong> Quelle longueur totale de corde a-t-il utilisée ?</p>
                   <p><strong>3)</strong> Quelle longueur de corde lui reste-t-il ?</p>
+      <div className="space-y-8">
+            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+              <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 1: Nombres Relatifs (3.5 points)</h2>
+              <div className="space-y-4 text-lg">
+                <p><strong>1.</strong> Calculer puis simplifier si possible :</p>
+                <div className="ml-8 space-y-2">
+                  <p>D = 2,5 - (-1/2)</p>
+                  <p>E = -3/4 + 0.25</p>
+                  <p>F = 7/(-6) + (-1/4)</p>
+                  <p>G = 3/8 + (7/-24) + 5/12</p>
+                  <p>H = (3/10 - 2/5) + (-3/2 - 4/10)</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 2: Expressions avec Parenthèses (2 points)</h2>
+              <div className="space-y-4 text-lg">
+                <p><strong>Enlever les parenthèses et les crochets puis calculer :</strong></p>
+                <div className="ml-8 space-y-2">
+                  <p>J = (-2/3 + 5/4) - [(5/12 - 7/4) + 4/3]</p>
+                  <p>K = (5/6 - 1/2) + [(2/3 - 2/9) - 2]</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+              <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">Exercice 3: Simplification des Rationnels</h2>
+              <div className="space-y-4 text-lg">
+                <p><strong>Simplifier les rationnels suivants :</strong></p>
+                <div className="ml-8 space-y-2">
+                  <p>M = [(-22) × (-35)] / [21 × (-55)]</p>
+                  <p>N = 210 / (-84)</p>
+                  <p>O = -234 / (-52)</p>
+                  <p>P = 204 / 306</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-red-50 p-6 rounded-lg border border-red-200">
+              <h2 className="text-2xl font-bold text-red-800 mb-4 text-center">Exercice 4: Résolution d'Équations</h2>
+              <div className="space-y-4 text-lg">
+                <p><strong>Déterminer la valeur de x dans chaque cas suivant :</strong></p>
+                <div className="ml-8 space-y-2">
+                  <p>(2x + 1)/(-3 + x) = 3/2</p>
+                  <p>14/(-6) = 18/(-2x)</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+              <h2 className="text-2xl font-bold text-yellow-800 mb-4 text-center">Exercice 5: Problèmes Complexes</h2>
+              <div className="space-y-4 text-lg">
+                <p><strong>1.</strong> Résoudre : (-5) + (+8) - (-3)</p>
+                <p><strong>2.</strong> Effectuer : (-4) × (+6) ÷ (-2)</p>
+                <p><strong>3.</strong> Résoudre : 2x - 7 = -15</p>
+                <p><strong>4.</strong> Calculer : [(-3) + (+5)] × (-2)</p>
+              </div>
+            </div></div>
+    
                 </div>
               </div>
             </div>
