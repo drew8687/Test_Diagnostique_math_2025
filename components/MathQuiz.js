@@ -331,48 +331,96 @@ const MathQuiz = () => {
               </div>
             </div>
 
-            <div className="space-y-8">
-              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-                <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 1: Opérations Fondamentales (4 points)</h2>
-                <div className="space-y-4 text-lg">
-                  <p><strong>1.</strong> Calculer : 125 + 348 - 97 = ?</p>
-                  <p><strong>2.</strong> Effectuer : 24 × 15 ÷ 6 = ?</p>
-                  <p><strong>3.</strong> Résoudre l'équation : 3x + 7 = 22</p>
-                  <p><strong>4.</strong> Développer : 2(x + 5) - 3(x - 2)</p>
-                </div>
-              </div>
-
-              <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-                <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">Exercice 2: Fractions (4 points)</h2>
-                <div className="space-y-4 text-lg">
-                  <p><strong>1.</strong> Calculer : 2/3 + 5/6 = ?</p>
-                  <p><strong>2.</strong> Simplifier la fraction : 18/24</p>
-                  <p><strong>3.</strong> Calculer : 3/4 × 8/9 = ?</p>
-                  <p><strong>4.</strong> Résoudre : 2/5 de 120 = ?</p>
-                </div>
-              </div>
-
-              <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-                <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 3: Géométrie (4 points)</h2>
-                <div className="space-y-4 text-lg">
-                  <p><strong>1.</strong> Calculer l'aire d'un rectangle de longueur 8 cm et de largeur 5 cm.</p>
-                  <p><strong>2.</strong> Calculer le périmètre d'un carré de côté 6 cm.</p>
-                  <p><strong>3.</strong> Dans un triangle rectangle, si les côtés de l'angle droit mesurent 6 cm et 8 cm, calculer la longueur de l'hypoténuse.</p>
-                  <p><strong>4.</strong> Calculer l'aire d'un cercle de rayon 5 cm (π ≈ 3,14).</p>
-                </div>
-              </div>
-
-              <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
-                <h2 className="text-2xl font-bold text-yellow-800 mb-4 text-center">Exercice 4: Problème (4 points)</h2>
-                <div className="space-y-4 text-lg">
-                  <p>Ahmed a acheté 3 cahiers à 12 DH chacun et 2 stylos à 5 DH chacun.</p>
-                  <p><strong>1.</strong> Combien a-t-il dépensé en tout ?</p>
-                  <p><strong>2.</strong> S'il avait 100 DH au départ, combien lui reste-t-il ?</p>
-                  <p><strong>3.</strong> Avec cet argent, combien de crayons à 3 DH peut-il acheter ?</p>
-                  <p><strong>4.</strong> Écrire une expression mathématique représentant ce problème.</p>
+               <div className="mb-8">
+              <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 1 : Opérations sur les nombres entiers</div>
+              <div className="pl-4">
+                <p className="font-bold mb-3">Calculer les expressions suivantes en détaillant les étapes :</p>
+                <div className="space-y-3">
+                  <p><strong>1)</strong> A = 156 + 289 - 127 = ___________</p>
+                  <p><strong>2)</strong> B = 48 × 23 = ___________</p>
+                  <p><strong>3)</strong> C = (64 + 16) × 8 - 240 = ___________</p>
+                  <p><strong>4)</strong> D = 25 + 15 × 4 - 36 ÷ 6 = ___________</p>
                 </div>
               </div>
             </div>
+
+            <div className="mb-8">
+              <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 2 : Opérations sur les nombres décimaux</div>
+              <div className="pl-4">
+                <p className="font-bold mb-3">Effectuer les calculs suivants :</p>
+                <div className="space-y-3">
+                  <p><strong>1)</strong> E = 15,75 + 8,48 = ___________</p>
+                  <p><strong>2)</strong> F = 32,6 - 18,95 = ___________</p>
+                  <p><strong>3)</strong> G = 4,5 × 3,2 = ___________</p>
+                  <p><strong>4)</strong> H = (22,5 + 7,5) × 0,6 = ___________</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 3 : Opérations sur les fractions</div>
+              <div className="pl-4">
+                <p className="font-bold mb-3">Calculer et simplifier si possible :</p>
+                <div className="space-y-3">
+                  <p><strong>1)</strong> I = 3/7 + 2/7 = ___________</p>
+                  <p><strong>2)</strong> J = 5/6 - 1/6 = ___________</p>
+                  <p><strong>3)</strong> K = 3/4 × 8/9 = ___________</p>
+                  <p><strong>4)</strong> L = 5/8 + 3/4 = ___________ <span className="text-sm italic text-gray-600">(mettre au même dénominateur)</span></p>
+                  <p><strong>5)</strong> M = 7/10 - 2/5 = ___________ <span className="text-sm italic text-gray-600">(mettre au même dénominateur)</span></p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 4 : Droite graduée et fractions</div>
+              <div className="pl-4">
+                <p className="mb-3"><strong>1)</strong> Placer les fractions suivantes sur la droite graduée ci-dessous :</p>
+                <p className="ml-5 mb-4">A = 1/4  ;  B = 3/4  ;  C = 5/4  ;  D = 7/4</p>
+                <div className="my-6">
+                  <svg width="600" height="80" className="mx-auto block">
+                    <line x1="50" y1="40" x2="550" y2="40" stroke="black" strokeWidth="2"/>
+                    <line x1="50" y1="35" x2="50" y2="45" stroke="black" strokeWidth="2"/>
+                    <text x="50" y="60" textAnchor="middle" fontSize="14">0</text>
+                    <line x1="175" y1="35" x2="175" y2="45" stroke="black" strokeWidth="2"/>
+                    <text x="175" y="60" textAnchor="middle" fontSize="14">1</text>
+                    <line x1="300" y1="35" x2="300" y2="45" stroke="black" strokeWidth="2"/>
+                    <text x="300" y="60" textAnchor="middle" fontSize="14">2</text>
+                    <line x1="425" y1="35" x2="425" y2="45" stroke="black" strokeWidth="2"/>
+                    <text x="425" y="60" textAnchor="middle" fontSize="14">3</text>
+                    <line x1="550" y1="35" x2="550" y2="45" stroke="black" strokeWidth="2"/>
+                    <text x="550" y="60" textAnchor="middle" fontSize="14">4</text>
+                  </svg>
+                </div>
+                <p className="mb-3"><strong>2)</strong> Compléter avec &lt; , &gt; ou = :</p>
+                <div className="space-y-2">
+                  <p><strong>a)</strong> 3/5 ___ 2/5</p>
+                  <p><strong>b)</strong> 4/7 ___ 5/7</p>
+                  <p><strong>c)</strong> 6/8 ___ 3/4</p>
+                  <p><strong>d)</strong> 5/10 ___ 1/2</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 5 : Problème</div>
+              <div className="pl-4">
+                <p className="mb-4">
+                  Ahmed possède une corde de 12,5 mètres. Il utilise 2/5 de cette corde pour attacher des plantes dans son jardin, puis il coupe 3,8 mètres pour un autre usage.
+                </p>
+                <p className="font-bold mb-3">Questions :</p>
+                <div className="space-y-3">
+                  <p><strong>1)</strong> Quelle longueur de corde a-t-il utilisée pour les plantes ?</p>
+                  <p><strong>2)</strong> Quelle longueur totale de corde a-t-il utilisée ?</p>
+                  <p><strong>3)</strong> Quelle longueur de corde lui reste-t-il ?</p>
+                </div>
+              </div>
+            </div>
+
+           
+
+              
+
+              
 
             <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300 no-print">
               <h3 className="text-lg font-bold text-gray-800 mb-2">📝 Consignes :</h3>
