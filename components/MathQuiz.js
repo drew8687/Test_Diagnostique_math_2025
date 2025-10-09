@@ -748,240 +748,240 @@ const MathQuiz = () => {
   };
 
   const HomeworkSection = () => {
-  const [homeworkView, setHomeworkView] = useState('selection');
+    const [homeworkView, setHomeworkView] = useState('selection');
 
-  const handlePrint = () => {
-    window.print();
-  };
+    const handlePrint = () => {
+      window.print();
+    };
 
-  if (homeworkView === 'selection') {
-    return (
-      <div className="min-h-screen bg-gray-100 py-8 px-4">
-        <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-lg text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">📚 Devoirs à Domicile - Mathématiques</h1>
-          <p className="text-xl mb-4">Collège Mouad Ibn Jabal - Semestre 1 (2025/2026)</p>
-          <p className="text-red-600 font-bold text-2xl mb-8">📅 Date de remise : 17 octobre 2025</p>
-          <div className="mt-10">
-            <p className="text-lg mb-6">Sélectionnez votre niveau :</p>
-            <div className="flex justify-center gap-4 flex-wrap">
-              <button
-                onClick={() => setHomeworkView('devoir1')}
-                className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-10 py-4 rounded-lg text-lg font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all"
-              >
-                1ère Année Collège
-              </button>
-              <button
-                onClick={() => setHomeworkView('devoir2')}
-                className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-10 py-4 rounded-lg text-lg font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all"
-              >
-                2ème Année Collège
-              </button>
-            </div>
-          </div>
-          <div className="flex justify-center mt-10">
-            <button
-              onClick={() => setCurrentView('quiz')}
-              className="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
-            >
-              <Home className="w-5 h-5 mr-2" />
-              Retour au Menu Principal
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (homeworkView === 'devoir1') {
-    return (
-      <div className="min-h-screen bg-gray-100 py-8 px-4">
-        <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-          <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir à Domicile - Mathématiques</h1>
-            <p className="text-xl text-gray-600 mb-2">1ère Année Collège - Semestre 1</p>
-            <p className="text-lg text-red-600 font-bold">Date de remise : 17 octobre 2025</p>
-            <div className="mt-4 flex justify-center gap-4">
-              <button
-                onClick={handlePrint}
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                <Printer className="w-4 h-4 mr-2" />
-                Imprimer
-              </button>
-              <button
-                onClick={() => setHomeworkView('selection')}
-                className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
-              >
-                <ChevronLeft className="w-4 h-4 mr-2" />
-                Retour
-              </button>
-            </div>
-          </div>
-
-          <div className="space-y-8">
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-              <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 1: Opérations Fondamentales</h2>
-              <div className="space-y-4 text-lg">
-                <p><strong>1.</strong> Calculer : 125 + 348 - 97</p>
-                <p><strong>2.</strong> Effectuer : 24 × 15 ÷ 6</p>
-                <p><strong>3.</strong> Résoudre : 3x + 7 = 22</p>
-                <p><strong>4.</strong> Développer : 2(x + 5) - 3(x - 2)</p>
+    if (homeworkView === 'selection') {
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-lg text-center">
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">📚 Devoirs à Domicile - Mathématiques</h1>
+            <p className="text-xl mb-4">Collège Mouad Ibn Jabal - Semestre 1 (2025/2026)</p>
+            <p className="text-red-600 font-bold text-2xl mb-8">📅 Date de remise : 17 octobre 2025</p>
+            <div className="mt-10">
+              <p className="text-lg mb-6">Sélectionnez votre niveau :</p>
+              <div className="flex justify-center gap-4 flex-wrap">
+                <button
+                  onClick={() => setHomeworkView('devoir1')}
+                  className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-10 py-4 rounded-lg text-lg font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all"
+                >
+                  1ère Année Collège
+                </button>
+                <button
+                  onClick={() => setHomeworkView('devoir2')}
+                  className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-10 py-4 rounded-lg text-lg font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all"
+                >
+                  2ème Année Collège
+                </button>
               </div>
             </div>
-
-            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-              <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">Exercice 2: Fractions et Géométrie</h2>
-              <div className="space-y-4 text-lg">
-                <p><strong>1.</strong> Calculer : 2/3 + 5/6</p>
-                <p><strong>2.</strong> Simplifier la fraction 18/24</p>
-                <p><strong>3.</strong> Calculer l'aire d'un rectangle de 8cm par 5cm</p>
-                <p><strong>4.</strong> Dans un triangle rectangle, si les côtés valent 6cm et 8cm, calculer l'hypoténuse</p>
-              </div>
+            <div className="flex justify-center mt-10">
+              <button
+                onClick={() => setCurrentView('quiz')}
+                className="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                <Home className="w-5 h-5 mr-2" />
+                Retour au Menu Principal
+              </button>
             </div>
           </div>
         </div>
-      </div>
-    );
-  }
+      );
+    }
 
-  if (homeworkView === 'devoir2') {
-    return (
-      <div className="min-h-screen bg-gray-100 py-8 px-4">
-        <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-          <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir à Domicile - Mathématiques</h1>
-            <p className="text-xl text-gray-600 mb-2">2ème Année Collège - Semestre 1</p>
-            <p className="text-lg text-red-600 font-bold">Date de remise : 17 octobre 2025</p>
-            <div className="mt-4 flex justify-center gap-4">
-              <button
-                onClick={handlePrint}
-                className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-              >
-                <Printer className="w-4 h-4 mr-2" />
-                Imprimer
-              </button>
-              <button
-                onClick={() => setHomeworkView('selection')}
-                className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
-              >
-                <ChevronLeft className="w-4 h-4 mr-2" />
-                Retour
-              </button>
+    if (homeworkView === 'devoir1') {
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir à Domicile - Mathématiques</h1>
+              <p className="text-xl text-gray-600 mb-2">1ère Année Collège - Semestre 1</p>
+              <p className="text-lg text-red-600 font-bold">Date de remise : 17 octobre 2025</p>
+              <div className="mt-4 flex justify-center gap-4">
+                <button
+                  onClick={handlePrint}
+                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  <Printer className="w-4 h-4 mr-2" />
+                  Imprimer
+                </button>
+                <button
+                  onClick={() => setHomeworkView('selection')}
+                  className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-2" />
+                  Retour
+                </button>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 1: Opérations Fondamentales</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>1.</strong> Calculer : 125 + 348 - 97</p>
+                  <p><strong>2.</strong> Effectuer : 24 × 15 ÷ 6</p>
+                  <p><strong>3.</strong> Résoudre : 3x + 7 = 22</p>
+                  <p><strong>4.</strong> Développer : 2(x + 5) - 3(x - 2)</p>
+                </div>
+              </div>
+
+              <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+                <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">Exercice 2: Fractions et Géométrie</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>1.</strong> Calculer : 2/3 + 5/6</p>
+                  <p><strong>2.</strong> Simplifier la fraction 18/24</p>
+                  <p><strong>3.</strong> Calculer l'aire d'un rectangle de 8cm par 5cm</p>
+                  <p><strong>4.</strong> Dans un triangle rectangle, si les côtés valent 6cm et 8cm, calculer l'hypoténuse</p>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      );
+    }
 
-          <div className="space-y-8">
-            <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-              <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 1: Nombres Relatifs (3.5 points)</h2>
-              <div className="space-y-4 text-lg">
-                <p><strong>1.</strong> Calculer puis simplifier si possible :</p>
-                <div className="ml-8 space-y-2">
-                  <p>D = 2,5 - (-1/2)</p>
-                  <p>E = -3/4 + 0.25</p>
-                  <p>F = 7/(-6) + (-1/4)</p>
-                  <p>G = 3/8 + (7/-24) + 5/12</p>
-                  <p>H = (3/10 - 2/5) + (-3/2 - 4/10)</p>
-                </div>
+    if (homeworkView === 'devoir2') {
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir à Domicile - Mathématiques</h1>
+              <p className="text-xl text-gray-600 mb-2">2ème Année Collège - Semestre 1</p>
+              <p className="text-lg text-red-600 font-bold">Date de remise : 17 octobre 2025</p>
+              <div className="mt-4 flex justify-center gap-4">
+                <button
+                  onClick={handlePrint}
+                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  <Printer className="w-4 h-4 mr-2" />
+                  Imprimer
+                </button>
+                <button
+                  onClick={() => setHomeworkView('selection')}
+                  className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-2" />
+                  Retour
+                </button>
               </div>
             </div>
 
-            <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-              <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 2: Expressions avec Parenthèses (2 points)</h2>
-              <div className="space-y-4 text-lg">
-                <p><strong>Enlever les parenthèses et les crochets puis calculer :</strong></p>
-                <div className="ml-8 space-y-2">
-                  <p>J = (-2/3 + 5/4) - [(5/12 - 7/4) + 4/3]</p>
-                  <p>K = (5/6 - 1/2) + [(2/3 - 2/9) - 2]</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-              <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">Exercice 3: Simplification des Rationnels</h2>
-              <div className="space-y-4 text-lg">
-                <p><strong>Simplifier les rationnels suivants :</strong></p>
-                <div className="ml-8 space-y-2">
-                  <p>M = [(-22) × (-35)] / [21 × (-55)]</p>
-                  <p>N = 210 / (-84)</p>
-                  <p>O = -234 / (-52)</p>
-                  <p>P = 204 / 306</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-red-50 p-6 rounded-lg border border-red-200">
-              <h2 className="text-2xl font-bold text-red-800 mb-4 text-center">Exercice 4: Résolution d'Équations</h2>
-              <div className="space-y-4 text-lg">
-                <p><strong>Déterminer la valeur de x dans chaque cas suivant :</strong></p>
-                <div className="ml-8 space-y-2">
-                  <p>(2x + 1)/(-3 + x) = 3/2</p>
-                  <p>14/(-6) = 18/(-2x)</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
-              <h2 className="text-2xl font-bold text-yellow-800 mb-4 text-center">Exercice 5: Calculs de Produits avec Réduction</h2>
-              <div className="space-y-4 text-lg">
-                <p><strong>Calculer les expressions suivantes avec réduction :</strong></p>
-                <div className="ml-8 space-y-3">
-                  <p>A = (1 - 1/2) × (1 - 1/3) × (1 - 1/4) × ... × (1 - 1/99) × (1 - 1/100)</p>
-                  <p>B = (1 + 1/2) × (1 + 1/3) × (1 + 1/4) × ... × (1 + 1/99) × (1 + 1/100)</p>
-                  <p>C = (100 - 1) × (100 - 2) × (100 - 3) × ... × (100 - 120)</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-              <h2 className="text-2xl font-bold text-indigo-800 mb-4 text-center">Exercice 6: Problèmes de Fraction</h2>
-              <div className="space-y-6 text-lg">
-                <div>
-                  <p className="font-semibold mb-2">Problème 1 - Nabil et la tablette :</p>
-                  <p>Nabil désire acheter une tablette. Le modèle qu'il souhaite coûte 2600 DH.</p>
-                  <p>Sa maman lui donne 2/5 du prix et sa grand-mère lui donne 3/4 du reste.</p>
-                  <p className="mt-2 font-semibold">Combien lui manque-t-il d'argent pour pouvoir s'acheter sa tablette ?</p>
-                </div>
-                
-                <div>
-                  <p className="font-semibold mb-2">Problème 2 - Saada et son argent de poche :</p>
-                  <p>Saada a dépensé un tiers de ce qu'il lui restait d'argent de poche à la fête d'anniversaire.</p>
-                  <p>Il lui restait 2/5 de ce que sa maman lui avait donné.</p>
-                  <div className="ml-4 mt-2">
-                    <p>1) Quelle fraction de son argent de poche a-t-il dépensé à la fête d'anniversaire ?</p>
-                    <p>2) Sa maman lui avait donné 300 DH. Combien lui reste-t-il après la fête ?</p>
+            <div className="space-y-8">
+              <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 1: Nombres Relatifs (3.5 points)</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>1.</strong> Calculer puis simplifier si possible :</p>
+                  <div className="ml-8 space-y-2">
+                    <p>D = 2,5 - (-1/2)</p>
+                    <p>E = -3/4 + 0.25</p>
+                    <p>F = 7/(-6) + (-1/4)</p>
+                    <p>G = 3/8 + (7/-24) + 5/12</p>
+                    <p>H = (3/10 - 2/5) + (-3/2 - 4/10)</p>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div className="bg-pink-50 p-6 rounded-lg border border-pink-200">
-              <h2 className="text-2xl font-bold text-pink-800 mb-4 text-center">Exercice 7: Problèmes Complexes</h2>
-              <div className="space-y-4 text-lg">
-                <p><strong>1.</strong> Résoudre : (-5) + (+8) - (-3)</p>
-                <p><strong>2.</strong> Effectuer : (-4) × (+6) ÷ (-2)</p>
-                <p><strong>3.</strong> Résoudre : 2x - 7 = -15</p>
-                <p><strong>4.</strong> Calculer : [(-3) + (+5)] × (-2)</p>
+              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 2: Expressions avec Parenthèses (2 points)</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>Enlever les parenthèses et les crochets puis calculer :</strong></p>
+                  <div className="ml-8 space-y-2">
+                    <p>J = (-2/3 + 5/4) - [(5/12 - 7/4) + 4/3]</p>
+                    <p>K = (5/6 - 1/2) + [(2/3 - 2/9) - 2]</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+                <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">Exercice 3: Simplification des Rationnels</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>Simplifier les rationnels suivants :</strong></p>
+                  <div className="ml-8 space-y-2">
+                    <p>M = [(-22) × (-35)] / [21 × (-55)]</p>
+                    <p>N = 210 / (-84)</p>
+                    <p>O = -234 / (-52)</p>
+                    <p>P = 204 / 306</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-red-50 p-6 rounded-lg border border-red-200">
+                <h2 className="text-2xl font-bold text-red-800 mb-4 text-center">Exercice 4: Résolution d'Équations</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>Déterminer la valeur de x dans chaque cas suivant :</strong></p>
+                  <div className="ml-8 space-y-2">
+                    <p>(2x + 1)/(-3 + x) = 3/2</p>
+                    <p>14/(-6) = 18/(-2x)</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+                <h2 className="text-2xl font-bold text-yellow-800 mb-4 text-center">Exercice 5: Calculs de Produits avec Réduction</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>Calculer les expressions suivantes avec réduction :</strong></p>
+                  <div className="ml-8 space-y-3">
+                    <p>A = (1 - 1/2) × (1 - 1/3) × (1 - 1/4) × ... × (1 - 1/99) × (1 - 1/100)</p>
+                    <p>B = (1 + 1/2) × (1 + 1/3) × (1 + 1/4) × ... × (1 + 1/99) × (1 + 1/100)</p>
+                    <p>C = (100 - 1) × (100 - 2) × (100 - 3) × ... × (100 - 120)</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
+                <h2 className="text-2xl font-bold text-indigo-800 mb-4 text-center">Exercice 6: Problèmes de Fraction</h2>
+                <div className="space-y-6 text-lg">
+                  <div>
+                    <p className="font-semibold mb-2">Problème 1 - Nabil et la tablette :</p>
+                    <p>Nabil désire acheter une tablette. Le modèle qu'il souhaite coûte 2600 DH.</p>
+                    <p>Sa maman lui donne 2/5 du prix et sa grand-mère lui donne 3/4 du reste.</p>
+                    <p className="mt-2 font-semibold">Combien lui manque-t-il d'argent pour pouvoir s'acheter sa tablette ?</p>
+                  </div>
+                  
+                  <div>
+                    <p className="font-semibold mb-2">Problème 2 - Saada et son argent de poche :</p>
+                    <p>Saada a dépensé un tiers de ce qu'il lui restait d'argent de poche à la fête d'anniversaire.</p>
+                    <p>Il lui restait 2/5 de ce que sa maman lui avait donné.</p>
+                    <div className="ml-4 mt-2">
+                      <p>1) Quelle fraction de son argent de poche a-t-il dépensé à la fête d'anniversaire ?</p>
+                      <p>2) Sa maman lui avait donné 300 DH. Combien lui reste-t-il après la fête ?</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-pink-50 p-6 rounded-lg border border-pink-200">
+                <h2 className="text-2xl font-bold text-pink-800 mb-4 text-center">Exercice 7: Problèmes Complexes</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>1.</strong> Résoudre : (-5) + (+8) - (-3)</p>
+                  <p><strong>2.</strong> Effectuer : (-4) × (+6) ÷ (-2)</p>
+                  <p><strong>3.</strong> Résoudre : 2x - 7 = -15</p>
+                  <p><strong>4.</strong> Calculer : [(-3) + (+5)] × (-2)</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300">
-            <h3 className="text-lg font-bold text-gray-800 mb-2">Consignes importantes :</h3>
-            <ul className="list-disc list-inside space-y-1 text-gray-700">
-              <li>Tous les calculs doivent être détaillés</li>
-              <li>Les résultats doivent être simplifiés lorsque c'est possible</li>
-              <li>Rendre le devoir sur copie double</li>
-              <li>Écrire lisiblement et organiser votre travail</li>
-              <li>Justifier toutes vos réponses</li>
-            </ul>
+            <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300">
+              <h3 className="text-lg font-bold text-gray-800 mb-2">Consignes importantes :</h3>
+              <ul className="list-disc list-inside space-y-1 text-gray-700">
+                <li>Tous les calculs doivent être détaillés</li>
+                <li>Les résultats doivent être simplifiés lorsque c'est possible</li>
+                <li>Rendre le devoir sur copie double</li>
+                <li>Écrire lisiblement et organiser votre travail</li>
+                <li>Justifier toutes vos réponses</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    );
-  }
+      );
+    }
 
-  return null;
-};
+    return null;
+  };
 
   if (currentView === 'program') {
     return <ProgramSection />;
@@ -1092,7 +1092,7 @@ const MathQuiz = () => {
 
           <div className="space-y-4 mb-8">
             <div>
-          
+              <label className="block text-sm font-medium text-gray-700 mb-2">
                 <User className="w-4 h-4 inline mr-2" />
                 Prénom *
               </label>
