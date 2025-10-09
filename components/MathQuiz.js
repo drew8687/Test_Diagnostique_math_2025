@@ -458,7 +458,7 @@ const MathQuiz = () => {
 
             <div className="space-y-8">
               <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-                <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 1: Nombres Relatifs (5 points)</h2>
+                <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 1: Nombres Relatifs </h2>
                 <div className="space-y-4 text-lg">
                   <p><strong>1.</strong> Calculer : (-5) + (+8) - (-3)</p>
                   <p><strong>2.</strong> Effectuer : (-4) × (+6) ÷ (-2)</p>
@@ -469,7 +469,7 @@ const MathQuiz = () => {
               </div>
 
               <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-                <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 2: Nombres Rationnels (5 points)</h2>
+                <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 2: Nombres Rationnels </h2>
                 <div className="space-y-4 text-lg">
                   <p><strong>1.</strong> Simplifier : 18/24</p>
                   <p><strong>2.</strong> Calculer : 2/3 + 5/6</p>
@@ -480,7 +480,7 @@ const MathQuiz = () => {
               </div>
 
               <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-                <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">Exercice 3: Expressions avec Parenthèses (4 points)</h2>
+                <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">Exercice 3: Expressions avec Parenthèses </h2>
                 <div className="space-y-4 text-lg">
                   <p><strong>1.</strong> Calculer : 2,5 - (-1/2)</p>
                   <p><strong>2.</strong> Calculer : -3/4 + 0,25</p>
@@ -490,7 +490,7 @@ const MathQuiz = () => {
               </div>
 
               <div className="bg-red-50 p-6 rounded-lg border border-red-200">
-                <h2 className="text-2xl font-bold text-red-800 mb-4 text-center">Exercice 4: Problèmes (6 points)</h2>
+                <h2 className="text-2xl font-bold text-red-800 mb-4 text-center">Exercice 4: Problèmes </h2>
                 <div className="space-y-6 text-lg">
                   <div>
                     <p className="font-semibold mb-2">Problème 1 - La tablette de Nabil :</p>
