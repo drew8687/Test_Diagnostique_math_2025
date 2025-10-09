@@ -206,10 +206,10 @@ const MathQuiz = () => {
         dueDate: "15/10/2024",
         subject: "Nombres entiers et décimaux",
         exercises: [
-          "Calculer : 125 + 348 - 97",
-          "Effectuer : 24 × 15 ÷ 6",
-          "Résoudre : 3x + 7 = 22",
-          "Développer : 2(x + 5) - 3(x - 2)"
+          "",
+          "",
+          "",
+          ""
         ]
       }
     ],
@@ -872,7 +872,7 @@ const MathQuiz = () => {
 
             <div className="space-y-8">
               <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-                <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 1: Nombres Relatifs (3.5 points)</h2>
+                <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 1: Nombres Relatifs </h2>
                 <div className="space-y-4 text-lg">
                   <p><strong>1.</strong> Calculer puis simplifier si possible :</p>
                   <div className="ml-8 space-y-2">
@@ -886,7 +886,7 @@ const MathQuiz = () => {
               </div>
 
               <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-                <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 2: Expressions avec Parenthèses (2 points)</h2>
+                <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 2: Expressions avec Parenthèses </h2>
                 <div className="space-y-4 text-lg">
                   <p><strong>Enlever les parenthèses et les crochets puis calculer :</strong></p>
                   <div className="ml-8 space-y-2">
