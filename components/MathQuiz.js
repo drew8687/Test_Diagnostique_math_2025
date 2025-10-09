@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Clock, CheckCircle, XCircle, RotateCcw, User, GraduationCap, Phone, AlertCircle, Home, BookOpen, ClipboardList, Book, Target, Printer } from 'lucide-react';
 
-const API_URL = 'http://localhost:5000/api';
-
 const MathQuiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -16,11 +14,20 @@ const MathQuiz = () => {
     phoneNumber: '',
     className: ''
   });
+  const [completedStudents, setCompletedStudents] = useState([]);
   const [isStudentAlreadyCompleted, setIsStudentAlreadyCompleted] = useState(false);
   const [selectedGrade, setSelectedGrade] = useState('2APIC');
   const [currentView, setCurrentView] = useState('quiz');
   const [selectedProgram, setSelectedProgram] = useState('2APIC');
   const [startTime, setStartTime] = useState(null);
+
+  // Charger les étudiants depuis localStorage au montage
+  useEffect(() => {
+    const stored = localStorage.getItem('completedStudents');
+    if (stored) {
+      setCompletedStudents(JSON.parse(stored));
+    }
+  }, []);
 
   const quizData2APIC = {
     totalQuestions: 12,
@@ -205,29 +212,9 @@ const MathQuiz = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const checkStudentExists = async () => {
-    try {
-      const response = await fetch(`${API_URL}/check-student`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          firstName: studentInfo.firstName,
-          lastName: studentInfo.lastName,
-          phoneNumber: studentInfo.phoneNumber,
-          grade: selectedGrade
-        })
-      });
-      const data = await response.json();
-      return data.exists;
-    } catch (error) {
-      console.error('Erreur vérification:', error);
-      return false;
-    }
-  };
-
-  const startQuiz = async () => {
-    const exists = await checkStudentExists();
-    if (exists) {
+  const startQuiz = () => {
+    const studentKey = `${studentInfo.firstName}_${studentInfo.lastName}_${studentInfo.phoneNumber}_${selectedGrade}`;
+    if (completedStudents.includes(studentKey)) {
       setIsStudentAlreadyCompleted(true);
       return;
     }
@@ -252,29 +239,28 @@ const MathQuiz = () => {
     };
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     setIsCompleted(true);
     setShowResults(true);
+    const studentKey = `${studentInfo.firstName}_${studentInfo.lastName}_${studentInfo.phoneNumber}_${selectedGrade}`;
+    const newCompleted = [...completedStudents, studentKey];
+    setCompletedStudents(newCompleted);
+    localStorage.setItem('completedStudents', JSON.stringify(newCompleted));
     
+    // Sauvegarder les résultats
     const score = calculateScore();
     const timeSpent = startTime ? Math.floor((Date.now() - startTime) / 1000) : 0;
-
-    try {
-      await fetch(`${API_URL}/submit-test`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...studentInfo,
-          grade: selectedGrade,
-          answers,
-          score: score.correct,
-          percentage: score.percentage,
-          timeSpent
-        })
-      });
-    } catch (error) {
-      console.error('Erreur sauvegarde:', error);
-    }
+    const results = JSON.parse(localStorage.getItem('testResults') || '[]');
+    results.push({
+      ...studentInfo,
+      grade: selectedGrade,
+      score: score.correct,
+      percentage: score.percentage,
+      timeSpent,
+      completedAt: new Date().toISOString(),
+      answers
+    });
+    localStorage.setItem('testResults', JSON.stringify(results));
   };
 
   const restartQuiz = () => {
@@ -289,6 +275,473 @@ const MathQuiz = () => {
     setStartTime(null);
   };
 
+  const [homeworkView, setHomeworkView] = useState('selection');
+
+  const handlePrint = () => {
+    window.print();
+  };
+
   if (currentView === 'homework') {
+    if (homeworkView === 'selection') {
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-lg text-center">
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">📚 Devoirs à Domicile - Mathématiques</h1>
+            <p className="text-xl mb-4">Collège Mouad Ibn Jabal - Semestre 1 (2025/2026)</p>
+            <p className="text-red-600 font-bold text-2xl mb-8">📅 Date de remise : 17 octobre 2025</p>
+            <div className="mt-10">
+              <p className="text-lg mb-6">Sélectionnez votre niveau :</p>
+              <div className="flex justify-center gap-4 flex-wrap">
+                <button onClick={() => setHomeworkView('devoir1')} className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-10 py-4 rounded-lg text-lg font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all">
+                  1ère Année APIC
+                </button>
+                <button onClick={() => setHomeworkView('devoir2')} className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-10 py-4 rounded-lg text-lg font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all">
+                  2ème Année APIC
+                </button>
+              </div>
+            </div>
+            <div className="flex justify-center mt-10">
+              <button onClick={() => setCurrentView('quiz')} className="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                <Home className="w-5 h-5 mr-2" />
+                Retour au Menu Principal
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (homeworkView === 'devoir1') {
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir à Domicile - Mathématiques</h1>
+              <p className="text-xl text-gray-600 mb-2">1ère Année APIC - Semestre 1</p>
+              <p className="text-lg text-red-600 font-bold">Date de remise : 17 octobre 2025</p>
+              <div className="mt-4 flex justify-center gap-4 no-print">
+                <button onClick={handlePrint} className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                  <Printer className="w-4 h-4 mr-2" />
+                  Imprimer
+                </button>
+                <button onClick={() => setHomeworkView('selection')} className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                  <ChevronLeft className="w-4 h-4 mr-2" />
+                  Retour
+                </button>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 1: Opérations Fondamentales (4 points)</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>1.</strong> Calculer : 125 + 348 - 97 = ?</p>
+                  <p><strong>2.</strong> Effectuer : 24 × 15 ÷ 6 = ?</p>
+                  <p><strong>3.</strong> Résoudre l'équation : 3x + 7 = 22</p>
+                  <p><strong>4.</strong> Développer : 2(x + 5) - 3(x - 2)</p>
+                </div>
+              </div>
+
+              <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+                <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">Exercice 2: Fractions (4 points)</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>1.</strong> Calculer : 2/3 + 5/6 = ?</p>
+                  <p><strong>2.</strong> Simplifier la fraction : 18/24</p>
+                  <p><strong>3.</strong> Calculer : 3/4 × 8/9 = ?</p>
+                  <p><strong>4.</strong> Résoudre : 2/5 de 120 = ?</p>
+                </div>
+              </div>
+
+              <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 3: Géométrie (4 points)</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>1.</strong> Calculer l'aire d'un rectangle de longueur 8 cm et de largeur 5 cm.</p>
+                  <p><strong>2.</strong> Calculer le périmètre d'un carré de côté 6 cm.</p>
+                  <p><strong>3.</strong> Dans un triangle rectangle, si les côtés de l'angle droit mesurent 6 cm et 8 cm, calculer la longueur de l'hypoténuse.</p>
+                  <p><strong>4.</strong> Calculer l'aire d'un cercle de rayon 5 cm (π ≈ 3,14).</p>
+                </div>
+              </div>
+
+              <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+                <h2 className="text-2xl font-bold text-yellow-800 mb-4 text-center">Exercice 4: Problème (4 points)</h2>
+                <div className="space-y-4 text-lg">
+                  <p>Ahmed a acheté 3 cahiers à 12 DH chacun et 2 stylos à 5 DH chacun.</p>
+                  <p><strong>1.</strong> Combien a-t-il dépensé en tout ?</p>
+                  <p><strong>2.</strong> S'il avait 100 DH au départ, combien lui reste-t-il ?</p>
+                  <p><strong>3.</strong> Avec cet argent, combien de crayons à 3 DH peut-il acheter ?</p>
+                  <p><strong>4.</strong> Écrire une expression mathématique représentant ce problème.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300 no-print">
+              <h3 className="text-lg font-bold text-gray-800 mb-2">📝 Consignes :</h3>
+              <ul className="list-disc list-inside space-y-1 text-gray-700">
+                <li>Tous les calculs doivent être détaillés</li>
+                <li>Rendre le devoir sur copie double</li>
+                <li>Écrire lisiblement</li>
+                <li>Mettre votre nom, prénom et classe</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    if (homeworkView === 'devoir2') {
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir à Domicile - Mathématiques</h1>
+              <p className="text-xl text-gray-600 mb-2">2ème Année APIC - Semestre 1</p>
+              <p className="text-lg text-red-600 font-bold">Date de remise : 17 octobre 2025</p>
+              <div className="mt-4 flex justify-center gap-4 no-print">
+                <button onClick={handlePrint} className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                  <Printer className="w-4 h-4 mr-2" />
+                  Imprimer
+                </button>
+                <button onClick={() => setHomeworkView('selection')} className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                  <ChevronLeft className="w-4 h-4 mr-2" />
+                  Retour
+                </button>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 1: Nombres Relatifs (5 points)</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>1.</strong> Calculer : (-5) + (+8) - (-3)</p>
+                  <p><strong>2.</strong> Effectuer : (-4) × (+6) ÷ (-2)</p>
+                  <p><strong>3.</strong> Calculer : [(-3) + (+5)] × (-2)</p>
+                  <p><strong>4.</strong> Résoudre l'équation : 2x - 7 = -15</p>
+                  <p><strong>5.</strong> Calculer : (-2)³</p>
+                </div>
+              </div>
+
+              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 2: Nombres Rationnels (5 points)</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>1.</strong> Simplifier : 18/24</p>
+                  <p><strong>2.</strong> Calculer : 2/3 + 5/6</p>
+                  <p><strong>3.</strong> Calculer : (-3/4) + (1/4)</p>
+                  <p><strong>4.</strong> Rendre irréductible : 210/84</p>
+                  <p><strong>5.</strong> Comparer : -3/4 et -2/3 (justifier)</p>
+                </div>
+              </div>
+
+              <div className="bg-green-50 p-6 rounded-lg border border-green-200">
+                <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">Exercice 3: Expressions avec Parenthèses (4 points)</h2>
+                <div className="space-y-4 text-lg">
+                  <p><strong>1.</strong> Calculer : 2,5 - (-1/2)</p>
+                  <p><strong>2.</strong> Calculer : -3/4 + 0,25</p>
+                  <p><strong>3.</strong> Enlever les parenthèses et calculer : (2/3 - 5/4) - [(5/12 - 7/4) + 4/3]</p>
+                  <p><strong>4.</strong> Calculer : 3/8 + (7/-24) + 5/12</p>
+                </div>
+              </div>
+
+              <div className="bg-red-50 p-6 rounded-lg border border-red-200">
+                <h2 className="text-2xl font-bold text-red-800 mb-4 text-center">Exercice 4: Problèmes (6 points)</h2>
+                <div className="space-y-6 text-lg">
+                  <div>
+                    <p className="font-semibold mb-2">Problème 1 - La tablette de Nabil :</p>
+                    <p>Nabil désire acheter une tablette qui coûte 2600 DH.</p>
+                    <p>Sa maman lui donne 2/5 du prix et sa grand-mère lui donne 3/4 du reste.</p>
+                    <p className="mt-2"><strong>a)</strong> Combien a-t-il reçu de sa maman ?</p>
+                    <p><strong>b)</strong> Combien reste-t-il à payer après le don de sa maman ?</p>
+                    <p><strong>c)</strong> Combien a-t-il reçu de sa grand-mère ?</p>
+                    <p><strong>d)</strong> Combien lui manque-t-il pour acheter la tablette ?</p>
+                  </div>
+                  
+                  <div className="mt-6">
+                    <p className="font-semibold mb-2">Problème 2 - L'argent de poche de Saada :</p>
+                    <p>Saada a reçu 300 DH de sa maman comme argent de poche.</p>
+                    <p>À la fête d'anniversaire, il a dépensé 1/3 de ce qui lui restait.</p>
+                    <p>Il lui restait 2/5 de ce que sa maman lui avait donné.</p>
+                    <p className="mt-2"><strong>a)</strong> Combien lui restait-il avant la fête ?</p>
+                    <p><strong>b)</strong> Quelle fraction de son argent a-t-il dépensé à la fête ?</p>
+                    <p><strong>c)</strong> Combien lui reste-t-il après la fête ?</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300 no-print">
+              <h3 className="text-lg font-bold text-gray-800 mb-2">📝 Consignes importantes :</h3>
+              <ul className="list-disc list-inside space-y-1 text-gray-700">
+                <li>Tous les calculs doivent être détaillés et justifiés</li>
+                <li>Les résultats doivent être simplifiés</li>
+                <li>Rendre le devoir sur copie double</li>
+                <li>Écrire lisiblement et organiser votre travail</li>
+                <li>Mettre votre nom, prénom et classe sur la première page</li>
+                <li>Respecter la date de remise</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
+
+  if (currentView === 'program') {
     return (
-      <div className="min-h-screen bg-gray-100 py-8
+      <div className="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">Programme {selectedProgram}</h1>
+          <p className="text-gray-600">Mathématiques - Cycle préparatoire</p>
+        </div>
+        <div className="flex justify-center mt-8">
+          <button onClick={() => setCurrentView('quiz')} className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+            <Home className="w-5 h-5 mr-2" />
+            Retour au Quiz
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (showStartForm) {
+    return (
+      <div className="min-h-screen bg-gray-100 py-8 px-4">
+        <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+          <div className="flex justify-center mb-6">
+            <div className="bg-white border rounded-lg p-1 flex flex-wrap justify-center gap-1">
+              <button onClick={() => setCurrentView('quiz')} className={`px-4 py-2 rounded-md flex items-center transition-colors ${currentView === 'quiz' ? 'bg-blue-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>
+                <ClipboardList className="w-4 h-4 mr-2" />
+                Test
+              </button>
+              <button onClick={() => setCurrentView('homework')} className={`px-4 py-2 rounded-md flex items-center transition-colors ${currentView === 'homework' ? 'bg-green-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>
+                <BookOpen className="w-4 h-4 mr-2" />
+                Devoirs
+              </button>
+              <button onClick={() => setCurrentView('program')} className={`px-4 py-2 rounded-md flex items-center transition-colors ${currentView === 'program' ? 'bg-purple-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>
+                <Book className="w-4 h-4 mr-2" />
+                Programme
+              </button>
+            </div>
+          </div>
+
+          <div className="text-center mb-8">
+            <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+              <GraduationCap className="w-8 h-8 text-white" />
+            </div>
+            <h1 className="text-3xl font-bold text-gray-800 mb-2">Test Diagnostique - Mathématiques</h1>
+            <p className="text-gray-600">Sélectionnez votre niveau et complétez vos informations</p>
+          </div>
+
+          <div className="mb-8">
+            <h2 className="text-lg font-semibold text-gray-700 mb-4">Choisissez votre niveau :</h2>
+            <div className="grid grid-cols-2 gap-4">
+              <button onClick={() => setSelectedGrade('1APIC')} className={`p-6 rounded-lg border-2 transition-all ${selectedGrade === '1APIC' ? 'border-blue-500 bg-blue-50 text-blue-700' : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'}`}>
+                <div className="text-center">
+                  <div className="text-2xl font-bold mb-2">1APIC</div>
+                  <div className="text-sm">10 questions - 45 min</div>
+                </div>
+              </button>
+              <button onClick={() => setSelectedGrade('2APIC')} className={`p-6 rounded-lg border-2 transition-all ${selectedGrade === '2APIC' ? 'border-blue-500 bg-blue-50 text-blue-700' : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300'}`}>
+                <div className="text-center">
+                  <div className="text-2xl font-bold mb-2">2APIC</div>
+                  <div className="text-sm">12 questions - 60 min</div>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          {isStudentAlreadyCompleted && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+              <div className="flex items-center">
+                <AlertCircle className="w-5 h-5 text-red-600 mr-2" />
+                <div>
+                  <h3 className="font-semibold text-red-800">Test déjà effectué</h3>
+                  <p className="text-red-700 text-sm mt-1">Un test a déjà été passé avec ces informations.</p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className="space-y-4 mb-8">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                <User className="w-4 h-4 inline mr-2" />
+                Prénom *
+              </label>
+              <input type="text" value={studentInfo.firstName} onChange={(e) => { setStudentInfo({...studentInfo, firstName: e.target.value}); setIsStudentAlreadyCompleted(false); }} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Votre prénom" required />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                <User className="w-4 h-4 inline mr-2" />
+                Nom *
+              </label>
+              <input type="text" value={studentInfo.lastName} onChange={(e) => { setStudentInfo({...studentInfo, lastName: e.target.value}); setIsStudentAlreadyCompleted(false); }} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Votre nom" required />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                <Phone className="w-4 h-4 inline mr-2" />
+                Numéro de téléphone *
+              </label>
+              <input type="tel" value={studentInfo.phoneNumber} onChange={(e) => { setStudentInfo({...studentInfo, phoneNumber: e.target.value}); setIsStudentAlreadyCompleted(false); }} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Votre numéro" required />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                <GraduationCap className="w-4 h-4 inline mr-2" />
+                Classe *
+              </label>
+              <select value={studentInfo.className} onChange={(e) => setStudentInfo({...studentInfo, className: e.target.value})} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                <option value="">Sélectionner votre classe</option>
+                {selectedGrade === '1APIC' ? (
+                  <>
+                    <option value="1APIC A">1APIC A</option>
+                    <option value="1APIC B">1APIC B</option>
+                    <option value="1APIC C">1APIC C</option>
+                    <option value="1APIC D">1APIC D</option>
+                  </>
+                ) : (
+                  <>
+                    <option value="2APIC A">2APIC A</option>
+                    <option value="2APIC B">2APIC B</option>
+                    <option value="2APIC C">2APIC C</option>
+                    <option value="2APIC D">2APIC D</option>
+                  </>
+                )}
+              </select>
+            </div>
+          </div>
+
+          <button onClick={startQuiz} disabled={!studentInfo.firstName || !studentInfo.lastName || !studentInfo.phoneNumber || !studentInfo.className} className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium">
+            Commencer le Test {selectedGrade}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (showResults) {
+    const score = calculateScore();
+    return (
+      <div className="min-h-screen bg-gray-100 py-8 px-4">
+        <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+          <div className="text-center mb-8">
+            <div className={`w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center ${score.percentage >= 60 ? 'bg-green-100' : 'bg-red-100'}`}>
+              {score.percentage >= 60 ? <CheckCircle className="w-10 h-10 text-green-600" /> : <XCircle className="w-10 h-10 text-red-600" />}
+            </div>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">Résultats du Test</h2>
+            <div className="text-5xl font-bold text-blue-600 my-4">{score.percentage}%</div>
+            <p className="text-xl text-gray-600">{score.correct} / {score.total} réponses correctes</p>
+          </div>
+
+          <div className="space-y-4 mb-8">
+            {quizData.questions.map((question, index) => {
+              const isCorrect = answers[question.id] === question.correctAnswer;
+              const wasAnswered = answers[question.id] !== undefined;
+              return (
+                <div key={question.id} className={`p-4 rounded-lg border-2 ${!wasAnswered ? 'border-gray-300 bg-gray-50' : isCorrect ? 'border-green-300 bg-green-50' : 'border-red-300 bg-red-50'}`}>
+                  <div className="flex items-start justify-between mb-2">
+                    <h3 className="font-semibold text-gray-800">Question {index + 1} - {question.category}</h3>
+                    {wasAnswered ? (isCorrect ? <CheckCircle className="w-5 h-5 text-green-600" /> : <XCircle className="w-5 h-5 text-red-600" />) : <AlertCircle className="w-5 h-5 text-gray-400" />}
+                  </div>
+                  <p className="text-gray-700 mb-3">{question.question}</p>
+                  <div className="space-y-2">
+                    {question.options.map((option, optIndex) => (
+                      <div key={optIndex} className={`p-2 rounded ${optIndex === question.correctAnswer ? 'bg-green-100 border border-green-400' : wasAnswered && answers[question.id] === optIndex ? 'bg-red-100 border border-red-400' : 'bg-white border border-gray-200'}`}>
+                        {option}
+                        {optIndex === question.correctAnswer && <span className="ml-2 text-green-600 font-semibold">✓ Correcte</span>}
+                        {wasAnswered && answers[question.id] === optIndex && optIndex !== question.correctAnswer && <span className="ml-2 text-red-600 font-semibold">✗ Votre réponse</span>}
+                      </div>
+                    ))}
+                  </div>
+                  {!wasAnswered && <p className="text-gray-500 text-sm mt-2">Non répondu</p>}
+                </div>
+              );
+            })}
+          </div>
+
+          <button onClick={restartQuiz} className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center">
+            <RotateCcw className="w-5 h-5 mr-2" />
+            Recommencer
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const currentQ = quizData.questions[currentQuestion];
+
+  return (
+    <div className="min-h-screen bg-gray-100 py-8 px-4">
+      <div className="max-w-4xl mx-auto">
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
+          <div className="flex justify-between items-center mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-800">Test {selectedGrade}</h2>
+              <p className="text-gray-600">{studentInfo.firstName} {studentInfo.lastName}</p>
+            </div>
+            <div className={`flex items-center gap-2 px-4 py-2 rounded-lg ${timeRemaining < 300 ? 'bg-red-100 text-red-600' : 'bg-blue-100 text-blue-600'}`}>
+              <Clock className="w-5 h-5" />
+              <span className="font-semibold">{formatTime(timeRemaining)}</span>
+            </div>
+          </div>
+
+          <div className="mb-6">
+            <div className="flex justify-between text-sm text-gray-600 mb-2">
+              <span>Question {currentQuestion + 1} sur {quizData.questions.length}</span>
+              <span>{Math.round(((currentQuestion + 1) / quizData.questions.length) * 100)}%</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <div className="bg-blue-600 h-2 rounded-full transition-all" style={{ width: `${((currentQuestion + 1) / quizData.questions.length) * 100}%` }}></div>
+            </div>
+          </div>
+
+          <div className="mb-6">
+            <span className="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm mb-4">{currentQ.category}</span>
+            <h3 className="text-xl font-semibold text-gray-800 mb-6">{currentQ.question}</h3>
+
+            <div className="space-y-3">
+              {currentQ.options.map((option, index) => (
+                <button key={index} onClick={() => handleAnswerSelect(currentQ.id, index)} className={`w-full p-4 text-left rounded-lg border-2 transition-all ${answers[currentQ.id] === index ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'}`}>
+                  <div className="flex items-center">
+                    <div className={`w-6 h-6 rounded-full border-2 mr-3 flex items-center justify-center ${answers[currentQ.id] === index ? 'border-blue-500 bg-blue-500' : 'border-gray-300'}`}>
+                      {answers[currentQ.id] === index && <div className="w-2 h-2 bg-white rounded-full"></div>}
+                    </div>
+                    <span className="text-gray-800">{option}</span>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex justify-between items-center">
+            <button onClick={() => setCurrentQuestion(Math.max(0, currentQuestion - 1))} disabled={currentQuestion === 0} className="flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+              <ChevronLeft className="w-5 h-5 mr-1" />
+              Précédent
+            </button>
+
+            {currentQuestion === quizData.questions.length - 1 ? (
+              <button onClick={handleSubmit} className="flex items-center px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                Terminer
+                <CheckCircle className="w-5 h-5 ml-2" />
+              </button>
+            ) : (
+              <button onClick={() => setCurrentQuestion(Math.min(quizData.questions.length - 1, currentQuestion + 1))} className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                Suivant
+                <ChevronRight className="w-5 h-5 ml-1" />
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-lg p-4">
+          <h4 className="font-semibold text-gray-700 mb-3">Progression</h4>
+          <div className="grid grid-cols-6 sm:grid-cols-10 gap-2">
+            {quizData.questions.map((q, index) => (
+              <button key={q.id} onClick={() => setCurrentQuestion(index)} className={`aspect-square rounded-lg border-2 flex items-center justify-center text-sm font-semibold transition-all ${currentQuestion === index ? 'border-blue-500 bg-blue-500 text-white' : answers[q.id] !== undefined ? 'border-green-500 bg-green-100 text-green-700' : 'border-gray-300 bg-white text-gray-600 hover:border-gray-400'}`}>
+                {index + 1}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default MathQuiz;
