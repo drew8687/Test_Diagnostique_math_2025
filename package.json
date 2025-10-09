@@ -12,6 +12,12 @@
     "react-dom": "^18.2.0",
     "lucide-react": "^0.263.1"
   },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.35",
+    "autoprefixer": "^10.4.17",
+    // ... your other devDependencies
+  },
   {
   "dependencies": {
     "next": "14.2.3",
