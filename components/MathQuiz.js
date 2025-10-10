@@ -125,43 +125,43 @@ const MathQuiz = () => {
       {
         id: 1,
         category: "Algèbre",
-        question: "Résoudre : 2x + 5 = 15",
-        options: ["x = 5", "x = 10", "x = 7.5", "x = 20"],
+        question: "",
+        options: ["", "", "", "],
         correctAnswer: 0
       },
       {
         id: 2,
         category: "Algèbre",
-        question: "Développer : (x + 3)(x + 2)",
-        options: ["x² + 5x + 6", "x² + 6x + 5", "x² + 3x + 2", "2x + 5"],
+        question: "",
+        options: ["", "", "", ""],
         correctAnswer: 0
       },
       {
         id: 3,
         category: "Géométrie",
         question: "Dans un triangle rectangle, si a=3 et b=4, alors c = ?",
-        options: ["5", "7", "25", "12"],
+        options: ["", "", "", ""],
         correctAnswer: 0
       },
       {
         id: 4,
-        category: "Algèbre",
-        question: "Résoudre : x + y = 10 et x - y = 2",
-        options: ["x=6, y=4", "x=5, y=5", "x=8, y=2", "x=7, y=3"],
+        category: "",
+        question: "",
+        options: ["", "", "", ""],
         correctAnswer: 0
       },
       {
         id: 5,
-        category: "Géométrie",
-        question: "L'aire d'un rectangle 8×5 est :",
-        options: ["40", "13", "26", "80"],
+        category: "",
+        question: "",
+        options: ["", "", "", ""],
         correctAnswer: 0
       },
       {
         id: 6,
-        category: "Fonctions",
-        question: "Si f(x) = 2x + 3, alors f(5) = ?",
-        options: ["13", "10", "8", "16"],
+        category: "",
+        question: "",
+        options: ["", "", "", ""],
         correctAnswer: 0
       },
       {
