@@ -331,7 +331,12 @@ const MathQuiz = () => {
               </div>
             </div>
 
-               <div className="mb-8">
+             
+            
+
+           
+
+           <div className="mb-8">
               <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 1 : Opérations sur les nombres entiers</div>
               <div className="pl-4">
                 <p className="font-bold mb-3">Calculer les expressions suivantes en détaillant les étapes :</p>
@@ -344,7 +349,7 @@ const MathQuiz = () => {
               </div>
             </div>
 
-            <div className="mb-8">
+ <div className="mb-8">
               <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 2 : Opérations sur les nombres décimaux</div>
               <div className="pl-4">
                 <p className="font-bold mb-3">Effectuer les calculs suivants :</p>
@@ -357,7 +362,7 @@ const MathQuiz = () => {
               </div>
             </div>
 
-            <div className="mb-8">
+ <div className="mb-8">
               <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 3 : Opérations sur les fractions</div>
               <div className="pl-4">
                 <p className="font-bold mb-3">Calculer et simplifier si possible :</p>
@@ -371,7 +376,7 @@ const MathQuiz = () => {
               </div>
             </div>
 
-            <div className="mb-8">
+ <div className="mb-8">
               <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 4 : Droite graduée et fractions</div>
               <div className="pl-4">
                 <p className="mb-3"><strong>1)</strong> Placer les fractions suivantes sur la droite graduée ci-dessous :</p>
@@ -415,6 +420,13 @@ const MathQuiz = () => {
                 </div>
               </div>
             </div>
+  
+            <div className="text-center mt-8 font-bold text-lg">
+              Bon travail !
+            </div>
+
+
+
 
            
 
