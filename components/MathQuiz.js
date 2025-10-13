@@ -126,7 +126,7 @@ const MathQuiz = () => {
         id: 1,
         category: "Algèbre",
         question: "",
-        options: ["", "", "", "],
+        options: ["", "", "", ""],
         correctAnswer: 0
       },
       {
