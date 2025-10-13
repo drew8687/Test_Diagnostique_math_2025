@@ -567,10 +567,7 @@ const MathQuiz = () => {
         <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
           <div className="flex justify-center mb-6">
             <div className="bg-white border rounded-lg p-1 flex flex-wrap justify-center gap-1">
-              <button onClick={() => setCurrentView('quiz')} className={`px-4 py-2 rounded-md flex items-center transition-colors ${currentView === 'quiz' ? 'bg-blue-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>
-                <ClipboardList className="w-4 h-4 mr-2" />
-                Test
-              </button>
+             
               <button onClick={() => setCurrentView('homework')} className={`px-4 py-2 rounded-md flex items-center transition-colors ${currentView === 'homework' ? 'bg-green-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>
                 <BookOpen className="w-4 h-4 mr-2" />
                 Devoirs
