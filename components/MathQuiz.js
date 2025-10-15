@@ -715,7 +715,7 @@ const MathQuiz = () => {
       <div className="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-lg">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">Programme {selectedProgram}</h1>
-          <p className="text-gray-600">Mathématiques - Cycle préparatoire</p>
+          <p className="text-gray-600">Mathématiques - Section à définir </p>
         </div>
         <div className="flex justify-center mt-8">
           <button onClick={() => setCurrentView('quiz')} className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
