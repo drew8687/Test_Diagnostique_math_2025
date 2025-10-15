@@ -560,7 +560,7 @@ const MathQuiz = () => {
 
             <div className="space-y-8">
               <div className="exercise">
-                <div className="exercise-title bg-gray-100 p-3 font-bold border-l-4 border-blue-500 mb-3">Exercice 1 : Calculs avec nombres rationnels (1,5 points)</div>
+                <div className="exercise-title bg-gray-100 p-3 font-bold border-l-4 border-blue-500 mb-3">Exercice 1 : Calculs avec nombres rationnels (1,5 )</div>
                 <div className="exercise-content pl-4">
                   <p><strong>1) Calculer A, B et C tel que :</strong></p>
                   <div className="question mb-2">
@@ -577,7 +577,7 @@ const MathQuiz = () => {
               </div>
 
               <div className="exercise">
-                <div className="exercise-title bg-gray-100 p-3 font-bold border-l-4 border-green-500 mb-3">Exercice 2 : Fractions - Calculs et simplifications (4,5 points)</div>
+                <div className="exercise-title bg-gray-100 p-3 font-bold border-l-4 border-green-500 mb-3">Exercice 2 : Fractions - Calculs et simplifications (4,5 )</div>
                 <div className="exercise-content pl-4">
                   <p><strong>1) Calculer puis simplifier si possible ce qui suit :</strong></p>
                   <div className="question mb-2">
@@ -613,7 +613,7 @@ const MathQuiz = () => {
               </div>
 
               <div className="exercise">
-                <div className="exercise-title bg-gray-100 p-3 font-bold border-l-4 border-orange-500 mb-3">Exercice 4 : Enlever les parenthèses et calculer (2 points)</div>
+                <div className="exercise-title bg-gray-100 p-3 font-bold border-l-4 border-orange-500 mb-3">Exercice 4 : Enlever les parenthèses et calculer (2 )</div>
                 <div className="exercise-content pl-4">
                   <p><strong>Enlever les parenthèses et les crochets puis calculer I et J tel que :</strong></p>
                   <div className="question mb-2">
@@ -626,7 +626,7 @@ const MathQuiz = () => {
               </div>
 
               <div className="exercise">
-                <div className="exercise-title bg-gray-100 p-3 font-bold border-l-4 border-red-500 mb-3">Exercice 5 : Simplification des fractions (2 points)</div>
+                <div className="exercise-title bg-gray-100 p-3 font-bold border-l-4 border-red-500 mb-3">Exercice 5 : Simplification des fractions (2 )</div>
                 <div className="exercise-content pl-4">
                   <p><strong>Simplifier les rationnels suivants :</strong></p>
                   <div className="question mb-2">
@@ -670,7 +670,7 @@ const MathQuiz = () => {
               </div>
 
               <div className="exercise">
-                <div className="exercise-title bg-gray-100 p-3 font-bold border-l-4 border-pink-500 mb-3">Exercice 8 : Problème (2 points)</div>
+                <div className="exercise-title bg-gray-100 p-3 font-bold border-l-4 border-pink-500 mb-3">Exercice 8 : Problème (2 )</div>
                 <div className="exercise-content pl-4">
                   <p>
                     Un commerçant fait le bilan de sa journée. Le matin, il a gagné (+350) dirhams. L'après-midi, il a eu des dépenses de (-180) dirhams pour acheter de la marchandise. En fin de journée, il a vendu pour (+420) dirhams, mais il a dû payer une facture de (-95) dirhams.
@@ -701,7 +701,7 @@ const MathQuiz = () => {
                 <li>Écrire lisiblement et organiser votre travail</li>
                 <li>Mettre votre nom, prénom et classe sur la première page</li>
                 <li>Respecter la date de remise</li>
-                <li>Barème total : 16 points</li>
+                <li>Barème total : 16 </li>
               </ul>
             </div>
           </div>
