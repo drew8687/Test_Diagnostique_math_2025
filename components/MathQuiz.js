@@ -331,12 +331,7 @@ const MathQuiz = () => {
               </div>
             </div>
 
-             
-            
-
-           
-
-           <div className="mb-8">
+            <div className="mb-8">
               <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 1 : Opérations sur les nombres entiers</div>
               <div className="pl-4">
                 <p className="font-bold mb-3">Calculer les expressions suivantes en détaillant les étapes :</p>
@@ -349,7 +344,7 @@ const MathQuiz = () => {
               </div>
             </div>
 
- <div className="mb-8">
+            <div className="mb-8">
               <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 2 : Opérations sur les nombres décimaux</div>
               <div className="pl-4">
                 <p className="font-bold mb-3">Effectuer les calculs suivants :</p>
@@ -362,7 +357,7 @@ const MathQuiz = () => {
               </div>
             </div>
 
- <div className="mb-8">
+            <div className="mb-8">
               <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 3 : Opérations sur les fractions</div>
               <div className="pl-4">
                 <p className="font-bold mb-3">Calculer et simplifier si possible :</p>
@@ -376,7 +371,7 @@ const MathQuiz = () => {
               </div>
             </div>
 
- <div className="mb-8">
+            <div className="mb-8">
               <div className="bg-gray-100 p-3 font-bold border-l-4 border-black mb-3">Exercice 4 : Droite graduée et fractions</div>
               <div className="pl-4">
                 <p className="mb-3"><strong>1)</strong> Placer les fractions suivantes sur la droite graduée ci-dessous :</p>
@@ -425,15 +420,6 @@ const MathQuiz = () => {
               Bon travail !
             </div>
 
-
-
-
-           
-
-              
-
-              
-
             <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300 no-print">
               <h3 className="text-lg font-bold text-gray-800 mb-2">📝 Consignes :</h3>
               <ul className="list-disc list-inside space-y-1 text-gray-700">
@@ -449,100 +435,6 @@ const MathQuiz = () => {
     }
 
     if (homeworkView === 'devoir2') {
-      return (
-        <div className="min-h-screen bg-gray-100 py-8 px-4">
-          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
-              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir à Domicile - Mathématiques</h1>
-              <p className="text-xl text-gray-600 mb-2">2ème Année APIC - Semestre 1</p>
-              <p className="text-lg text-red-600 font-bold">Date de remise : 17 octobre 2025</p>
-              <div className="mt-4 flex justify-center gap-4 no-print">
-                <button onClick={handlePrint} className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                  <Printer className="w-4 h-4 mr-2" />
-                  Imprimer
-                </button>
-                <button onClick={() => setHomeworkView('selection')} className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
-                  <ChevronLeft className="w-4 h-4 mr-2" />
-                  Retour
-                </button>
-              </div>
-            </div>
-
-            <div className="space-y-8">
-              <div className="bg-purple-50 p-6 rounded-lg border border-purple-200">
-                <h2 className="text-2xl font-bold text-purple-800 mb-4 text-center">Exercice 1: Nombres Relatifs </h2>
-                <div className="space-y-4 text-lg">
-                  <p><strong>1.</strong> Calculer : (-5) + (+8) - (-3)</p>
-                  <p><strong>2.</strong> Effectuer : (-4) × (+6) ÷ (-2)</p>
-                  <p><strong>3.</strong> Calculer : [(-3) + (+5)] × (-2)</p>
-                  <p><strong>4.</strong> Résoudre l'équation : 2x - 7 = -15</p>
-                  <p><strong>5.</strong> Calculer : (-2)³</p>
-                </div>
-              </div>
-
-              <div className="bg-blue-50 p-6 rounded-lg border border-blue-200">
-                <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">Exercice 2: Nombres Rationnels </h2>
-                <div className="space-y-4 text-lg">
-                  <p><strong>1.</strong> Simplifier : 18/24</p>
-                  <p><strong>2.</strong> Calculer : 2/3 + 5/6</p>
-                  <p><strong>3.</strong> Calculer : (-3/4) + (1/4)</p>
-                  <p><strong>4.</strong> Rendre irréductible : 210/84</p>
-                  <p><strong>5.</strong> Comparer : -3/4 et -2/3 (justifier)</p>
-                </div>
-              </div>
-
-              <div className="bg-green-50 p-6 rounded-lg border border-green-200">
-                <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">Exercice 3: Expressions avec Parenthèses </h2>
-                <div className="space-y-4 text-lg">
-                  <p><strong>1.</strong> Calculer : 2,5 - (-1/2)</p>
-                  <p><strong>2.</strong> Calculer : -3/4 + 0,25</p>
-                  <p><strong>3.</strong> Enlever les parenthèses et calculer : (2/3 - 5/4) - [(5/12 - 7/4) + 4/3]</p>
-                  <p><strong>4.</strong> Calculer : 3/8 + (7/-24) + 5/12</p>
-                </div>
-              </div>
-
-              <div className="bg-red-50 p-6 rounded-lg border border-red-200">
-                <h2 className="text-2xl font-bold text-red-800 mb-4 text-center">Exercice 4: Problèmes </h2>
-                <div className="space-y-6 text-lg">
-                  <div>
-                    <p className="font-semibold mb-2">Problème 1 - La tablette de Nabil :</p>
-                    <p>Nabil désire acheter une tablette qui coûte 2600 DH.</p>
-                    <p>Sa maman lui donne 2/5 du prix et sa grand-mère lui donne 3/4 du reste.</p>
-                    <p className="mt-2"><strong>a)</strong> Combien a-t-il reçu de sa maman ?</p>
-                    <p><strong>b)</strong> Combien reste-t-il à payer après le don de sa maman ?</p>
-                    <p><strong>c)</strong> Combien a-t-il reçu de sa grand-mère ?</p>
-                    <p><strong>d)</strong> Combien lui manque-t-il pour acheter la tablette ?</p>
-                  </div>
-                  
-                  <div className="mt-6">
-                    <p className="font-semibold mb-2">Problème 2 - L'argent de poche de Saada :</p>
-                    <p>Saada a reçu 300 DH de sa maman comme argent de poche.</p>
-                    <p>À la fête d'anniversaire, il a dépensé 1/3 de ce qui lui restait.</p>
-                    <p>Il lui restait 2/5 de ce que sa maman lui avait donné.</p>
-                    <p className="mt-2"><strong>a)</strong> Combien lui restait-il avant la fête ?</p>
-                    <p><strong>b)</strong> Quelle fraction de son argent a-t-il dépensé à la fête ?</p>
-                    <p><strong>c)</strong> Combien lui reste-t-il après la fête ?</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300 no-print">
-              <h3 className="text-lg font-bold text-gray-800 mb-2">📝 Consignes importantes :</h3>
-              <ul className="list-disc list-inside space-y-1 text-gray-700">
-                <li>Tous les calculs doivent être détaillés et justifiés</li>
-                <li>Les résultats doivent être simplifiés</li>
-                <li>Rendre le devoir sur copie double</li>
-                <li>Écrire lisiblement et organiser votre travail</li>
-                <li>Mettre votre nom, prénom et classe sur la première page</li>
-                <li>Respecter la date de remise</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      );
-    }
-  if (homeworkView === 'devoir2') {
       return (
         <div className="min-h-screen bg-gray-100 py-8 px-4">
           <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
@@ -817,7 +709,6 @@ const MathQuiz = () => {
       );
     }
   }
-  }
 
   if (currentView === 'program') {
     return (
@@ -842,7 +733,6 @@ const MathQuiz = () => {
         <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-lg">
           <div className="flex justify-center mb-6">
             <div className="bg-white border rounded-lg p-1 flex flex-wrap justify-center gap-1">
-             
               <button onClick={() => setCurrentView('homework')} className={`px-4 py-2 rounded-md flex items-center transition-colors ${currentView === 'homework' ? 'bg-green-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>
                 <BookOpen className="w-4 h-4 mr-2" />
                 Devoirs
@@ -1076,4 +966,5 @@ const MathQuiz = () => {
     </div>
   );
 };
+
 export default MathQuiz;
