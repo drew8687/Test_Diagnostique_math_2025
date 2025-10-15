@@ -254,124 +254,190 @@ const MathQuiz = () => {
   const [homeworkView, setHomeworkView] = useState('selection');
 
   const handlePrint = () => {
-    window.print();
+    // Créer un nouvel élément pour l'impression
+    const printContent = document.querySelector('.print-area');
+    if (printContent) {
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Contrôle Mathématiques</title>
+          <style>
+            @page { size: A4; margin: 0; }
+            body { margin: 0; padding: 0; font-family: Arial, sans-serif; }
+            .page { 
+              width: 210mm; 
+              height: 297mm; 
+              padding: 10mm; 
+              box-sizing: border-box;
+              page-break-after: always;
+              background: white;
+            }
+            .answer-space {
+              border-bottom: 1px dotted #999;
+              min-height: 22px;
+              margin: 6px 0;
+            }
+            .header-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+            .header-box { border: 2px solid #333; border-radius: 8px; padding: 12px; background: #f9f9f9; }
+            .header-box h3 { margin: 0 0 8px 0; font-size: 11px; text-align: center; font-weight: bold; }
+            .header-box p { margin: 4px 0; font-size: 10px; text-align: center; }
+            .dotted-line { border-bottom: 1px dotted #666; height: 20px; margin-top: 4px; }
+            .exercises-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; height: calc(100% - 120px); }
+            .exercise-box { border: 2px solid #333; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+            .exercise-header { background: #d0d0d0; padding: 8px; text-align: center; font-weight: bold; font-size: 11px; }
+            .exercise-content { padding: 12px; flex: 1; }
+          </style>
+        </head>
+        <body>
+          ${printContent.innerHTML}
+        </body>
+        </html>
+      `);
+      printWindow.document.close();
+      printWindow.focus();
+      setTimeout(() => {
+        printWindow.print();
+        printWindow.close();
+      }, 250);
+    }
   };
 
   // Vue Contrôle Template
   if (currentView === 'controle') {
     return (
-      <div className="min-h-screen bg-gray-100 py-8 px-4">
+      <div className="min-h-screen bg-gray-100">
         <style>{`
+          @page {
+            size: A4;
+            margin: 0;
+          }
           @media print {
             .no-print { display: none !important; }
-            body { background: white; }
-            .page { margin: 0; box-shadow: none; page-break-after: always; }
+            body { background: white; margin: 0; }
+            .page { 
+              margin: 0 !important; 
+              box-shadow: none !important; 
+              page-break-after: always;
+              width: 210mm;
+              height: 297mm;
+              padding: 10mm;
+            }
           }
           .answer-space {
             border-bottom: 1px dotted #999;
-            min-height: 25px;
-            margin: 8px 0;
+            min-height: 22px;
+            margin: 6px 0;
+          }
+          .page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            margin: 20px auto;
+            padding: 10mm;
+            box-sizing: border-box;
           }
         `}</style>
         
-        <div className="max-w-5xl mx-auto">
-          {/* Boutons de navigation */}
-          <div className="no-print mb-6 flex justify-center gap-4">
-            <button onClick={handlePrint} className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-              <Printer className="w-5 h-5 mr-2" />
-              Imprimer / Télécharger PDF
-            </button>
-            <button onClick={() => setCurrentView('quiz')} className="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
-              <Home className="w-5 h-5 mr-2" />
-              Retour au Menu
-            </button>
-          </div>
+        {/* Boutons de navigation */}
+        <div className="no-print py-6 flex justify-center gap-4 bg-white shadow-md">
+          <button onClick={handlePrint} className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+            <Printer className="w-5 h-5 mr-2" />
+            Imprimer / Télécharger PDF
+          </button>
+          <button onClick={() => setCurrentView('quiz')} className="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+            <Home className="w-5 h-5 mr-2" />
+            Retour au Menu
+          </button>
+        </div>
 
+        <div className="print-area">
           {/* PAGE RECTO */}
-          <div className="page bg-white rounded-lg shadow-lg p-8 mb-8">
+          <div className="page shadow-lg">
             {/* En-tête */}
-            <div className="grid grid-cols-3 gap-4 mb-6">
-              <div className="border-2 border-gray-800 rounded-lg p-4 bg-gray-50">
-                <h3 className="text-sm font-bold text-center mb-2">Nom et Prénom et numéro :</h3>
-                <div className="border-b border-dotted border-gray-600 h-6 mb-4"></div>
-                <p className="text-sm font-semibold">Classe :</p>
-                <div className="border-b border-dotted border-gray-600 h-6"></div>
+            <div className="grid grid-cols-3 gap-2 mb-4">
+              <div className="border-2 border-gray-800 rounded-lg p-3 bg-gray-50">
+                <h3 className="text-xs font-bold text-center mb-2">Nom et Prénom et numéro :</h3>
+                <div className="border-b border-dotted border-gray-600 h-5 mb-3"></div>
+                <p className="text-xs font-semibold">Classe :</p>
+                <div className="border-b border-dotted border-gray-600 h-5"></div>
               </div>
               
-              <div className="border-2 border-gray-800 rounded-lg p-4 bg-gray-50">
-                <h3 className="text-sm font-bold text-center mb-2">Contrôle 1 Semestre 1</h3>
-                <p className="text-sm text-center font-semibold">Lycée collège : Mouad Ibn Jabal</p>
-                <p className="text-sm text-center font-semibold mt-2">Salé</p>
+              <div className="border-2 border-gray-800 rounded-lg p-3 bg-gray-50">
+                <h3 className="text-xs font-bold text-center mb-2">Contrôle 1 Semestre 1</h3>
+                <p className="text-xs text-center font-semibold">Lycée collège : Mouad Ibn Jabal</p>
+                <p className="text-xs text-center font-semibold mt-1">Salé</p>
               </div>
               
-              <div className="border-2 border-gray-800 rounded-lg p-4 bg-gray-50">
-                <h3 className="text-sm font-bold text-center mb-2">Niveau : 1APIC</h3>
-                <p className="text-sm text-center font-semibold">Année scolaire : 2025/2026</p>
-                <p className="text-sm font-semibold mt-2">Note :</p>
-                <div className="border-b border-dotted border-gray-600 h-6"></div>
+              <div className="border-2 border-gray-800 rounded-lg p-3 bg-gray-50">
+                <h3 className="text-xs font-bold text-center mb-2">Niveau : 1APIC</h3>
+                <p className="text-xs text-center font-semibold">Année scolaire : 2025/2026</p>
+                <p className="text-xs font-semibold mt-2">Note :</p>
+                <div className="border-b border-dotted border-gray-600 h-5"></div>
               </div>
             </div>
             
             {/* Exercices RECTO */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="border-2 border-gray-800 rounded-lg overflow-hidden">
-                <div className="bg-gray-300 p-2 text-center font-bold text-sm">Exercice 1</div>
-                <div className="p-4">
-                  {[...Array(11)].map((_, i) => <div key={i} className="answer-space"></div>)}
+            <div className="grid grid-cols-2 gap-2" style={{height: 'calc(100% - 100px)'}}>
+              <div className="border-2 border-gray-800 rounded-lg overflow-hidden flex flex-col">
+                <div className="bg-gray-300 p-2 text-center font-bold text-xs">Exercice 1</div>
+                <div className="p-3 flex-1">
+                  {[...Array(13)].map((_, i) => <div key={i} className="answer-space"></div>)}
                 </div>
               </div>
               
-              <div className="border-2 border-gray-800 rounded-lg overflow-hidden">
-                <div className="bg-gray-300 p-2 text-center font-bold text-sm">Exercice 2</div>
-                <div className="p-4">
-                  {[...Array(11)].map((_, i) => <div key={i} className="answer-space"></div>)}
+              <div className="border-2 border-gray-800 rounded-lg overflow-hidden flex flex-col">
+                <div className="bg-gray-300 p-2 text-center font-bold text-xs">Exercice 2</div>
+                <div className="p-3 flex-1">
+                  {[...Array(13)].map((_, i) => <div key={i} className="answer-space"></div>)}
                 </div>
               </div>
               
-              <div className="border-2 border-gray-800 rounded-lg overflow-hidden">
-                <div className="bg-gray-300 p-2 text-center font-bold text-sm">Exercice 3</div>
-                <div className="p-4">
-                  {[...Array(11)].map((_, i) => <div key={i} className="answer-space"></div>)}
+              <div className="border-2 border-gray-800 rounded-lg overflow-hidden flex flex-col">
+                <div className="bg-gray-300 p-2 text-center font-bold text-xs">Exercice 3</div>
+                <div className="p-3 flex-1">
+                  {[...Array(13)].map((_, i) => <div key={i} className="answer-space"></div>)}
                 </div>
               </div>
               
-              <div className="border-2 border-gray-800 rounded-lg overflow-hidden">
-                <div className="bg-gray-300 p-2 text-center font-bold text-sm">Bonus</div>
-                <div className="p-4">
-                  {[...Array(11)].map((_, i) => <div key={i} className="answer-space"></div>)}
+              <div className="border-2 border-gray-800 rounded-lg overflow-hidden flex flex-col">
+                <div className="bg-gray-300 p-2 text-center font-bold text-xs">Bonus</div>
+                <div className="p-3 flex-1">
+                  {[...Array(13)].map((_, i) => <div key={i} className="answer-space"></div>)}
                 </div>
               </div>
             </div>
           </div>
 
           {/* PAGE VERSO */}
-          <div className="page bg-white rounded-lg shadow-lg p-8">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="border-2 border-gray-800 rounded-lg overflow-hidden">
-                <div className="bg-gray-300 p-2 text-center font-bold text-sm">Exercice 1 (suite)</div>
-                <div className="p-4">
-                  {[...Array(13)].map((_, i) => <div key={i} className="answer-space"></div>)}
+          <div className="page shadow-lg">
+            <div className="grid grid-cols-2 gap-2 h-full">
+              <div className="border-2 border-gray-800 rounded-lg overflow-hidden flex flex-col">
+                <div className="bg-gray-300 p-2 text-center font-bold text-xs">Exercice 1 (suite)</div>
+                <div className="p-3 flex-1">
+                  {[...Array(18)].map((_, i) => <div key={i} className="answer-space"></div>)}
                 </div>
               </div>
               
-              <div className="border-2 border-gray-800 rounded-lg overflow-hidden">
-                <div className="bg-gray-300 p-2 text-center font-bold text-sm">Exercice 2 (suite)</div>
-                <div className="p-4">
-                  {[...Array(13)].map((_, i) => <div key={i} className="answer-space"></div>)}
+              <div className="border-2 border-gray-800 rounded-lg overflow-hidden flex flex-col">
+                <div className="bg-gray-300 p-2 text-center font-bold text-xs">Exercice 2 (suite)</div>
+                <div className="p-3 flex-1">
+                  {[...Array(18)].map((_, i) => <div key={i} className="answer-space"></div>)}
                 </div>
               </div>
               
-              <div className="border-2 border-gray-800 rounded-lg overflow-hidden">
-                <div className="bg-gray-300 p-2 text-center font-bold text-sm">Exercice 3 (suite)</div>
-                <div className="p-4">
-                  {[...Array(13)].map((_, i) => <div key={i} className="answer-space"></div>)}
+              <div className="border-2 border-gray-800 rounded-lg overflow-hidden flex flex-col">
+                <div className="bg-gray-300 p-2 text-center font-bold text-xs">Exercice 3 (suite)</div>
+                <div className="p-3 flex-1">
+                  {[...Array(18)].map((_, i) => <div key={i} className="answer-space"></div>)}
                 </div>
               </div>
               
-              <div className="border-2 border-gray-800 rounded-lg overflow-hidden">
-                <div className="bg-gray-300 p-2 text-center font-bold text-sm">Bonus (suite)</div>
-                <div className="p-4">
-                  {[...Array(13)].map((_, i) => <div key={i} className="answer-space"></div>)}
+              <div className="border-2 border-gray-800 rounded-lg overflow-hidden flex flex-col">
+                <div className="bg-gray-300 p-2 text-center font-bold text-xs">Bonus (suite)</div>
+                <div className="p-3 flex-1">
+                  {[...Array(18)].map((_, i) => <div key={i} className="answer-space"></div>)}
                 </div>
               </div>
             </div>
