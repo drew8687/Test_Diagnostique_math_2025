@@ -505,8 +505,8 @@ const MathQuiz = () => {
                   </div>
                   
                   <div className="mt-6">
-                    <p className="font-semibold mb-2">Problème 2 - L'argent de poche de Saada :</p>
-                    <p>Saada a reçu 300 DH de sa maman comme argent de poche.</p>
+                    <p className="font-semibold mb-2">Problème 2 - L'argent de poche de Saad :</p>
+                    <p>Saad a reçu 300 DH de sa maman comme argent de poche.</p>
                     <p>À la fête d'anniversaire, il a dépensé 1/3 de ce qui lui restait.</p>
                     <p>Il lui restait 2/5 de ce que sa maman lui avait donné.</p>
                     <p className="mt-2"><strong>a)</strong> Combien lui restait-il avant la fête ?</p>
