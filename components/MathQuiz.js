@@ -550,7 +550,7 @@ const MathApp = () => {
                     <p><strong>3.</strong> Montrer que les points C, O' et A' sont alignés.</p>
                     <p><strong>4.</strong> Quel est le symétrique du segment [OB] par rapport à la droite (BC) ? Justifier.</p>
                     <p><strong>5.</strong> Quel est le symétrique de l'angle B̂AC par rapport à la droite (BC) ? Justifier.</p>
-                    <p><strong>6.</strong> Déduire la mesure de l'angle ÂBC</p>
+                    <p><strong>6.</strong> Déduire la mesure de l'angle A'BC</p>
                   </div>
                   
                   <p className="mt-4"><strong>II.</strong> Soit ABC un triangle rectangle en A et (D) la médiatrice de [BD].</p>
