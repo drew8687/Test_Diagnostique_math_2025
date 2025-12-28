@@ -185,12 +185,10 @@ const MathApp = () => {
 
                 <div className="bg-yellow-50 p-4 rounded-lg">
                   <p className="font-semibold mb-2">Partie 4 : Triangle et cercle</p>
-                  <p>Soit ABC un triangle tel que A = 18 + 1E (à vérifier)</p>
-                  <p className="mt-2">Figure avec triangle inscrit dans un cercle</p>
                   <div className="ml-4 mt-3 space-y-2">
                     <p><strong>1)</strong> Dessiner un triangle ABC quelconque </p>
                     <p><strong>2)</strong>Construire son cercle inscrit</p>
-                    <p><strong>3)</strong>Construire sson cercle circonsrit</p>
+                    <p><strong>3)</strong>Construire son cercle circonsrit</p>
                   </div>
                 </div>
               </div>
