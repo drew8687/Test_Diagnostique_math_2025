@@ -176,9 +176,12 @@ const MathApp = () => {
             <div className="space-y-4">
               <div className="space-y-4">
                 <div className="bg-blue-50 p-4 rounded-lg">
-                  <p>Calculer et simplifier si possible :</p>
+                  <p><strong>1)</strong> Calculer et simplifier si possible :</p>
                   <div className="ml-4 mt-2 space-y-1">
-                    <p>(-3)² ; (-1)² ; 5⁰ ; (-2)³</p>
+                    <p>(-3)² ; (-1)³ ; 5⁰ ; (-2)³</p>
+                    <p>A = (-12,5) ÷ (-0,5) ...</p>
+                 <p><strong>2)</strong> Déterminer le signe des puissances suivantes :</p>
+                    <p>(-10)² ; (-1)² ; ((-1)²)³</p>
                     <p>A = (-12,5) ÷ (-0,5) ...</p>
                  
 
@@ -186,7 +189,7 @@ const MathApp = () => {
                 </div>
 
                 <div className="bg-yellow-50 p-4 rounded-lg">
-                  <p className="font-semibold mb-2">Ecriture scientifique </p>
+                  <p className="font-semibold mb-2"><strong>3)</strong> Faire l'écriture scientifique des deux nombres suivants </p>
                   <div className="ml-4 mt-3 space-y-2">
                     <p>(2025)*10² ; (-20,25)*10² </p>
                   </div>
