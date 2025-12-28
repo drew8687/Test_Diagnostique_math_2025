@@ -9,7 +9,6 @@ const MathApp = () => {
     window.print();
   };
 
-  // Menu Principal
   if (currentView === 'menu') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-12 px-4">
@@ -21,10 +20,7 @@ const MathApp = () => {
           </div>
           <div className="grid md:grid-cols-1 gap-6 max-w-md mx-auto">
             <button 
-              onClick={() => {
-                setCurrentView('homework');
-                setHomeworkView('selection');
-              }}
+              onClick={() => setCurrentView('homework')}
               className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all border-2 border-green-200 hover:border-green-400"
             >
               <BookOpen className="w-16 h-16 mx-auto mb-4 text-green-600" />
@@ -65,10 +61,7 @@ const MathApp = () => {
 
             <div className="text-center">
               <button 
-                onClick={() => {
-                  setCurrentView('menu');
-                  setHomeworkView('selection');
-                }}
+                onClick={() => setCurrentView('menu')}
                 className="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
               >
                 <Home className="w-5 h-5 mr-2" />
@@ -91,7 +84,7 @@ const MathApp = () => {
           
           <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
             <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
-              <h1 className="text-3xl font-bold text-gray-800 mb-2">Exercices de puissance N°3 - Mathématiques</h1>
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°3 - Mathématiques</h1>
               <p className="text-xl text-gray-600 mb-2">1ère Année APIC</p>
               <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal - Salé</p>
               
@@ -114,130 +107,146 @@ const MathApp = () => {
             </div>
 
             <div className="space-y-8">
-              {/* Exercice 1 - Image 1 */}
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 1</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 1 (Image 2)</div>
                 <div className="space-y-4">
-                  <p className="font-semibold mb-3">Ne pas recopier la figure :</p>
+                  <p className="font-semibold">Données à vérifier :</p>
+                  <p>Étant donné la figure suivante (ABC) telle que (EC) // (AB).</p>
                   
-                  <div className="bg-blue-50 p-6 rounded-lg border-2 border-blue-200 mb-4">
-                    <p className="text-center text-sm text-gray-600 mb-3">Figure : Angles avec sommet O</p>
-                    <svg width="400" height="250" viewBox="0 0 400 250" className="mx-auto">
-                      {/* Droites formant les angles */}
-                      <line x1="50" y1="150" x2="350" y2="150" stroke="#333" strokeWidth="2"/>
-                      <line x1="200" y1="150" x2="100" y2="30" stroke="#333" strokeWidth="2"/>
-                      <line x1="200" y1="150" x2="150" y2="50" stroke="#333" strokeWidth="2"/>
-                      <line x1="200" y1="150" x2="250" y2="50" stroke="#333" strokeWidth="2"/>
-                      <line x1="200" y1="150" x2="300" y2="30" stroke="#333" strokeWidth="2"/>
-                      
-                      {/* Point O */}
-                      <circle cx="200" cy="150" r="4" fill="#E53E3E"/>
-                      <text x="200" y="170" fontSize="14" fill="#E53E3E" textAnchor="middle" fontWeight="bold">O</text>
-                      
-                      {/* Labels des droites */}
-                      <text x="40" y="155" fontSize="14" fill="#333">L</text>
-                      <text x="95" y="25" fontSize="14" fill="#333">K</text>
-                      <text x="145" y="45" fontSize="14" fill="#333">J</text>
-                      <text x="255" y="45" fontSize="14" fill="#333">I</text>
-                      <text x="305" y="25" fontSize="14" fill="#333">H</text>
-                      <text x="360" y="155" fontSize="14" fill="#333">F</text>
-                      
-                      {/* Annotations des angles */}
-                      <text x="170" y="100" fontSize="12" fill="#2B6CB0">m°</text>
-                      <text x="220" y="100" fontSize="12" fill="#2B6CB0">n°</text>
-                    </svg>
+                  <div className="my-4 p-4 bg-blue-50 rounded-lg">
+                    <p className="font-semibold mb-2">Image de référence :</p>
+                    <p className="text-sm text-gray-600">Figure géométrique avec droites parallèles</p>
                   </div>
 
-                  <p className="mb-3">Étant donné la figure (20) ci-dessus où toutes les droites (OI), (OJ), (OL), (OX) sont sécantes en O.</p>
-                  
-                  <p className="font-semibold mt-4">Compléter le tableau suivant :</p>
-                  <div className="overflow-x-auto mt-3">
-                    <table className="w-full border-2 border-gray-800 text-center">
-                      <thead>
-                        <tr className="bg-gray-200">
-                          <th className="border-2 border-gray-800 p-3 font-bold">i</th>
-                          <th className="border-2 border-gray-800 p-3">27°</th>
-                          <th className="border-2 border-gray-800 p-3">20°</th>
-                          <th className="border-2 border-gray-800 p-3">...</th>
-                          <th className="border-2 border-gray-800 p-3">45°</th>
-                          <th className="border-2 border-gray-800 p-3">...</th>
-                          <th className="border-2 border-gray-800 p-3">60°</th>
-                          <th className="border-2 border-gray-800 p-3">57°</th>
-                          <th className="border-2 border-gray-800 p-3">60°</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td className="border-2 border-gray-800 p-3 font-bold bg-gray-100">Â</td>
-                          <td className="border-2 border-gray-800 p-3 bg-yellow-50">...</td>
-                          <td className="border-2 border-gray-800 p-3">80°</td>
-                          <td className="border-2 border-gray-800 p-3">67°</td>
-                          <td className="border-2 border-gray-800 p-3 bg-yellow-50">...</td>
-                          <td className="border-2 border-gray-800 p-3">85°</td>
-                          <td className="border-2 border-gray-800 p-3 bg-yellow-50">...</td>
-                          <td className="border-2 border-gray-800 p-3">60°</td>
-                          <td className="border-2 border-gray-800 p-3 bg-yellow-50">...</td>
-                        </tr>
-                        <tr>
-                          <td className="border-2 border-gray-800 p-3 font-bold bg-gray-100">Ĉ</td>
-                          <td className="border-2 border-gray-800 p-3">36°</td>
-                          <td className="border-2 border-gray-800 p-3 bg-yellow-50">...</td>
-                          <td className="border-2 border-gray-800 p-3">52°</td>
-                          <td className="border-2 border-gray-800 p-3">43°</td>
-                          <td className="border-2 border-gray-800 p-3">57°</td>
-                          <td className="border-2 border-gray-800 p-3">60°</td>
-                          <td className="border-2 border-gray-800 p-3 bg-yellow-50">...</td>
-                          <td className="border-2 border-gray-800 p-3">30°</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                  <div className="mt-6">
+                    <p className="font-semibold mb-3">Tableau à compléter :</p>
+                    <div className="overflow-x-auto">
+                      <table className="w-full border-2 border-gray-800">
+                        <thead>
+                          <tr className="bg-gray-200">
+                            <th className="border-2 border-gray-800 p-2">B̂</th>
+                            <th className="border-2 border-gray-800 p-2">27°</th>
+                            <th className="border-2 border-gray-800 p-2">20°</th>
+                            <th className="border-2 border-gray-800 p-2">...</th>
+                            <th className="border-2 border-gray-800 p-2">45°</th>
+                            <th className="border-2 border-gray-800 p-2">...</th>
+                            <th className="border-2 border-gray-800 p-2">60°</th>
+                            <th className="border-2 border-gray-800 p-2">57°</th>
+                            <th className="border-2 border-gray-800 p-2">60°</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td className="border-2 border-gray-800 p-2 font-semibold">Â</td>
+                            <td className="border-2 border-gray-800 p-2">...</td>
+                            <td className="border-2 border-gray-800 p-2">80°</td>
+                            <td className="border-2 border-gray-800 p-2">67°</td>
+                            <td className="border-2 border-gray-800 p-2">...</td>
+                            <td className="border-2 border-gray-800 p-2">85°</td>
+                            <td className="border-2 border-gray-800 p-2">...</td>
+                            <td className="border-2 border-gray-800 p-2">60°</td>
+                            <td className="border-2 border-gray-800 p-2">...</td>
+                          </tr>
+                          <tr>
+                            <td className="border-2 border-gray-800 p-2 font-semibold">Ĉ</td>
+                            <td className="border-2 border-gray-800 p-2">36°</td>
+                            <td className="border-2 border-gray-800 p-2">...</td>
+                            <td className="border-2 border-gray-800 p-2">52°</td>
+                            <td className="border-2 border-gray-800 p-2">43°</td>
+                            <td className="border-2 border-gray-800 p-2">57°</td>
+                            <td className="border-2 border-gray-800 p-2">60°</td>
+                            <td className="border-2 border-gray-800 p-2">...</td>
+                            <td className="border-2 border-gray-800 p-2">30°</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Exercice 2 - Image 2 */}
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2 (Figure 2)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2 (Image 2 - Suite)</div>
                 <div className="space-y-4">
-                  <p className="font-semibold mb-3">Ne pas recopier la figure :</p>
-                  
-                  <div className="bg-green-50 p-6 rounded-lg border-2 border-green-200 mb-4">
-                    <p className="text-center text-sm text-gray-600 mb-3">Figure : Triangle ABC avec point D</p>
-                    <svg width="450" height="280" viewBox="0 0 450 280" className="mx-auto">
-                      {/* Triangle principal ABC */}
-                      <polygon points="80,250 400,250 250,80" fill="none" stroke="#333" strokeWidth="2"/>
-                      
-                      {/* Point D et triangle ABD */}
-                      <line x1="80" y1="250" x2="120" y2="150" stroke="#333" strokeWidth="2"/>
-                      <line x1="120" y1="150" x2="250" y2="80" stroke="#333" strokeWidth="2"/>
-                      
-                      {/* Angle droit en D */}
-                      <rect x="115" y="145" width="10" height="10" fill="none" stroke="#E53E3E" strokeWidth="2"/>
-                      
-                      {/* Points */}
-                      <circle cx="80" cy="250" r="4" fill="#2B6CB0"/>
-                      <text x="65" y="270" fontSize="16" fill="#2B6CB0" fontWeight="bold">A</text>
-                      
-                      <circle cx="400" cy="250" r="4" fill="#2B6CB0"/>
-                      <text x="410" y="270" fontSize="16" fill="#2B6CB0" fontWeight="bold">B</text>
-                      
-                      <circle cx="250" cy="80" r="4" fill="#2B6CB0"/>
-                      <text x="255" y="75" fontSize="16" fill="#2B6CB0" fontWeight="bold">C</text>
-                      
-                      <circle cx="120" cy="150" r="4" fill="#E53E3E"/>
-                      <text x="105" y="145" fontSize="16" fill="#E53E3E" fontWeight="bold">D</text>
-                      
-                      {/* Mesures */}
-                      <text x="35" y="200" fontSize="13" fill="#666">20°</text>
-                    </svg>
-                  </div>
-
-                  <p className="mb-3">ABC est un triangle tel que les angles en A et D sont des angles droits. On a aussi AB = 7 cm et ABD tel que l'angle ABD = 20°.</p>
+                  <p className="font-semibold">Ne pas recopier la figure :</p>
+                  <p>ABC est un triangle tel que AB = 4,2 ; AC = 7 ; BC = 5,6 et ÂBD tel que BD = 7.</p>
                   
                   <div className="ml-4 space-y-3 mt-4">
-                    <p><strong>1)</strong> Calculer la mesure de l'angle BD̂C en justifiant votre réponse et déduire la valeur de l'angle B̂AC.</p>
-                    <p><strong>2)</strong> En déduire la mesure de l'angle ĈAD.</p>
+                    <p><strong>1)</strong> Calculer la mesure de l'angle BD̂C et A en justifiant la réponse.</p>
+                    <p><strong>2)</strong> Déduire la nature du triangle ABD .</p>
                     <p><strong>3)</strong> Calculer AD.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 3 (Image 3)</div>
+                <div className="space-y-4">
+                  <p className="font-semibold mb-3">Plusieurs parties :</p>
+                  
+                  <div className="space-y-4">
+                    <div className="bg-blue-50 p-4 rounded-lg">
+                      <p className="font-semibold mb-2">Partie 1 : Calculs</p>
+                      <p>Calculer et simplifier si possible :</p>
+                      <div className="ml-4 mt-2 space-y-1">
+                        <p>(-3)² ; (-1)² ; 5⁰ ; (-2)³</p>
+                        <p>A = (-12,5) ÷ (-0,5) ...</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-green-50 p-4 rounded-lg">
+                      <p className="font-semibold mb-2">Partie 2 : Statistiques</p>
+                      <p>Tableau avec : Nombre, Effectif, Effectif cumulé</p>
+                      <div className="overflow-x-auto mt-3">
+                        <table className="w-full border-2 border-gray-800 text-sm">
+                          <thead>
+                            <tr className="bg-gray-200">
+                              <th className="border-2 border-gray-800 p-2">Nombre</th>
+                              <th className="border-2 border-gray-800 p-2">Effectif</th>
+                              <th className="border-2 border-gray-800 p-2">Effectif cumulé</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="border-2 border-gray-800 p-2">4 cm</td>
+                              <td className="border-2 border-gray-800 p-2">5 cm</td>
+                              <td className="border-2 border-gray-800 p-2">11 cm</td>
+                            </tr>
+                            <tr>
+                              <td className="border-2 border-gray-800 p-2">5 cm</td>
+                              <td className="border-2 border-gray-800 p-2">6 cm</td>
+                              <td className="border-2 border-gray-800 p-2">...</td>
+                            </tr>
+                            <tr>
+                              <td className="border-2 border-gray-800 p-2">10 cm</td>
+                              <td className="border-2 border-gray-800 p-2">5 cm</td>
+                              <td className="border-2 border-gray-800 p-2">...</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p className="mt-3"><strong>1)</strong> Trouver la valeur de A</p>
+                    </div>
+
+                    <div className="bg-purple-50 p-4 rounded-lg">
+                      <p className="font-semibold mb-2">Partie 3 : Géométrie ABC</p>
+                      <p>ABC est un triangle tel que AB = 6 cm ; (En) ⊥ (AB) ; (Er) ⊥ (AB)</p>
+                      <p className="mt-2">Les segments [En] et [Er] se coupent en O.</p>
+                      <div className="ml-4 mt-3 space-y-2">
+                        <p><strong>1)</strong> Tracer la figure en utilisant les mesures [AB] = 6 cm</p>
+                        <p><strong>2)</strong> En utilisant le critère d'égalité, montrer que BD = ...</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-yellow-50 p-4 rounded-lg">
+                      <p className="font-semibold mb-2">Partie 4 : Triangle et cercle</p>
+                      <p>Soit ABC un triangle tel que A = 18 + 1E (à vérifier)</p>
+                      <p className="mt-2">Figure avec triangle inscrit dans un cercle</p>
+                      <div className="ml-4 mt-3 space-y-2">
+                        <p><strong>1)</strong> Dessiner un triangle ABC tel que...</p>
+                        <p><strong>2)</strong> AD = ? ASD = 180° - ASC - CSB (trouver l'angle)</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -248,8 +257,7 @@ const MathApp = () => {
               <ul className="list-disc list-inside space-y-1 text-gray-700">
                 <li>Tous les calculs doivent être détaillés et justifiés</li>
                 <li>Les constructions géométriques doivent être précises</li>
-                <li>Compléter le tableau avec soin</li>
-                <li>Utiliser les propriétés des angles pour justifier vos réponses</li>
+                <li>Compléter les tableaux avec soin</li>
                 <li>Rendre le devoir sur copie double</li>
                 <li>Mettre votre nom, prénom et classe sur la première page</li>
               </ul>
@@ -383,7 +391,7 @@ const MathApp = () => {
                 onClick={() => setHomeworkView('2apic-devoir2')}
                 className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all"
               >
-                <div className="text-2xl font-bold mb-2">📐 Devoir N°2</div>
+                <div className="text-2xl font-bold mb-2">📐 Devoir N°3</div>
                 <div className="text-sm opacity-90">Géométrie du Triangle et Constructions</div>
               </button>
 
@@ -391,7 +399,7 @@ const MathApp = () => {
                 onClick={() => setHomeworkView('2apic-devoir3')}
                 className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all"
               >
-                <div className="text-2xl font-bold mb-2">🧮 Devoir N°3</div>
+                <div className="text-2xl font-bold mb-2">🧮 Exercices de puissance</div>
                 <div className="text-sm opacity-90">Puissances et Calculs</div>
               </button>
             </div>
@@ -421,7 +429,7 @@ const MathApp = () => {
           
           <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
             <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
-              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°3 - Mathématiques</h1>
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°2 - Mathématiques</h1>
               <p className="text-xl text-gray-600 mb-2">2ème Année APIC</p>
               <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal - Salé</p>
               <p className="text-lg font-semibold">Année 2024-2025</p>
