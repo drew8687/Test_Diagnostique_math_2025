@@ -179,10 +179,8 @@ const MathApp = () => {
                   <p><strong>1)</strong> Calculer et simplifier si possible :</p>
                   <div className="ml-4 mt-2 space-y-1">
                     <p>(-3)² ; (-1)³ ; 5⁰ ; (-2)³</p>
-                    <p>A = (-12,5) ÷ (-0,5) ...</p>
                  <p><strong>2)</strong> Déterminer le signe des puissances suivantes :</p>
                     <p>(-10)² ; (-1)² ; ((-1)²)³</p>
-                    <p>A = (-12,5) ÷ (-0,5) ...</p>
                  
 
                   </div>
