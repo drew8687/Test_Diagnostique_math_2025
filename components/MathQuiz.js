@@ -124,7 +124,7 @@ const MathApp = () => {
                       <table className="w-full border-2 border-gray-800">
                         <thead>
                           <tr className="bg-gray-200">
-                            <th className="border-2 border-gray-800 p-2">i</th>
+                            <th className="border-2 border-gray-800 p-2">B̂</th>
                             <th className="border-2 border-gray-800 p-2">27°</th>
                             <th className="border-2 border-gray-800 p-2">20°</th>
                             <th className="border-2 border-gray-800 p-2">...</th>
@@ -391,7 +391,7 @@ const MathApp = () => {
                 onClick={() => setHomeworkView('2apic-devoir2')}
                 className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all"
               >
-                <div className="text-2xl font-bold mb-2">📐 Devoir N°2</div>
+                <div className="text-2xl font-bold mb-2">📐 Devoir N°3</div>
                 <div className="text-sm opacity-90">Géométrie du Triangle et Constructions</div>
               </button>
 
@@ -399,7 +399,7 @@ const MathApp = () => {
                 onClick={() => setHomeworkView('2apic-devoir3')}
                 className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all"
               >
-                <div className="text-2xl font-bold mb-2">🧮 Devoir N°3</div>
+                <div className="text-2xl font-bold mb-2">🧮 Exercices de puissance</div>
                 <div className="text-sm opacity-90">Puissances et Calculs</div>
               </button>
             </div>
