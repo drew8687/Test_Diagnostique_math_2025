@@ -108,18 +108,13 @@ const MathApp = () => {
 
             <div className="space-y-8">
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 1 (Image 2)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 1 </div>
                 <div className="space-y-4">
-                  <p className="font-semibold">Données à vérifier :</p>
-                  <p>Étant donné la figure suivante (ABC) telle que (EC) // (AB).</p>
                   
-                  <div className="my-4 p-4 bg-blue-50 rounded-lg">
-                    <p className="font-semibold mb-2">Image de référence :</p>
-                    <p className="text-sm text-gray-600">Figure géométrique avec droites parallèles</p>
-                  </div>
+              
 
                   <div className="mt-6">
-                    <p className="font-semibold mb-3">Tableau à compléter :</p>
+                    <p className="font-semibold mb-3">Tableau à compléter :ABC un triangle dans le plan </p>
                     <div className="overflow-x-auto">
                       <table className="w-full border-2 border-gray-800">
                         <thead>
@@ -166,27 +161,24 @@ const MathApp = () => {
               </div>
 
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2 (Image 2 - Suite)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2  </div>
                 <div className="space-y-4">
-                  <p className="font-semibold">Ne pas recopier la figure :</p>
-                  <p>ABC est un triangle tel que AB = 4,2 ; AC = 7 ; BC = 5,6 et ÂBD tel que BD = 7.</p>
-                  
-                  <div className="ml-4 space-y-3 mt-4">
-                    <p><strong>1)</strong> Calculer la mesure de l'angle BD̂C et A en justifiant la réponse.</p>
-                    <p><strong>2)</strong> Déduire la nature du triangle ABD .</p>
-                    <p><strong>3)</strong> Calculer AD.</p>
-                  </div>
-                </div>
-              </div>
+                <p><strong>1)</strong> ABC est un triangle tel que AB = 5 ; AC = 7  ÂBC=30°   Construire ABC .</p>
+                                    <p><strong>2)</strong> Peut-on construire le triangle ABC dans les cas suivants ,jusitifier la réponse.</p>
+
+
+        cas 1: AB=5 ;AC=3;BC=4
+        cas 2: AB=2 ; AC=3; BC=6
+        cas 3: AB=2 ; AC=3; BC=5
+
+                   
 
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 3 (Image 3)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 3 </div>
                 <div className="space-y-4">
-                  <p className="font-semibold mb-3">Plusieurs parties :</p>
                   
                   <div className="space-y-4">
                     <div className="bg-blue-50 p-4 rounded-lg">
-                      <p className="font-semibold mb-2">Partie 1 : Calculs</p>
                       <p>Calculer et simplifier si possible :</p>
                       <div className="ml-4 mt-2 space-y-1">
                         <p>(-3)² ; (-1)² ; 5⁰ ; (-2)³</p>
@@ -194,57 +186,19 @@ const MathApp = () => {
                       </div>
                     </div>
 
-                    <div className="bg-green-50 p-4 rounded-lg">
-                      <p className="font-semibold mb-2">Partie 2 : Statistiques</p>
-                      <p>Tableau avec : Nombre, Effectif, Effectif cumulé</p>
-                      <div className="overflow-x-auto mt-3">
-                        <table className="w-full border-2 border-gray-800 text-sm">
-                          <thead>
-                            <tr className="bg-gray-200">
-                              <th className="border-2 border-gray-800 p-2">Nombre</th>
-                              <th className="border-2 border-gray-800 p-2">Effectif</th>
-                              <th className="border-2 border-gray-800 p-2">Effectif cumulé</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td className="border-2 border-gray-800 p-2">4 cm</td>
-                              <td className="border-2 border-gray-800 p-2">5 cm</td>
-                              <td className="border-2 border-gray-800 p-2">11 cm</td>
-                            </tr>
-                            <tr>
-                              <td className="border-2 border-gray-800 p-2">5 cm</td>
-                              <td className="border-2 border-gray-800 p-2">6 cm</td>
-                              <td className="border-2 border-gray-800 p-2">...</td>
-                            </tr>
-                            <tr>
-                              <td className="border-2 border-gray-800 p-2">10 cm</td>
-                              <td className="border-2 border-gray-800 p-2">5 cm</td>
-                              <td className="border-2 border-gray-800 p-2">...</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <p className="mt-3"><strong>1)</strong> Trouver la valeur de A</p>
-                    </div>
 
-                    <div className="bg-purple-50 p-4 rounded-lg">
-                      <p className="font-semibold mb-2">Partie 3 : Géométrie ABC</p>
-                      <p>ABC est un triangle tel que AB = 6 cm ; (En) ⊥ (AB) ; (Er) ⊥ (AB)</p>
-                      <p className="mt-2">Les segments [En] et [Er] se coupent en O.</p>
-                      <div className="ml-4 mt-3 space-y-2">
-                        <p><strong>1)</strong> Tracer la figure en utilisant les mesures [AB] = 6 cm</p>
-                        <p><strong>2)</strong> En utilisant le critère d'égalité, montrer que BD = ...</p>
-                      </div>
-                    </div>
+                    
 
                     <div className="bg-yellow-50 p-4 rounded-lg">
                       <p className="font-semibold mb-2">Partie 4 : Triangle et cercle</p>
                       <p>Soit ABC un triangle tel que A = 18 + 1E (à vérifier)</p>
                       <p className="mt-2">Figure avec triangle inscrit dans un cercle</p>
                       <div className="ml-4 mt-3 space-y-2">
-                        <p><strong>1)</strong> Dessiner un triangle ABC tel que...</p>
-                        <p><strong>2)</strong> AD = ? ASD = 180° - ASC - CSB (trouver l'angle)</p>
+                        <p><strong>1)</strong> Dessiner un triangle ABC quelconque </p>
+                        <p><strong>2)</strong>Construire son cercle inscrit</p>
+                        <p><strong>3)</strong>Construire sson cercle circonsrit</p>
+
+
                       </div>
                     </div>
                   </div>
