@@ -161,7 +161,7 @@ const MathApp = () => {
             <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2  </div>
             <div className="space-y-4">
               <p><strong>1)</strong> ABC est un triangle tel que AB = 5 ; AC = 7  ÂBC=30°   Construire ABC .</p>
-              <p><strong>2)</strong> Peut-on construire le triangle ABC dans les cas suivants ,jusitifier la réponse.</p>
+              <p><strong>2)</strong> Peut-on construire le triangle ABC dans les cas suivants ,justifier la réponse.</p>
               
               <div className="ml-4 space-y-2">
                 <p>cas 1: AB=5 ;AC=3;BC=4</p>
