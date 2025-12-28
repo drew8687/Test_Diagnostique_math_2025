@@ -74,152 +74,144 @@ const MathApp = () => {
     }
 
     if (homeworkView === '1apic-devoir3') {
-      return (
-        <div className="min-h-screen bg-gray-100 py-8 px-4">
-          <style>{`
-            @media print {
-              .no-print { display: none !important; }
-            }
-          `}</style>
+  return (
+    <div className="min-h-screen bg-gray-100 py-8 px-4">
+      <style>{`
+        @media print {
+          .no-print { display: none !important; }
+        }
+      `}</style>
+      
+      <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°3 - Mathématiques</h1>
+          <p className="text-xl text-gray-600 mb-2">1ère Année APIC</p>
+          <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal - Salé</p>
           
-          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
-              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°3 - Mathématiques</h1>
-              <p className="text-xl text-gray-600 mb-2">1ère Année APIC</p>
-              <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal - Salé</p>
-              
-              <div className="mt-4 flex justify-center gap-4 no-print">
-                <button 
-                  onClick={handlePrint}
-                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                >
-                  <Printer className="w-4 h-4 mr-2" />
-                  Imprimer
-                </button>
-                <button 
-                  onClick={() => setHomeworkView('1apic-list')}
-                  className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
-                >
-                  <ChevronLeft className="w-4 h-4 mr-2" />
-                  Retour
-                </button>
-              </div>
-            </div>
+          <div className="mt-4 flex justify-center gap-4 no-print">
+            <button 
+              onClick={handlePrint}
+              className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              <Printer className="w-4 h-4 mr-2" />
+              Imprimer
+            </button>
+            <button 
+              onClick={() => setHomeworkView('1apic-list')}
+              className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+            >
+              <ChevronLeft className="w-4 h-4 mr-2" />
+              Retour
+            </button>
+          </div>
+        </div>
 
-            <div className="space-y-8">
-              <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 1 </div>
-                <div className="space-y-4">
-                  
-              
-
-                  <div className="mt-6">
-                    <p className="font-semibold mb-3">Tableau à compléter :ABC un triangle dans le plan </p>
-                    <div className="overflow-x-auto">
-                      <table className="w-full border-2 border-gray-800">
-                        <thead>
-                          <tr className="bg-gray-200">
-                            <th className="border-2 border-gray-800 p-2">B̂</th>
-                            <th className="border-2 border-gray-800 p-2">27°</th>
-                            <th className="border-2 border-gray-800 p-2">20°</th>
-                            <th className="border-2 border-gray-800 p-2">...</th>
-                            <th className="border-2 border-gray-800 p-2">45°</th>
-                            <th className="border-2 border-gray-800 p-2">...</th>
-                            <th className="border-2 border-gray-800 p-2">60°</th>
-                            <th className="border-2 border-gray-800 p-2">57°</th>
-                            <th className="border-2 border-gray-800 p-2">60°</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td className="border-2 border-gray-800 p-2 font-semibold">Â</td>
-                            <td className="border-2 border-gray-800 p-2">...</td>
-                            <td className="border-2 border-gray-800 p-2">80°</td>
-                            <td className="border-2 border-gray-800 p-2">67°</td>
-                            <td className="border-2 border-gray-800 p-2">...</td>
-                            <td className="border-2 border-gray-800 p-2">85°</td>
-                            <td className="border-2 border-gray-800 p-2">...</td>
-                            <td className="border-2 border-gray-800 p-2">60°</td>
-                            <td className="border-2 border-gray-800 p-2">...</td>
-                          </tr>
-                          <tr>
-                            <td className="border-2 border-gray-800 p-2 font-semibold">Ĉ</td>
-                            <td className="border-2 border-gray-800 p-2">36°</td>
-                            <td className="border-2 border-gray-800 p-2">...</td>
-                            <td className="border-2 border-gray-800 p-2">52°</td>
-                            <td className="border-2 border-gray-800 p-2">43°</td>
-                            <td className="border-2 border-gray-800 p-2">57°</td>
-                            <td className="border-2 border-gray-800 p-2">60°</td>
-                            <td className="border-2 border-gray-800 p-2">...</td>
-                            <td className="border-2 border-gray-800 p-2">30°</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2  </div>
-                <div className="space-y-4">
-                <p><strong>1)</strong> ABC est un triangle tel que AB = 5 ; AC = 7  ÂBC=30°   Construire ABC .</p>
-                                    <p><strong>2)</strong> Peut-on construire le triangle ABC dans les cas suivants ,jusitifier la réponse.</p>
-
-
-        cas 1: AB=5 ;AC=3;BC=4
-        cas 2: AB=2 ; AC=3; BC=6
-        cas 3: AB=2 ; AC=3; BC=5
-
-                   
-
-              <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 3 </div>
-                <div className="space-y-4">
-                  
-                  <div className="space-y-4">
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <p>Calculer et simplifier si possible :</p>
-                      <div className="ml-4 mt-2 space-y-1">
-                        <p>(-3)² ; (-1)² ; 5⁰ ; (-2)³</p>
-                        <p>A = (-12,5) ÷ (-0,5) ...</p>
-                      </div>
-                    </div>
-
-
-                    
-
-                    <div className="bg-yellow-50 p-4 rounded-lg">
-                      <p className="font-semibold mb-2">Partie 4 : Triangle et cercle</p>
-                      <p>Soit ABC un triangle tel que A = 18 + 1E (à vérifier)</p>
-                      <p className="mt-2">Figure avec triangle inscrit dans un cercle</p>
-                      <div className="ml-4 mt-3 space-y-2">
-                        <p><strong>1)</strong> Dessiner un triangle ABC quelconque </p>
-                        <p><strong>2)</strong>Construire son cercle inscrit</p>
-                        <p><strong>3)</strong>Construire sson cercle circonsrit</p>
-
-
-                      </div>
-                    </div>
-                  </div>
+        <div className="space-y-8">
+          <div className="border-2 border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 1 </div>
+            <div className="space-y-4">
+              <div className="mt-6">
+                <p className="font-semibold mb-3">Tableau à compléter :ABC un triangle dans le plan </p>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-2 border-gray-800">
+                    <thead>
+                      <tr className="bg-gray-200">
+                        <th className="border-2 border-gray-800 p-2">B̂</th>
+                        <th className="border-2 border-gray-800 p-2">27°</th>
+                        <th className="border-2 border-gray-800 p-2">20°</th>
+                        <th className="border-2 border-gray-800 p-2">...</th>
+                        <th className="border-2 border-gray-800 p-2">45°</th>
+                        <th className="border-2 border-gray-800 p-2">...</th>
+                        <th className="border-2 border-gray-800 p-2">60°</th>
+                        <th className="border-2 border-gray-800 p-2">57°</th>
+                        <th className="border-2 border-gray-800 p-2">60°</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-2 font-semibold">Â</td>
+                        <td className="border-2 border-gray-800 p-2">...</td>
+                        <td className="border-2 border-gray-800 p-2">80°</td>
+                        <td className="border-2 border-gray-800 p-2">67°</td>
+                        <td className="border-2 border-gray-800 p-2">...</td>
+                        <td className="border-2 border-gray-800 p-2">85°</td>
+                        <td className="border-2 border-gray-800 p-2">...</td>
+                        <td className="border-2 border-gray-800 p-2">60°</td>
+                        <td className="border-2 border-gray-800 p-2">...</td>
+                      </tr>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-2 font-semibold">Ĉ</td>
+                        <td className="border-2 border-gray-800 p-2">36°</td>
+                        <td className="border-2 border-gray-800 p-2">...</td>
+                        <td className="border-2 border-gray-800 p-2">52°</td>
+                        <td className="border-2 border-gray-800 p-2">43°</td>
+                        <td className="border-2 border-gray-800 p-2">57°</td>
+                        <td className="border-2 border-gray-800 p-2">60°</td>
+                        <td className="border-2 border-gray-800 p-2">...</td>
+                        <td className="border-2 border-gray-800 p-2">30°</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300 no-print">
-              <h3 className="text-lg font-bold text-gray-800 mb-2">📝 Consignes importantes :</h3>
-              <ul className="list-disc list-inside space-y-1 text-gray-700">
-                <li>Tous les calculs doivent être détaillés et justifiés</li>
-                <li>Les constructions géométriques doivent être précises</li>
-                <li>Compléter les tableaux avec soin</li>
-                <li>Rendre le devoir sur copie double</li>
-                <li>Mettre votre nom, prénom et classe sur la première page</li>
-              </ul>
+          <div className="border-2 border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2  </div>
+            <div className="space-y-4">
+              <p><strong>1)</strong> ABC est un triangle tel que AB = 5 ; AC = 7  ÂBC=30°   Construire ABC .</p>
+              <p><strong>2)</strong> Peut-on construire le triangle ABC dans les cas suivants ,jusitifier la réponse.</p>
+              
+              <div className="ml-4 space-y-2">
+                <p>cas 1: AB=5 ;AC=3;BC=4</p>
+                <p>cas 2: AB=2 ; AC=3; BC=6</p>
+                <p>cas 3: AB=2 ; AC=3; BC=5</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-2 border-gray-800 rounded-lg p-6">
+            <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 3 </div>
+            <div className="space-y-4">
+              <div className="space-y-4">
+                <div className="bg-blue-50 p-4 rounded-lg">
+                  <p>Calculer et simplifier si possible :</p>
+                  <div className="ml-4 mt-2 space-y-1">
+                    <p>(-3)² ; (-1)² ; 5⁰ ; (-2)³</p>
+                    <p>A = (-12,5) ÷ (-0,5) ...</p>
+                  </div>
+                </div>
+
+                <div className="bg-yellow-50 p-4 rounded-lg">
+                  <p className="font-semibold mb-2">Partie 4 : Triangle et cercle</p>
+                  <p>Soit ABC un triangle tel que A = 18 + 1E (à vérifier)</p>
+                  <p className="mt-2">Figure avec triangle inscrit dans un cercle</p>
+                  <div className="ml-4 mt-3 space-y-2">
+                    <p><strong>1)</strong> Dessiner un triangle ABC quelconque </p>
+                    <p><strong>2)</strong>Construire son cercle inscrit</p>
+                    <p><strong>3)</strong>Construire sson cercle circonsrit</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      );
-    }
+
+        <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300 no-print">
+          <h3 className="text-lg font-bold text-gray-800 mb-2">📝 Consignes importantes :</h3>
+          <ul className="list-disc list-inside space-y-1 text-gray-700">
+            <li>Tous les calculs doivent être détaillés et justifiés</li>
+            <li>Les constructions géométriques doivent être précises</li>
+            <li>Compléter les tableaux avec soin</li>
+            <li>Rendre le devoir sur copie double</li>
+            <li>Mettre votre nom, prénom et classe sur la première page</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
 
     if (homeworkView === '2apic-devoir3') {
       return (
