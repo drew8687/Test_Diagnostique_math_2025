@@ -189,7 +189,7 @@ const MathApp = () => {
                 <div className="bg-yellow-50 p-4 rounded-lg">
                   <p className="font-semibold mb-2"><strong>3)</strong> Faire l'écriture scientifique des deux nombres suivants </p>
                   <div className="ml-4 mt-3 space-y-2">
-                    <p>(2025)*10² ; (-20,25)*10² </p>
+                    <p>(2025)×10² ; (-20,25)×10² </p>
                   </div>
                 </div>
               </div>
@@ -455,17 +455,10 @@ const MathApp = () => {
                 </div>
               </div>
 
-              <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 5 : Construction complexe (L'orthocentre)</div>
-                <div className="space-y-3">
-                  <p>En observant la figure ci-jointe (où les angles en K et L sont droits) :</p>
-                  <p className="mt-3">Expliquez comment tracer, en utilisant uniquement une règle non graduée, la droite (D) passant par H et perpendiculaire à la droite (BC).</p>
-                  <p className="mt-3 italic text-gray-600"><strong>Indice :</strong> Pensez aux hauteurs et à l'orthocentre du triangle HBC.</p>
-                </div>
-              </div>
+             
 
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 6 : Triangle Isocèle</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 5 : Triangle Isocèle</div>
                 <div className="space-y-3">
                   <p><strong>1.</strong> Construire un triangle ABC isocèle en A tel que l'angle au sommet B̂AC = 80°.</p>
                   <p><strong>2.</strong> Construire le cercle circonscrit à ce triangle ABC.</p>
