@@ -38,7 +38,7 @@ const MathApp = () => {
       return (
         <div className="min-h-screen bg-gray-100 py-8 px-4">
           <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-lg">
-            <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center">📚 Devoir N°2 - 2ème Année APIC</h1>
+            <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center">📚 Devoir N°3 - 2ème Année APIC</h1>
             <button 
               onClick={() => setHomeworkView('2apic-devoir2')}
               className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all"
