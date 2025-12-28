@@ -180,15 +180,15 @@ const MathApp = () => {
                   <div className="ml-4 mt-2 space-y-1">
                     <p>(-3)² ; (-1)² ; 5⁰ ; (-2)³</p>
                     <p>A = (-12,5) ÷ (-0,5) ...</p>
+                 
+
                   </div>
                 </div>
 
                 <div className="bg-yellow-50 p-4 rounded-lg">
-                  <p className="font-semibold mb-2">Partie 4 : Triangle et cercle</p>
+                  <p className="font-semibold mb-2">Ecriture scientifique </p>
                   <div className="ml-4 mt-3 space-y-2">
-                    <p><strong>1)</strong> Dessiner un triangle ABC quelconque </p>
-                    <p><strong>2)</strong>Construire son cercle inscrit</p>
-                    <p><strong>3)</strong>Construire son cercle circonsrit</p>
+                    <p>(2025)*10² ; (-20,25)*10² </p>
                   </div>
                 </div>
               </div>
