@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { ChevronLeft, Home, BookOpen, Printer, ClipboardCheck } from 'lucide-react';
+import { ChevronLeft, Home, BookOpen, Printer, ClipboardCheck, Trophy } from 'lucide-react';
 
 const MathApp = () => {
   const [currentView, setCurrentView] = useState('menu');
   const [homeworkView, setHomeworkView] = useState('selection');
   const [diagnosticView, setDiagnosticView] = useState('selection');
   const [olympiadView, setOlympiadView] = useState('selection');
+  const [qcmView, setQcmView] = useState('selection');
+  const [qcmAnswers, setQcmAnswers] = useState({});
+  const [showResults, setShowResults] = useState(false);
 
   const handlePrint = () => {
     window.print();
@@ -21,7 +24,7 @@ const MathApp = () => {
             <p className="text-2xl text-gray-600">Lycée Collège Mouad Ibn Jabal - Salé</p>
             <p className="text-xl text-gray-500 mt-2">Année Scolaire 2024-2025</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             <button 
               onClick={() => setCurrentView('homework')}
               className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all border-2 border-green-200 hover:border-green-400"
@@ -47,6 +50,15 @@ const MathApp = () => {
               <BookOpen className="w-16 h-16 mx-auto mb-4 text-yellow-600" />
               <h2 className="text-2xl font-bold text-gray-800 mb-2">Olympiades</h2>
               <p className="text-gray-600">Exercices de préparation</p>
+            </button>
+
+            <button 
+              onClick={() => setCurrentView('qcm')}
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all border-2 border-purple-200 hover:border-purple-400"
+            >
+              <Trophy className="w-16 h-16 mx-auto mb-4 text-purple-600" />
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">QCM</h2>
+              <p className="text-gray-600">Quiz interactifs avec correction</p>
             </button>
           </div>
         </div>
@@ -1156,6 +1168,442 @@ const MathApp = () => {
                 <li>Ne négligez pas les contre-exemples</li>
                 <li>La persévérance est la clé du succès !</li>
               </ul>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
+
+  // Section QCM
+  if (currentView === 'qcm') {
+    if (qcmView === 'selection') {
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-lg">
+            <h1 className="text-4xl font-bold text-gray-800 mb-4 text-center">📝 QCM - Quiz Interactifs</h1>
+            <p className="text-xl mb-8 text-center text-gray-600">Sélectionnez votre niveau :</p>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <button 
+                onClick={() => {
+                  setQcmView('1apic');
+                  setQcmAnswers({});
+                  setShowResults(false);
+                }}
+                className="bg-gradient-to-r from-purple-500 to-indigo-700 text-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all"
+              >
+                <div className="text-3xl font-bold mb-2">1ère Année APIC</div>
+                <div className="text-lg opacity-90">QCM Interactif</div>
+              </button>
+
+              <button 
+                onClick={() => {
+                  setQcmView('2apic');
+                  setQcmAnswers({});
+                  setShowResults(false);
+                }}
+                className="bg-gradient-to-r from-indigo-500 to-purple-700 text-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all"
+              >
+                <div className="text-3xl font-bold mb-2">2ème Année APIC</div>
+                <div className="text-lg opacity-90">QCM Interactif</div>
+              </button>
+            </div>
+
+            <div className="text-center">
+              <button 
+                onClick={() => setCurrentView('menu')}
+                className="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                <Home className="w-5 h-5 mr-2" />
+                Retour au Menu
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // QCM 1ère Année
+    if (qcmView === '1apic') {
+      const questions = [
+        {
+          id: 1,
+          question: "Quel est le résultat de 125 + 75 - 50 ?",
+          options: ["100", "150", "200", "250"],
+          correct: 1
+        },
+        {
+          id: 2,
+          question: "Combien font 3/4 + 1/4 ?",
+          options: ["4/8", "4/4", "1/2", "2/4"],
+          correct: 1
+        },
+        {
+          id: 3,
+          question: "La somme des angles d'un triangle vaut :",
+          options: ["90°", "180°", "360°", "270°"],
+          correct: 1
+        },
+        {
+          id: 4,
+          question: "Quel est le résultat de (-5)² ?",
+          options: ["-25", "25", "-10", "10"],
+          correct: 1
+        },
+        {
+          id: 5,
+          question: "Le périmètre d'un carré de côté 5 cm est :",
+          options: ["10 cm", "15 cm", "20 cm", "25 cm"],
+          correct: 2
+        },
+        {
+          id: 6,
+          question: "Quelle fraction est équivalente à 2/3 ?",
+          options: ["3/4", "4/6", "5/6", "1/3"],
+          correct: 1
+        },
+        {
+          id: 7,
+          question: "Le point d'intersection des médianes d'un triangle s'appelle :",
+          options: ["Centre du cercle circonscrit", "Centre de gravité", "Orthocentre", "Centre du cercle inscrit"],
+          correct: 1
+        },
+        {
+          id: 8,
+          question: "Combien font 2³ ?",
+          options: ["6", "8", "9", "12"],
+          correct: 1
+        },
+        {
+          id: 9,
+          question: "L'aire d'un rectangle de longueur 8 cm et largeur 5 cm est :",
+          options: ["13 cm²", "26 cm²", "40 cm²", "80 cm²"],
+          correct: 2
+        },
+        {
+          id: 10,
+          question: "Un triangle qui a un angle de 90° s'appelle :",
+          options: ["Triangle équilatéral", "Triangle isocèle", "Triangle rectangle", "Triangle quelconque"],
+          correct: 2
+        }
+      ];
+
+      const handleAnswer = (questionId, optionIndex) => {
+        setQcmAnswers({...qcmAnswers, [questionId]: optionIndex});
+      };
+
+      const calculateScore = () => {
+        let score = 0;
+        questions.forEach(q => {
+          if (qcmAnswers[q.id] === q.correct) score++;
+        });
+        return score;
+      };
+
+      const score = showResults ? calculateScore() : 0;
+      const percentage = showResults ? (score / questions.length * 100).toFixed(0) : 0;
+
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">📝 QCM - 1ère Année APIC</h1>
+              <p className="text-xl text-gray-600 mb-2">Quiz Interactif</p>
+              <p className="text-sm text-gray-500">10 questions - Cochez la bonne réponse</p>
+              
+              <div className="mt-4 flex justify-center gap-4">
+                <button 
+                  onClick={() => {
+                    setQcmView('selection');
+                    setQcmAnswers({});
+                    setShowResults(false);
+                  }}
+                  className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-2" />
+                  Retour
+                </button>
+              </div>
+            </div>
+
+            {showResults && (
+              <div className={`mb-6 p-6 rounded-lg border-2 ${
+                percentage >= 80 ? 'bg-green-50 border-green-400' :
+                percentage >= 60 ? 'bg-yellow-50 border-yellow-400' :
+                'bg-red-50 border-red-400'
+              }`}>
+                <h2 className="text-2xl font-bold text-center mb-2">
+                  Résultat : {score}/{questions.length}
+                </h2>
+                <p className="text-xl text-center font-semibold">
+                  Score : {percentage}%
+                </p>
+                <p className="text-center mt-2">
+                  {percentage >= 80 ? '🎉 Excellent travail !' :
+                   percentage >= 60 ? '👍 Bon travail, continue !' :
+                   '💪 Continue à t\'entraîner !'}
+                </p>
+              </div>
+            )}
+
+            <div className="space-y-6">
+              {questions.map((q) => (
+                <div key={q.id} className="border-2 border-gray-300 rounded-lg p-6 bg-gray-50">
+                  <h3 className="font-bold text-lg mb-4">Question {q.id} : {q.question}</h3>
+                  <div className="space-y-3">
+                    {q.options.map((option, index) => {
+                      const isSelected = qcmAnswers[q.id] === index;
+                      const isCorrect = index === q.correct;
+                      const showCorrection = showResults;
+                      
+                      return (
+                        <button
+                          key={index}
+                          onClick={() => !showResults && handleAnswer(q.id, index)}
+                          disabled={showResults}
+                          className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
+                            showCorrection
+                              ? isCorrect
+                                ? 'bg-green-100 border-green-500 font-semibold'
+                                : isSelected
+                                ? 'bg-red-100 border-red-500'
+                                : 'bg-white border-gray-300'
+                              : isSelected
+                              ? 'bg-purple-100 border-purple-500'
+                              : 'bg-white border-gray-300 hover:border-purple-300'
+                          }`}
+                        >
+                          <span className="font-semibold mr-2">{String.fromCharCode(65 + index)}.</span>
+                          {option}
+                          {showCorrection && isCorrect && <span className="ml-2">✓</span>}
+                          {showCorrection && isSelected && !isCorrect && <span className="ml-2">✗</span>}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 text-center">
+              {!showResults ? (
+                <button
+                  onClick={() => setShowResults(true)}
+                  className="px-8 py-4 bg-purple-600 text-white text-xl font-bold rounded-lg hover:bg-purple-700 transition-colors shadow-lg"
+                >
+                  Voir mes résultats
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setQcmAnswers({});
+                    setShowResults(false);
+                  }}
+                  className="px-8 py-4 bg-blue-600 text-white text-xl font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
+                >
+                  Recommencer le QCM
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // QCM 2ème Année
+    if (qcmView === '2apic') {
+      const questions = [
+        {
+          id: 1,
+          question: "Quel est le résultat de (-3)³ ?",
+          options: ["-27", "27", "-9", "9"],
+          correct: 0
+        },
+        {
+          id: 2,
+          question: "L'écriture scientifique de 45000 est :",
+          options: ["4,5 × 10³", "45 × 10³", "4,5 × 10⁴", "0,45 × 10⁵"],
+          correct: 2
+        },
+        {
+          id: 3,
+          question: "Si deux droites sont parallèles à une même troisième droite, alors elles sont :",
+          options: ["Perpendiculaires", "Sécantes", "Parallèles entre elles", "Confondues"],
+          correct: 2
+        },
+        {
+          id: 4,
+          question: "Dans un triangle rectangle, le carré de l'hypoténuse est égal à :",
+          options: ["La somme des deux autres côtés", "La somme des carrés des deux autres côtés", "Le produit des deux autres côtés", "La différence des carrés des deux autres côtés"],
+          correct: 1
+        },
+        {
+          id: 5,
+          question: "Le théorème de Thalès permet de calculer :",
+          options: ["Des angles", "Des longueurs dans des triangles semblables", "Des aires", "Des volumes"],
+          correct: 1
+        },
+        {
+          id: 6,
+          question: "Combien font 2⁻³ ?",
+          options: ["-8", "1/8", "-6", "6"],
+          correct: 1
+        },
+        {
+          id: 7,
+          question: "Le centre du cercle inscrit d'un triangle est l'intersection :",
+          options: ["Des médiatrices", "Des médianes", "Des hauteurs", "Des bissectrices"],
+          correct: 3
+        },
+        {
+          id: 8,
+          question: "Si AB = 6 cm, AC = 8 cm et BC = 10 cm, le triangle ABC est :",
+          options: ["Équilatéral", "Isocèle", "Rectangle", "Quelconque"],
+          correct: 2
+        },
+        {
+          id: 9,
+          question: "Quel est le résultat de (3²)³ ?",
+          options: ["3⁵", "3⁶", "9³", "27"],
+          correct: 1
+        },
+        {
+          id: 10,
+          question: "La médiane issue d'un sommet d'un triangle relie ce sommet :",
+          options: ["Au pied de la hauteur", "Au milieu du côté opposé", "Au centre du cercle circonscrit", "À l'orthocentre"],
+          correct: 1
+        },
+        {
+          id: 11,
+          question: "Combien font 5⁰ ?",
+          options: ["0", "1", "5", "Impossible"],
+          correct: 1
+        },
+        {
+          id: 12,
+          question: "Dans un triangle, si deux angles mesurent 60° chacun, le troisième mesure :",
+          options: ["30°", "60°", "90°", "120°"],
+          correct: 1
+        }
+      ];
+
+      const handleAnswer = (questionId, optionIndex) => {
+        setQcmAnswers({...qcmAnswers, [questionId]: optionIndex});
+      };
+
+      const calculateScore = () => {
+        let score = 0;
+        questions.forEach(q => {
+          if (qcmAnswers[q.id] === q.correct) score++;
+        });
+        return score;
+      };
+
+      const score = showResults ? calculateScore() : 0;
+      const percentage = showResults ? (score / questions.length * 100).toFixed(0) : 0;
+
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">📝 QCM - 2ème Année APIC</h1>
+              <p className="text-xl text-gray-600 mb-2">Quiz Interactif Avancé</p>
+              <p className="text-sm text-gray-500">12 questions - Cochez la bonne réponse</p>
+              
+              <div className="mt-4 flex justify-center gap-4">
+                <button 
+                  onClick={() => {
+                    setQcmView('selection');
+                    setQcmAnswers({});
+                    setShowResults(false);
+                  }}
+                  className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-2" />
+                  Retour
+                </button>
+              </div>
+            </div>
+
+            {showResults && (
+              <div className={`mb-6 p-6 rounded-lg border-2 ${
+                percentage >= 80 ? 'bg-green-50 border-green-400' :
+                percentage >= 60 ? 'bg-yellow-50 border-yellow-400' :
+                'bg-red-50 border-red-400'
+              }`}>
+                <h2 className="text-2xl font-bold text-center mb-2">
+                  Résultat : {score}/{questions.length}
+                </h2>
+                <p className="text-xl text-center font-semibold">
+                  Score : {percentage}%
+                </p>
+                <p className="text-center mt-2">
+                  {percentage >= 80 ? '🎉 Excellent travail !' :
+                   percentage >= 60 ? '👍 Bon travail, continue !' :
+                   '💪 Continue à t\'entraîner !'}
+                </p>
+              </div>
+            )}
+
+            <div className="space-y-6">
+              {questions.map((q) => (
+                <div key={q.id} className="border-2 border-gray-300 rounded-lg p-6 bg-gray-50">
+                  <h3 className="font-bold text-lg mb-4">Question {q.id} : {q.question}</h3>
+                  <div className="space-y-3">
+                    {q.options.map((option, index) => {
+                      const isSelected = qcmAnswers[q.id] === index;
+                      const isCorrect = index === q.correct;
+                      const showCorrection = showResults;
+                      
+                      return (
+                        <button
+                          key={index}
+                          onClick={() => !showResults && handleAnswer(q.id, index)}
+                          disabled={showResults}
+                          className={`w-full text-left p-4 rounded-lg border-2 transition-all ${
+                            showCorrection
+                              ? isCorrect
+                                ? 'bg-green-100 border-green-500 font-semibold'
+                                : isSelected
+                                ? 'bg-red-100 border-red-500'
+                                : 'bg-white border-gray-300'
+                              : isSelected
+                              ? 'bg-indigo-100 border-indigo-500'
+                              : 'bg-white border-gray-300 hover:border-indigo-300'
+                          }`}
+                        >
+                          <span className="font-semibold mr-2">{String.fromCharCode(65 + index)}.</span>
+                          {option}
+                          {showCorrection && isCorrect && <span className="ml-2">✓</span>}
+                          {showCorrection && isSelected && !isCorrect && <span className="ml-2">✗</span>}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 text-center">
+              {!showResults ? (
+                <button
+                  onClick={() => setShowResults(true)}
+                  className="px-8 py-4 bg-indigo-600 text-white text-xl font-bold rounded-lg hover:bg-indigo-700 transition-colors shadow-lg"
+                >
+                  Voir mes résultats
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setQcmAnswers({});
+                    setShowResults(false);
+                  }}
+                  className="px-8 py-4 bg-blue-600 text-white text-xl font-bold rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
+                >
+                  Recommencer le QCM
+                </button>
+              )}
             </div>
           </div>
         </div>
