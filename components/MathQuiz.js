@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronLeft, Home, BookOpen, Printer, ClipboardCheck } from 'lucide-react';
 
@@ -6,6 +5,7 @@ const MathApp = () => {
   const [currentView, setCurrentView] = useState('menu');
   const [homeworkView, setHomeworkView] = useState('selection');
   const [diagnosticView, setDiagnosticView] = useState('selection');
+  const [olympiadView, setOlympiadView] = useState('selection');
 
   const handlePrint = () => {
     window.print();
@@ -38,6 +38,15 @@ const MathApp = () => {
               <ClipboardCheck className="w-16 h-16 mx-auto mb-4 text-orange-600" />
               <h2 className="text-2xl font-bold text-gray-800 mb-2">Tests Diagnostiques</h2>
               <p className="text-gray-600">Tests de fin de semestre</p>
+            </button>
+
+            <button 
+              onClick={() => setCurrentView('olympiads')}
+              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all border-2 border-yellow-200 hover:border-yellow-400"
+            >
+              <BookOpen className="w-16 h-16 mx-auto mb-4 text-yellow-600" />
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">Olympiades</h2>
+              <p className="text-gray-600">Exercices de préparation</p>
             </button>
           </div>
         </div>
@@ -648,7 +657,7 @@ const MathApp = () => {
               <p className="text-xl text-gray-600 mb-2">2ème Année APIC</p>
               <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal - Salé</p>
               <p className="text-lg font-semibold">Année Scolaire 2024-2025</p>
-              <p className="text-lg font-semibold">Durée : 1 heure - Barème : /20 points</p>
+              <p className="text-lg font-semibold">Durée : 1h30 - Barème : /20 points</p>
               
               <div className="mt-4 flex justify-center gap-4 no-print">
                 <button 
@@ -781,6 +790,371 @@ const MathApp = () => {
                 <li>Utiliser une copie double</li>
                 <li>Écrire lisiblement</li>
                 <li>Bien gérer le temps (1 heure)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
+
+  // Section OLYMPIADES
+  if (currentView === 'olympiads') {
+    if (olympiadView === 'selection') {
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-lg">
+            <h1 className="text-4xl font-bold text-gray-800 mb-4 text-center">🏆 Olympiades Mathématiques</h1>
+            <p className="text-xl mb-8 text-center text-gray-600">Sélectionnez votre niveau :</p>
+            
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <button 
+                onClick={() => setOlympiadView('1apic')}
+                className="bg-gradient-to-r from-yellow-500 to-amber-700 text-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all"
+              >
+                <div className="text-3xl font-bold mb-2">1ère Année APIC</div>
+                <div className="text-lg opacity-90">Exercices Olympiades</div>
+              </button>
+
+              <button 
+                onClick={() => setOlympiadView('2apic')}
+                className="bg-gradient-to-r from-amber-500 to-orange-700 text-white p-8 rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all"
+              >
+                <div className="text-3xl font-bold mb-2">2ème Année APIC</div>
+                <div className="text-lg opacity-90">Exercices Olympiades</div>
+              </button>
+            </div>
+
+            <div className="text-center">
+              <button 
+                onClick={() => setCurrentView('menu')}
+                className="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                <Home className="w-5 h-5 mr-2" />
+                Retour au Menu
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Olympiades 1ère Année
+    if (olympiadView === '1apic') {
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <style>{`
+            @media print {
+              .no-print { display: none !important; }
+            }
+          `}</style>
+          
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">🏆 Olympiades Mathématiques</h1>
+              <p className="text-xl text-gray-600 mb-2">1ère Année APIC</p>
+              <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal - Salé</p>
+              <p className="text-lg font-semibold text-yellow-600">Exercices de Préparation</p>
+              
+              <div className="mt-4 flex justify-center gap-4 no-print">
+                <button 
+                  onClick={handlePrint}
+                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  <Printer className="w-4 h-4 mr-2" />
+                  Imprimer
+                </button>
+                <button 
+                  onClick={() => setOlympiadView('selection')}
+                  className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-2" />
+                  Retour
+                </button>
+              </div>
+            </div>
+
+            <div className="mb-6 p-4 bg-yellow-50 border-2 border-yellow-400 rounded-lg">
+              <p className="font-bold text-center text-yellow-800">⭐ Ces exercices développent la logique et la créativité mathématique ⭐</p>
+            </div>
+
+            <div className="space-y-8">
+              <div className="border-2 border-yellow-600 rounded-lg p-6 bg-yellow-50">
+                <div className="bg-yellow-200 p-3 font-bold text-lg mb-4 rounded">🧩 Exercice 1 : Le carré magique</div>
+                <div className="space-y-3">
+                  <p>Compléter le carré magique suivant où chaque ligne, colonne et diagonale a la même somme :</p>
+                  <div className="overflow-x-auto my-4 flex justify-center">
+                    <table className="border-2 border-gray-800">
+                      <tbody>
+                        <tr>
+                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center font-bold">8</td>
+                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center"></td>
+                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center">6</td>
+                        </tr>
+                        <tr>
+                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center"></td>
+                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center font-bold">5</td>
+                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center"></td>
+                        </tr>
+                        <tr>
+                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center">4</td>
+                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center"></td>
+                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center font-bold">2</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p className="font-semibold">La somme magique est : _______________</p>
+                </div>
+              </div>
+
+              <div className="border-2 border-yellow-600 rounded-lg p-6 bg-yellow-50">
+                <div className="bg-yellow-200 p-3 font-bold text-lg mb-4 rounded">🎯 Exercice 2 : Le problème des âges</div>
+                <div className="space-y-3">
+                  <p>Ahmed dit à son père : "Dans 3 ans, ton âge sera le triple du mien."</p>
+                  <p>Le père répond : "Il y a 3 ans, mon âge était le quintuple du tien."</p>
+                  <p className="mt-4"><strong>Question :</strong> Quels sont leurs âges actuels ?</p>
+                  <div className="mt-4 bg-white p-4 rounded">
+                    <p>Âge actuel d'Ahmed : _______________</p>
+                    <p>Âge actuel du père : _______________</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-2 border-yellow-600 rounded-lg p-6 bg-yellow-50">
+                <div className="bg-yellow-200 p-3 font-bold text-lg mb-4 rounded">🔢 Exercice 3 : Suite logique</div>
+                <div className="space-y-4">
+                  <p>Trouver le nombre manquant dans chaque suite :</p>
+                  <div className="ml-4 space-y-3">
+                    <p><strong>a)</strong> 2, 5, 10, 17, ___, 37</p>
+                    <p><strong>b)</strong> 1, 1, 2, 3, 5, 8, ___, 21</p>
+                    <p><strong>c)</strong> 3, 6, 12, 24, ___, 96</p>
+                    <p><strong>d)</strong> 100, 81, 64, ___, 36, 25</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-2 border-yellow-600 rounded-lg p-6 bg-yellow-50">
+                <div className="bg-yellow-200 p-3 font-bold text-lg mb-4 rounded">🍎 Exercice 4 : Le marchand de fruits</div>
+                <div className="space-y-3">
+                  <p>Un marchand a des pommes et des oranges. Il sait que :</p>
+                  <div className="ml-4 space-y-2">
+                    <p>• 3 pommes + 2 oranges coûtent 24 DH</p>
+                    <p>• 2 pommes + 3 oranges coûtent 26 DH</p>
+                  </div>
+                  <p className="mt-4"><strong>Questions :</strong></p>
+                  <div className="ml-4 space-y-2">
+                    <p>1) Quel est le prix d'une pomme ? _______________</p>
+                    <p>2) Quel est le prix d'une orange ? _______________</p>
+                    <p>3) Combien coûtent 5 pommes et 5 oranges ? _______________</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-2 border-yellow-600 rounded-lg p-6 bg-yellow-50">
+                <div className="bg-yellow-200 p-3 font-bold text-lg mb-4 rounded">📐 Exercice 5 : Géométrie créative</div>
+                <div className="space-y-3">
+                  <p>On découpe un carré en 4 triangles identiques en traçant ses diagonales.</p>
+                  <p className="mt-3"><strong>Questions :</strong></p>
+                  <div className="ml-4 space-y-2">
+                    <p>1) Si le carré a un côté de 8 cm, quelle est l'aire de chaque triangle ?</p>
+                    <p className="ml-4">Réponse : _______________</p>
+                    <p>2) Combien de façons différentes peut-on recombiner ces 4 triangles pour former un rectangle ?</p>
+                    <p className="ml-4">Réponse : _______________</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-2 border-yellow-600 rounded-lg p-6 bg-yellow-50">
+                <div className="bg-yellow-200 p-3 font-bold text-lg mb-4 rounded">🎲 Exercice 6 : Problème de dés</div>
+                <div className="space-y-3">
+                  <p>On lance deux dés équilibrés.</p>
+                  <p className="mt-3"><strong>Questions :</strong></p>
+                  <div className="ml-4 space-y-2">
+                    <p>1) Combien y a-t-il de résultats possibles ? _______________</p>
+                    <p>2) Combien de façons d'obtenir une somme de 7 ? _______________</p>
+                    <p>3) Quelle somme a le plus de chances d'apparaître ? _______________</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 p-4 bg-yellow-100 rounded-lg border-2 border-yellow-400 no-print">
+              <h3 className="text-lg font-bold text-gray-800 mb-2">💡 Conseils pour les Olympiades :</h3>
+              <ul className="list-disc list-inside space-y-1 text-gray-700">
+                <li>Prenez le temps de bien comprendre chaque énoncé</li>
+                <li>Cherchez des patterns et des régularités</li>
+                <li>N'hésitez pas à faire des dessins ou schémas</li>
+                <li>Vérifiez toujours vos réponses</li>
+                <li>La créativité et la logique sont vos meilleurs outils !</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Olympiades 2ème Année
+    if (olympiadView === '2apic') {
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <style>{`
+            @media print {
+              .no-print { display: none !important; }
+            }
+          `}</style>
+          
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">🏆 Olympiades Mathématiques</h1>
+              <p className="text-xl text-gray-600 mb-2">2ème Année APIC</p>
+              <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal - Salé</p>
+              <p className="text-lg font-semibold text-orange-600">Exercices de Préparation - Niveau Avancé</p>
+              
+              <div className="mt-4 flex justify-center gap-4 no-print">
+                <button 
+                  onClick={handlePrint}
+                  className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  <Printer className="w-4 h-4 mr-2" />
+                  Imprimer
+                </button>
+                <button 
+                  onClick={() => setOlympiadView('selection')}
+                  className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
+                >
+                  <ChevronLeft className="w-4 h-4 mr-2" />
+                  Retour
+                </button>
+              </div>
+            </div>
+
+            <div className="mb-6 p-4 bg-orange-50 border-2 border-orange-400 rounded-lg">
+              <p className="font-bold text-center text-orange-800">⭐ Exercices avancés pour développer l'esprit mathématique ⭐</p>
+            </div>
+
+            <div className="space-y-8">
+              <div className="border-2 border-orange-600 rounded-lg p-6 bg-orange-50">
+                <div className="bg-orange-200 p-3 font-bold text-lg mb-4 rounded">🧩 Exercice 1 : Le triangle de nombres</div>
+                <div className="space-y-3">
+                  <p>Compléter le triangle suivant où chaque nombre est la somme des deux nombres au-dessus :</p>
+                  <div className="my-4 text-center space-y-2 font-mono">
+                    <p>1</p>
+                    <p>2 ___ 3</p>
+                    <p>4 ___ ___ 7</p>
+                    <p>___ 13 ___ ___ 18</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-2 border-orange-600 rounded-lg p-6 bg-orange-50">
+                <div className="bg-orange-200 p-3 font-bold text-lg mb-4 rounded">🎯 Exercice 2 : Optimisation</div>
+                <div className="space-y-3">
+                  <p>Un fermier veut construire un enclos rectangulaire pour ses moutons. Il dispose de 40 mètres de clôture.</p>
+                  <p className="mt-3"><strong>Questions :</strong></p>
+                  <div className="ml-4 space-y-3">
+                    <p>1) Quelles dimensions doit avoir l'enclos pour que l'aire soit maximale ?</p>
+                    <p className="ml-4">Longueur : _______________ Largeur : _______________</p>
+                    <p>2) Quelle sera cette aire maximale ? _______________</p>
+                    <p>3) Justifier votre réponse par un raisonnement mathématique.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-2 border-orange-600 rounded-lg p-6 bg-orange-50">
+                <div className="bg-orange-200 p-3 font-bold text-lg mb-4 rounded">🔢 Exercice 3 : Divisibilité et nombres premiers</div>
+                <div className="space-y-4">
+                  <p><strong>1)</strong> Trouver le plus petit nombre qui est divisible par 2, 3, 4, 5 et 6.</p>
+                  <p className="ml-4">Réponse : _______________</p>
+                  
+                  <p><strong>2)</strong> Un nombre de 3 chiffres est tel que :</p>
+                  <div className="ml-4 space-y-1">
+                    <p>• Le chiffre des centaines est le double du chiffre des unités</p>
+                    <p>• La somme des trois chiffres est 12</p>
+                    <p>• Le nombre est divisible par 3</p>
+                  </div>
+                  <p className="ml-4 mt-2">Quels sont les nombres possibles ? _______________</p>
+                  
+                  <p className="mt-3"><strong>3)</strong> Démontrer que la somme de trois nombres consécutifs est toujours divisible par 3.</p>
+                </div>
+              </div>
+
+              <div className="border-2 border-orange-600 rounded-lg p-6 bg-orange-50">
+                <div className="bg-orange-200 p-3 font-bold text-lg mb-4 rounded">📐 Exercice 4 : Géométrie et Thalès</div>
+                <div className="space-y-3">
+                  <p>Dans un triangle ABC, on trace une parallèle à (BC) qui coupe [AB] en M et [AC] en N.</p>
+                  <p>On sait que : AM = 4 cm, AB = 10 cm, MN = 6 cm</p>
+                  
+                  <div className="bg-white p-4 rounded mt-3">
+                    <p><strong>1)</strong> Calculer BC. Réponse : _______________</p>
+                    <p className="mt-2"><strong>2)</strong> Calculer le rapport entre l'aire du triangle AMN et l'aire du triangle ABC.</p>
+                    <p className="ml-4">Réponse : _______________</p>
+                    <p className="mt-2"><strong>3)</strong> Si l'aire de ABC est 75 cm², quelle est l'aire de AMN ?</p>
+                    <p className="ml-4">Réponse : _______________</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-2 border-orange-600 rounded-lg p-6 bg-orange-50">
+                <div className="bg-orange-200 p-3 font-bold text-lg mb-4 rounded">⚖️ Exercice 5 : Problème d'équilibre</div>
+                <div className="space-y-3">
+                  <p>Sur une balance à deux plateaux :</p>
+                  <div className="ml-4 space-y-2">
+                    <p>• 3 cubes rouges + 2 cubes bleus = 5 cubes verts</p>
+                    <p>• 1 cube rouge + 4 cubes bleus = 3 cubes verts</p>
+                  </div>
+                  <p className="mt-4"><strong>Questions :</strong></p>
+                  <div className="ml-4 space-y-2">
+                    <p>1) Exprimer le poids d'un cube rouge en fonction du poids d'un cube vert.</p>
+                    <p className="ml-4">Réponse : _______________</p>
+                    <p>2) Exprimer le poids d'un cube bleu en fonction du poids d'un cube vert.</p>
+                    <p className="ml-4">Réponse : _______________</p>
+                    <p>3) Combien faut-il de cubes bleus pour équilibrer 10 cubes rouges ?</p>
+                    <p className="ml-4">Réponse : _______________</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-2 border-orange-600 rounded-lg p-6 bg-orange-50">
+                <div className="bg-orange-200 p-3 font-bold text-lg mb-4 rounded">🎲 Exercice 6 : Probabilités et combinaisons</div>
+                <div className="space-y-3">
+                  <p>Dans une classe de 30 élèves, on forme des équipes de 3 pour un concours.</p>
+                  
+                  <p className="mt-3"><strong>1)</strong> De combien de façons différentes peut-on choisir le capitaine de la première équipe ?</p>
+                  <p className="ml-4">Réponse : _______________</p>
+                  
+                  <p className="mt-3"><strong>2)</strong> Si 12 élèves sont des filles et 18 sont des garçons, quelle est la probabilité qu'une équipe choisie au hasard soit composée uniquement de filles ?</p>
+                  <p className="ml-4">Réponse : _______________</p>
+                  
+                  <p className="mt-3"><strong>3)</strong> Combien d'équipes différentes peut-on former avec ces 30 élèves ?</p>
+                </div>
+              </div>
+
+              <div className="border-2 border-orange-600 rounded-lg p-6 bg-orange-50">
+                <div className="bg-orange-200 p-3 font-bold text-lg mb-4 rounded">💎 Exercice 7 : Le défi des puissances</div>
+                <div className="space-y-3">
+                  <p><strong>1)</strong> Simplifier : (2²⁰²⁴ × 2²⁰²⁵) / 2²⁰²³</p>
+                  <p className="ml-4">Réponse : _______________</p>
+                  
+                  <p className="mt-3"><strong>2)</strong> Trouver le dernier chiffre de 7²⁰²⁴</p>
+                  <p className="ml-4">Indice : Chercher un pattern dans les puissances de 7</p>
+                  <p className="ml-4">Réponse : _______________</p>
+                  
+                  <p className="mt-3"><strong>3)</strong> Sans calculatrice, déterminer quel nombre est le plus grand : 2³⁰⁰ ou 3²⁰⁰ ?</p>
+                  <p className="ml-4">Réponse : _______________</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 p-4 bg-orange-100 rounded-lg border-2 border-orange-400 no-print">
+              <h3 className="text-lg font-bold text-gray-800 mb-2">💡 Stratégies pour les Olympiades avancées :</h3>
+              <ul className="list-disc list-inside space-y-1 text-gray-700">
+                <li>Commencez par les cas simples avant de généraliser</li>
+                <li>Utilisez des tableaux et des graphiques pour visualiser</li>
+                <li>Cherchez des symétries et des invariants</li>
+                <li>Travaillez à rebours depuis la solution souhaitée</li>
+                <li>Ne négligez pas les contre-exemples</li>
+                <li>La persévérance est la clé du succès !</li>
               </ul>
             </div>
           </div>
