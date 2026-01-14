@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ChevronLeft, Home, BookOpen, Printer, ClipboardCheck } from 'lucide-react';
 
@@ -594,6 +595,21 @@ const MathApp = () => {
               </div>
 
               <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 5 : Droites remarquables du triangle (4 points)</div>
+                <div className="space-y-3">
+                  <p><strong>1)</strong> Soit ABC un triangle. Construire :</p>
+                  <div className="ml-4 space-y-2">
+                    <p>a) La médiatrice du segment [AB]</p>
+                    <p>b) La hauteur issue de C</p>
+                    <p>c) La médiane issue de A</p>
+                    <p>d) La bissectrice de l'angle B̂</p>
+                  </div>
+                  <p className="mt-4"><strong>2)</strong> Le point d'intersection des médiatrices s'appelle : _______________</p>
+                  <p><strong>3)</strong> Le point d'intersection des médianes s'appelle : _______________</p>
+                </div>
+              </div>
+
+              <div className="border-2 border-gray-800 rounded-lg p-6">
                 <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Bonus : Simplifier et calculer (2 points)</div>
                 <div className="space-y-2 text-center">
                   <p className="text-xl mt-3">2 / (2 + 2/(2 + 2/4))</p>
@@ -669,7 +685,7 @@ const MathApp = () => {
               </div>
 
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2 : Géométrie (8 points)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2 : Géométrie (6 points)</div>
                 <div className="space-y-4">
                   <p><strong>1)</strong> Peut-on construire le triangle ABC tel que AB = 3 ; AC = 4 et BC = 5 ?</p>
                   <p className="ml-4">Réponse : _______________</p>
@@ -712,23 +728,47 @@ const MathApp = () => {
               </div>
 
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 3 : Calcul avec fractions (4 points)</div>
-                <div className="space-y-3 ml-4">
-                  <p>1. A = 130 + 110 − 240 = ______________</p>
-                  <p>2. B = 18 × 20 ÷ 60 = ______________</p>
-                  <p>3. C = (50 + 10) × 5 − 150 = ______________</p>
-                  <p>4. D = 20 + 12 × 3 − 24 ÷ 4 = ______________</p>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 3 : Droites remarquables (4 points)</div>
+                <div className="space-y-3">
+                  <p><strong>1)</strong> Soit DEF un triangle. Construire :</p>
+                  <div className="ml-4 space-y-2">
+                    <p>a) La médiatrice du segment [DE]</p>
+                    <p>b) La hauteur issue de F</p>
+                    <p>c) La médiane issue de D</p>
+                    <p>d) La bissectrice de l'angle Ê</p>
+                  </div>
+                  <p className="mt-4"><strong>2)</strong> Compléter :</p>
+                  <div className="ml-4 space-y-2">
+                    <p>• Le centre du cercle circonscrit est l'intersection des _______________</p>
+                    <p>• Le centre de gravité est l'intersection des _______________</p>
+                    <p>• Le centre du cercle inscrit est l'intersection des _______________</p>
+                  </div>
                 </div>
               </div>
 
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 4 : Simplification de fractions (4 points)</div>
-                <div className="space-y-3 ml-4">
-                  <p>1. I = 2/5 + 1/5 = ______________</p>
-                  <p>2. J = 4/7 − 1/7 = ______________</p>
-                  <p>3. K = 2/5 × 6/7 = ______________</p>
-                  <p>4. L = 3/8 + 1/2 = ______________</p>
-                  <p>5. M = 4/9 − 3/5 = ______________</p>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 4 : Théorème de Thalès (6 points)</div>
+                <div className="space-y-3">
+                  <p><strong>Situation :</strong> Sur la figure ci-dessous, les droites (BC) et (MN) sont parallèles.</p>
+                  <p>On donne : AB = 4 cm ; AM = 3 cm ; AC = 6 cm ; BC = 5 cm</p>
+                  
+                  <div className="bg-blue-50 p-4 rounded-lg mt-3">
+                    <p><strong>1)</strong> Calculer AN en utilisant le théorème de Thalès.</p>
+                    <p className="ml-4 mt-2">Réponse : _______________</p>
+                    
+                    <p className="mt-3"><strong>2)</strong> Calculer MN.</p>
+                    <p className="ml-4 mt-2">Réponse : _______________</p>
+                    
+                    <p className="mt-3"><strong>3)</strong> Les triangles ABC et AMN sont-ils semblables ? Justifier.</p>
+                    <p className="ml-4 mt-2">Réponse : _______________</p>
+                  </div>
+                  
+                  <div className="bg-yellow-50 p-4 rounded-lg mt-4">
+                    <p><strong>Application :</strong></p>
+                    <p>Un arbre projette une ombre de 12 m. Au même moment, un bâton de 1,5 m projette une ombre de 2 m.</p>
+                    <p className="mt-2"><strong>4)</strong> Quelle est la hauteur de l'arbre ?</p>
+                    <p className="ml-4 mt-2">Réponse : _______________</p>
+                  </div>
                 </div>
               </div>
             </div>
