@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, Home, BookOpen, Printer, ClipboardCheck, Trophy } from 'lucide-react';
+import { ChevronLeft, Home, BookOpen, Printer, ClipboardCheck, Trophy, Bot, Send, X } from 'lucide-react';
 
 const MathApp = () => {
   const [currentView, setCurrentView] = useState('menu');
@@ -9,9 +9,69 @@ const MathApp = () => {
   const [qcmView, setQcmView] = useState('selection');
   const [qcmAnswers, setQcmAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
+  
+  // États pour l'agent IA
+  const [showAIChat, setShowAIChat] = useState(false);
+  const [messages, setMessages] = useState([
+    { role: 'assistant', content: '👋 Bonjour ! Je suis MathBot, votre assistant mathématiques. Je peux vous aider avec l\'algèbre, la géométrie, les fractions, les équations et bien plus ! Posez-moi vos questions.' }
+  ]);
+  const [inputMessage, setInputMessage] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
 
   const handlePrint = () => {
     window.print();
+  };
+
+  // Fonction pour gérer l'envoi de message à l'IA
+  const handleSendMessage = async () => {
+    if (!inputMessage.trim()) return;
+    
+    const userMessage = inputMessage;
+    setInputMessage('');
+    
+    // Ajouter le message de l'utilisateur
+    setMessages(prev => [...prev, { role: 'user', content: userMessage }]);
+    setIsTyping(true);
+    
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          system: `Tu es MathBot, un assistant pédagogique spécialisé en mathématiques pour les élèves de collège au Maroc (1ère et 2ème année). 
+          
+          Tu dois :
+          - Répondre en français de manière claire et pédagogique
+          - Expliquer les concepts étape par étape
+          - Utiliser des exemples concrets
+          - Encourager les élèves
+          - Couvrir l'algèbre, la géométrie, les fractions, les équations, les puissances, le théorème de Pythagore, Thalès, etc.
+          - Donner des astuces et méthodes de résolution
+          - Être patient et bienveillant
+          
+          Reste toujours dans le contexte des mathématiques de collège. Si on te pose une question hors sujet, rappelle poliment que tu es là pour les mathématiques.`,
+          messages: [
+            { role: 'user', content: userMessage }
+          ]
+        })
+      });
+      
+      const data = await response.json();
+      const aiResponse = data.content.map(item => item.text || '').join('\n');
+      
+      setMessages(prev => [...prev, { role: 'assistant', content: aiResponse }]);
+    } catch (error) {
+      setMessages(prev => [...prev, { 
+        role: 'assistant', 
+        content: '❌ Désolé, j\'ai rencontré un problème. Peux-tu reformuler ta question ?' 
+      }]);
+    }
+    
+    setIsTyping(false);
   };
 
   // Menu Principal
@@ -62,6 +122,96 @@ const MathApp = () => {
             </button>
           </div>
         </div>
+
+        {/* Bouton flottant pour l'agent IA */}
+        <button
+          onClick={() => setShowAIChat(!showAIChat)}
+          className="fixed bottom-6 right-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all z-50"
+        >
+          <Bot className="w-8 h-8" />
+        </button>
+
+        {/* Fenêtre de chat IA */}
+        {showAIChat && (
+          <div className="fixed bottom-24 right-6 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col z-50 border-2 border-purple-300">
+            {/* En-tête du chat */}
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-t-2xl flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <Bot className="w-6 h-6" />
+                <div>
+                  <h3 className="font-bold">MathBot</h3>
+                  <p className="text-xs opacity-90">Votre assistant mathématiques</p>
+                </div>
+              </div>
+              <button onClick={() => setShowAIChat(false)} className="hover:bg-white/20 p-1 rounded">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Zone de messages */}
+            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+              {messages.map((msg, index) => (
+                <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`max-w-[80%] p-3 rounded-2xl ${
+                    msg.role === 'user' 
+                      ? 'bg-blue-600 text-white rounded-br-none' 
+                      : 'bg-gray-100 text-gray-800 rounded-bl-none'
+                  }`}>
+                    <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                  </div>
+                </div>
+              ))}
+              {isTyping && (
+                <div className="flex justify-start">
+                  <div className="bg-gray-100 text-gray-800 p-3 rounded-2xl rounded-bl-none">
+                    <p className="text-sm">MathBot est en train d'écrire...</p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Zone de saisie */}
+            <div className="p-4 border-t border-gray-200">
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={inputMessage}
+                  onChange={(e) => setInputMessage(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                  placeholder="Posez votre question..."
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                />
+                <button
+                  onClick={handleSendMessage}
+                  disabled={!inputMessage.trim()}
+                  className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <Send className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-2">
+                <button
+                  onClick={() => setInputMessage("Comment résoudre une équation du premier degré ?")}
+                  className="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full hover:bg-purple-200"
+                >
+                  Équations
+                </button>
+                <button
+                  onClick={() => setInputMessage("Explique-moi le théorème de Pythagore")}
+                  className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-200"
+                >
+                  Pythagore
+                </button>
+                <button
+                  onClick={() => setInputMessage("Comment calculer une fraction ?")}
+                  className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full hover:bg-green-200"
+                >
+                  Fractions
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
