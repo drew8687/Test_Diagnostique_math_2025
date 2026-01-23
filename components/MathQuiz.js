@@ -17,7 +17,7 @@ const MathApp = () => {
   const [isTyping, setIsTyping] = useState(false);
 
   // Initialiser et incrémenter le compteur de visiteurs
-  React.useEffect(() => {
+  useEffect(() => {
     const initVisitorCount = async () => {
       try {
         const result = await window.storage.get('visitor-count', true);
