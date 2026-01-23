@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+. import React, { useState } from 'react';
 import { ChevronLeft, Home, BookOpen, Printer, ClipboardCheck, Trophy, Bot, Send, X } from 'lucide-react';
 
 const MathApp = () => {
