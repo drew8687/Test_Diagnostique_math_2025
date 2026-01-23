@@ -34,31 +34,63 @@ const MathApp = () => {
     setIsTyping(true);
     
     try {
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          system: `Tu es MathBot, un assistant pédagogique spécialisé en mathématiques pour les élèves de collège au Maroc (1ère et 2ème année). 
-          
-          Tu dois :
-          - Répondre en français de manière claire et pédagogique
-          - Expliquer les concepts étape par étape
-          - Utiliser des exemples concrets
-          - Encourager les élèves
-          - Couvrir l'algèbre, la géométrie, les fractions, les équations, les puissances, le théorème de Pythagore, Thalès, etc.
-          - Donner des astuces et méthodes de résolution
-          - Être patient et bienveillant
-          
-          Reste toujours dans le contexte des mathématiques de collège. Si on te pose une question hors sujet, rappelle poliment que tu es là pour les mathématiques.`,
-          messages: [
-            { role: 'user', content: userMessage }
+  // Remplacer VOTRE_CLE_API_ICI par votre vraie clé Google AI
+  const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyARp6crFKVeznW02lb9yY51w-mFn0PFWF0`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      contents: [
+        {
+          parts: [
+            {
+              text: `Tu es MathBot, un assistant pédagogique bilingue (Français/Darija) pour les mathématiques de collège au Maroc (1ère et 2ème année).
+
+RÈGLES IMPORTANTES:
+- Réponds TOUJOURS en 2 langues: d'abord en français 🇫🇷, puis en darija marocaine 🇲🇦
+- Format OBLIGATOIRE:
+  
+  🇫🇷 **En Français:**
+  [Explication en français]
+  
+  🇲🇦 **بالدارجة:**
+  [نفس الشرح بالدارجة]
+
+- Sujets: algèbre, géométrie, fractions, équations, puissances, Pythagore, Thalès
+- Utilise des exemples concrets et des emojis
+- Écris la darija en alphabet latin
+- Vocabulaire darija: l7isab (calcul), lmou3adala (équation), mouthallath (triangle), zawiya (angle), lmasa7a (aire), kifach (comment), ch7al (combien)
+- Encourage les élèves dans les deux langues
+
+Question de l'élève: ${userMessage}`
+            }
           ]
-        })
-      });
+        }
+      ],
+      generationConfig: {
+        temperature: 0.7,
+        maxOutputTokens: 1000,
+      }
+    })
+  });
+  
+  const data = await response.json();
+  
+  let aiResponse = '🇫🇷 Désolé, problème technique.\n🇲🇦 Smeh liya, mouchkil technique.';
+  
+  if (data.candidates && data.candidates[0]?.content?.parts?.[0]?.text) {
+    aiResponse = data.candidates[0].content.parts[0].text;
+  }
+  
+  setMessages(prev => [...prev, { role: 'assistant', content: aiResponse }]);
+} catch (error) {
+  console.error('Erreur:', error);
+  setMessages(prev => [...prev, { 
+    role: 'assistant', 
+    content: `🇫🇷 Problème de connexion. Réessaye dans un moment.\n\n🇲🇦 Mouchkil f connexion. 3awed ba3d chwiya.` 
+  }]);
+}
       
       const data = await response.json();
       const aiResponse = data.content.map(item => item.text || '').join('\n');
