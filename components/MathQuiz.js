@@ -21,41 +21,46 @@ const MathApp = () => {
     setVisitorCount(newCount);
   }, []);
 
-  // 2. Fonction d'appel à l'IA (Exemple OpenRouter/OpenAI)
+  // 2. Fonction d'appel à l'IA corrigée pour GOOGLE GEMINI
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
 
     const userMessage = { role: 'user', content: inputMessage };
-    const updatedMessages = [...messages, userMessage];
-    
-    setMessages(updatedMessages);
+    setMessages(prev => [...prev, userMessage]);
     setInputMessage('');
     setIsTyping(true);
 
+    // VOTRE CLÉ GEMINI (Extraite de votre code précédent)
+    const API_KEY = "AIzaSyARp6crFKVeznW02lb9yY51w-mFn0PFWF0";
+    // URL spécifique à Gemini
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+
     try {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      const response = await fetch(url, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer AIzaSyARp6crFKVeznW02lb9yY51w-mFn0PFWF0` // Remplacez ici
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          model: "gpt-3.5-turbo",
-          messages: updatedMessages
+          contents: [{
+            parts: [{ text: inputMessage }]
+          }]
         })
       });
 
       const data = await response.json();
-      
-      if (data.choices) {
-        const botReply = { role: 'assistant', content: data.choices[0].message.content };
+
+      if (data.candidates && data.candidates[0].content) {
+        const botText = data.candidates[0].content.parts[0].text;
+        const botReply = { role: 'assistant', content: botText };
         setMessages(prev => [...prev, botReply]);
       } else {
-        throw new Error("Réponse invalide de l'API");
+        console.error("Réponse API invalide:", data);
+        throw new Error("Format de réponse incorrect");
       }
     } catch (error) {
       console.error('Erreur Chatbot:', error);
-      setMessages(prev => [...prev, { role: 'assistant', content: "Désolé, une erreur est survenue." }]);
+      setMessages(prev => [...prev, { role: 'assistant', content: "Désolé, une erreur est survenue lors de la connexion à l'IA." }]);
     } finally {
       setIsTyping(false);
     }
@@ -79,23 +84,35 @@ const MathApp = () => {
           <div style={{ height: '300px', overflowY: 'auto', marginBottom: '10px', background: '#f9f9f9', padding: '10px' }}>
             {messages.map((m, i) => (
               <div key={i} style={{ textAlign: m.role === 'user' ? 'right' : 'left', margin: '5px 0' }}>
-                <span style={{ background: m.role === 'user' ? '#007bff' : '#eee', color: m.role === 'user' ? 'white' : 'black', padding: '5px 10px', borderRadius: '10px', display: 'inline-block' }}>
+                <span style={{ 
+                  background: m.role === 'user' ? '#007bff' : '#eee', 
+                  color: m.role === 'user' ? 'white' : 'black', 
+                  padding: '5px 10px', 
+                  borderRadius: '10px', 
+                  display: 'inline-block',
+                  maxWidth: '80%',
+                  whiteSpace: 'pre-wrap' 
+                }}>
                   {m.content}
                 </span>
               </div>
             ))}
-            {isTyping && <p style={{ fontSize: '12px' }}>MathBot réfléchit...</p>}
+            {isTyping && <p style={{ fontSize: '12px', color: '#666' }}>MathBot réfléchit...</p>}
           </div>
           
           <div style={{ display: 'flex' }}>
             <input 
-              style={{ flex: 1, padding: '8px' }}
+              style={{ flex: 1, padding: '8px', borderRadius: '4px 0 0 4px', border: '1px solid #ccc' }}
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
               placeholder="Ex: Résous x + 2 = 5"
             />
-            <button onClick={handleSendMessage} disabled={isTyping} style={{ padding: '8px' }}>
+            <button 
+              onClick={handleSendMessage} 
+              disabled={isTyping} 
+              style={{ padding: '8px', borderRadius: '0 4px 4px 0', cursor: isTyping ? 'not-allowed' : 'pointer' }}
+            >
               Envoyer
             </button>
           </div>
