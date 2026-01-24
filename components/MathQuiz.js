@@ -33,7 +33,7 @@ const MathApp = () => {
     // VOTRE CLÉ GEMINI (Extraite de votre code précédent)
     const API_KEY = "AIzaSyARp6crFKVeznW02lb9yY51w-mFn0PFWF0";
     // URL spécifique à Gemini
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+    const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${API_KEY`;
 
     try {
       const response = await fetch(url, {
