@@ -422,6 +422,11 @@ const MathApp = () => {
           <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-lg">
             <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center">📚 Devoirs - 2ème Année APIC</h1>
             <div className="space-y-4 mb-8">
+              {/* ← NOUVEAU BOUTON DEVOIR N°1 2ÈME ANNÉE */}
+              <button onClick={() => setHomeworkView('2apic-devoir1')} className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
+                <div className="text-2xl font-bold mb-2">📝 Devoir N°1 — Semestre 2</div>
+                <div className="text-sm opacity-90">Inégalités · Encadrements · Équations · Développer · Factoriser</div>
+              </button>
               <button onClick={() => setHomeworkView('2apic-devoir2')} className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
                 <div className="text-2xl font-bold mb-2">📐 Devoir N°2</div>
                 <div className="text-sm opacity-90">Géométrie du Triangle et Milieux</div>
@@ -436,6 +441,153 @@ const MathApp = () => {
                 <ChevronLeft className="w-5 h-5 mr-2" /> Retour
               </button>
             </div>
+          </div>
+        </div>
+      );
+    }
+
+    // ── DEVOIR N°1 — SEMESTRE 2 — 2ÈME ANNÉE (NOUVEAU) ──────────────────────
+    if (homeworkView === '2apic-devoir1') {
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <style>{`@media print { .no-print { display: none !important; } }`}</style>
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+            {/* En-tête */}
+            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°1 — Mathématiques</h1>
+              <p className="text-xl text-gray-600 mb-1">2ème Année APIC — Semestre 2</p>
+              <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal — Salé</p>
+              <p className="text-lg font-semibold text-gray-700">Année Scolaire 2024-2025</p>
+              <div className="mt-4 flex justify-center gap-4 no-print">
+                <button onClick={handlePrint} className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                  <Printer className="w-4 h-4 mr-2" /> Imprimer
+                </button>
+                <button onClick={() => setHomeworkView('2apic-list')} className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                  <ChevronLeft className="w-4 h-4 mr-2" /> Retour
+                </button>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+
+              {/* ── EXERCICE 1 : Inégalités et encadrements ── */}
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 1</div>
+
+                {/* Q1 : Compléter */}
+                <p className="font-semibold mb-3">① Compléter par &gt; ou &lt; :</p>
+                <div className="ml-5 space-y-2 text-gray-800 bg-blue-50 p-4 rounded-lg">
+                  <p>−10 ... −20 ... −34,91 ... −34,90</p>
+                </div>
+
+                {/* Q2 : Comparer */}
+                <p className="font-semibold mt-6 mb-3">② Comparer les nombres suivants :</p>
+                <div className="ml-5 text-gray-800 bg-green-50 p-4 rounded-lg">
+                  <p className="mb-2">
+                    <span className="font-mono text-lg">41/42</span> et <span className="font-mono text-lg">42/43</span>
+                    &nbsp;&nbsp; ; &nbsp;&nbsp;
+                    <span className="font-mono text-lg">−41/−42</span> et <span className="font-mono text-lg">−42/−43</span>
+                  </p>
+                </div>
+
+                {/* Q3 : Vrai ou faux */}
+                <p className="font-semibold mt-6 mb-3">③ Répondre par vrai ou faux :</p>
+                <div className="ml-5 space-y-2 text-gray-800 bg-yellow-50 p-4 rounded-lg">
+                  <p>• Si x ≤ 2 alors 7x ≤ 15</p>
+                  <p>• Si x ≤ 13 alors 3x − 8 ≤ 20</p>
+                  <p>• Si x ≤ 9 alors 8 + x ≤ 15</p>
+                </div>
+
+                {/* Q4 : Nombre rationnel */}
+                <p className="font-semibold mt-6 mb-3">④ Soit u un nombre rationnel :</p>
+                <div className="ml-5 space-y-4 text-gray-800">
+
+                  <div className="bg-purple-50 p-4 rounded-lg">
+                    <p className="font-semibold mb-2">① Sachant que :</p>
+                    <p className="text-center text-lg font-mono mb-2">11 ≤ 3u + 8 ≤ 26</p>
+                    <p>Montrer que <strong>1 ≤ u ≤ 6</strong></p>
+                  </div>
+
+                  <div className="bg-orange-50 p-4 rounded-lg">
+                    <p className="font-semibold mb-2">② Donner un encadrement de :</p>
+                    <p className="text-center text-lg font-mono">6u + 16</p>
+                  </div>
+
+                  <div className="bg-red-50 p-4 rounded-lg">
+                    <p className="font-semibold mb-2">③ Comparer a et b dans les cas suivants :</p>
+                    <div className="space-y-1 ml-4">
+                      <p>• a − b = 7</p>
+                      <p>• a − b = −7</p>
+                      <p>• a − b &gt; 1/3</p>
+                      <p>• a − b ≤ −1/3</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-teal-50 p-4 rounded-lg">
+                    <p className="font-semibold mb-2">④ Comparer a² + b² et 2ab.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* ── EXERCICE 2 : Équations ── */}
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 2</div>
+
+                <p className="font-semibold mb-3">① Résoudre les équations suivantes :</p>
+                <div className="ml-5 space-y-2 text-gray-800 bg-blue-50 p-4 rounded-lg font-mono">
+                  <p>4x + 6 = 2</p>
+                  <p>−2x − 9 = 13</p>
+                  <p>−28x / 7 = 14</p>
+                  <p>(x − 1)/2 = (x + 1)/3</p>
+                </div>
+
+                <p className="font-semibold mt-6 mb-3">② Résoudre le problème :</p>
+                <div className="ml-5 text-gray-800 bg-yellow-50 p-4 rounded-lg">
+                  <p className="mb-2">Jamal et Omar partagent la somme de <strong>5 000 DH</strong>.</p>
+                  <p className="mb-2">Jamal et Omar ont dépensé respectivement <strong>3/5</strong> et <strong>4/7</strong> de leur part.</p>
+                  <p className="mb-2">Sachant qu'ils ont épargné la <strong>même somme d'argent</strong>,</p>
+                  <p className="font-semibold">déterminer la somme de départ de chacun d'entre eux.</p>
+                  <p className="mt-3 text-sm text-gray-600 italic">Poser x la part de l'un d'eux et former une équation.</p>
+                </div>
+              </div>
+
+              {/* ── EXERCICE 3 : Développer et Factoriser ── */}
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 3</div>
+
+                <p className="font-semibold mb-3">① Développer :</p>
+                <div className="ml-5 space-y-2 text-gray-800 bg-green-50 p-4 rounded-lg">
+                  <p>(3n − 1)(n + 2)</p>
+                  <p>(n − 1) × 2n</p>
+                  <p>(n + 3)²</p>
+                  <p>(2x − 1)²</p>
+                  <p>(x + 5)(5 − x)</p>
+                </div>
+
+                <p className="font-semibold mt-6 mb-3">② Factoriser :</p>
+                <div className="ml-5 space-y-2 text-gray-800 bg-purple-50 p-4 rounded-lg">
+                  <p>(n + 1)² − 2(n + 1)</p>
+                  <p>n² − 2n + 1</p>
+                  <p>9x² − 49</p>
+                  <p>x² − x</p>
+                </div>
+              </div>
+
+            </div>{/* fin space-y-8 */}
+
+            {/* Consignes */}
+            <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300 no-print">
+              <h3 className="text-lg font-bold text-gray-800 mb-2">📝 Consignes importantes :</h3>
+              <ul className="list-disc list-inside space-y-1 text-gray-700">
+                <li>Tous les calculs doivent être détaillés et justifiés</li>
+                <li>Rédiger clairement les étapes de résolution des équations</li>
+                <li>Pour le problème, poser l'inconnue et écrire l'équation avant de résoudre</li>
+                <li>Rendre le devoir sur copie double</li>
+                <li>Mettre votre nom, prénom et classe sur la première page</li>
+              </ul>
+            </div>
+
           </div>
         </div>
       );
