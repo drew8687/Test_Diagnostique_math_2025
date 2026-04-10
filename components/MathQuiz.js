@@ -632,13 +632,9 @@ const MathApp = () => {
                 <div className="text-2xl font-bold mb-2">📝 Devoir N°1 — Semestre 2</div>
                 <div className="text-sm opacity-90">Inégalités · Encadrements · Équations · Développer · Factoriser</div>
               </button>
-              <button onClick={() => setHomeworkView('2apic-devoir2')} className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
-                <div className="text-2xl font-bold mb-2">📐 Devoir N°2</div>
-                <div className="text-sm opacity-90">Géométrie du Triangle et Milieux</div>
-              </button>
-              <button onClick={() => setHomeworkView('2apic-devoir3')} className="w-full bg-gradient-to-r from-pink-600 to-rose-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
-                <div className="text-2xl font-bold mb-2">🧮 Devoir N°3</div>
-                <div className="text-sm opacity-90">Puissances et Calculs</div>
+              <button onClick={() => setHomeworkView('2apic-devoir2')} className="w-full bg-gradient-to-r from-teal-600 to-cyan-700 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
+                <div className="text-2xl font-bold mb-2">📐 Devoir N°2 — Semestre 2</div>
+                <div className="text-sm opacity-90">Inégalités · Vecteurs · Triangle et Cercle</div>
               </button>
             </div>
             <div className="text-center">
@@ -769,152 +765,169 @@ const MathApp = () => {
       );
     }
 
-    // ── DEVOIR N°2 — 2ÈME ANNÉE ───────────────────────────────────────────────
+    // ── DEVOIR N°2 — SEMESTRE 2 — 2ÈME ANNÉE (NOUVEAU) ──────────────────────
     if (homeworkView === '2apic-devoir2') {
       return (
         <div className="min-h-screen bg-gray-100 py-8 px-4">
           <style>{`@media print { .no-print { display: none !important; } }`}</style>
           <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+            {/* En-tête */}
             <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
-              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°2 - Mathématiques</h1>
-              <p className="text-xl text-gray-600 mb-2">2ème Année APIC</p>
-              <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal - Salé</p>
-              <p className="text-lg font-semibold">Année 2024-2025</p>
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°2 — Mathématiques</h1>
+              <p className="text-xl text-gray-600 mb-1">2ème Année APIC — Semestre 2</p>
+              <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal — Salé</p>
+              <p className="text-lg font-semibold text-gray-700">Année Scolaire 2024-2025</p>
               <div className="mt-4 flex justify-center gap-4 no-print">
-                <button onClick={handlePrint} className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"><Printer className="w-4 h-4 mr-2" />Imprimer</button>
-                <button onClick={() => setHomeworkView('2apic-list')} className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"><ChevronLeft className="w-4 h-4 mr-2" />Retour</button>
+                <button onClick={handlePrint} className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                  <Printer className="w-4 h-4 mr-2" /> Imprimer
+                </button>
+                <button onClick={() => setHomeworkView('2apic-list')} className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                  <ChevronLeft className="w-4 h-4 mr-2" /> Retour
+                </button>
               </div>
             </div>
+
             <div className="space-y-8">
-              <div className="bg-blue-50 p-4 rounded-lg border-2 border-blue-300">
-                <h2 className="text-2xl font-bold text-blue-800">📐 Géométrie du Triangle et Milieux</h2>
-              </div>
+
+              {/* ── EXERCICE QUATRIÈME : Inégalités et encadrements ── */}
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 1 : Cercle circonscrit et Angles</div>
-                <div className="space-y-3">
-                  <p><strong>1.</strong> Tracer un triangle MNP tel que M̂NP = 30°, M̂PN = 80° et NP = 5 cm.</p>
-                  <p><strong>2.</strong> Calculer la mesure de l'angle N̂MP.</p>
-                  <p><strong>3.</strong> Construire le point O, centre du cercle circonscrit au triangle MNP.</p>
-                  <p><strong>4.</strong> Calculer la mesure de l'angle au centre P̂ON.</p>
-                  <p><strong>5.</strong> Construire le point A milieu de [MP] et le point B milieu de [MN].</p>
-                  <p><strong>6.</strong> Calculer la distance AB.</p>
-                  <p><strong>7.</strong> Construire le point G, centre de gravité du triangle MNP.</p>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 1</div>
+
+                <p className="font-semibold mb-3">① Comparer 5/3 et 3/2.</p>
+
+                <p className="font-semibold mt-6 mb-3">
+                  ② Soit a et b deux nombres entiers tels que : a ≤ b + 2.
+                  Montrer que : a + b − 2 ≤ 2b.
+                </p>
+
+                <p className="font-semibold mt-6 mb-3">
+                  ③ Soit x et y deux nombres entiers tels que :
+                </p>
+                <div className="ml-5 text-gray-800 bg-blue-50 p-4 rounded-lg font-mono">
+                  <p>2 ≤ x ≤ 5 &nbsp;&nbsp; et &nbsp;&nbsp; −4 ≤ y ≤ 3</p>
                 </div>
+                <p className="mt-4 text-gray-800">Trouver un encadrement des expressions suivantes :</p>
+                <div className="ml-5 mt-2 space-y-1 text-gray-800 bg-green-50 p-4 rounded-lg">
+                  <p>2x &nbsp;&nbsp;;&nbsp;&nbsp; −3y &nbsp;&nbsp;;&nbsp;&nbsp; x + y &nbsp;&nbsp;;&nbsp;&nbsp; x − y &nbsp;&nbsp;;&nbsp;&nbsp; 2x + 3y</p>
+                </div>
+
+                <p className="font-semibold mt-6 mb-3">
+                  ④ Si l'on sait que : 3 ≤ 2m − 3 ≤ 3, déterminer m sachant que 1 ≤ m ≤ 3.
+                </p>
               </div>
+
+              {/* ── EXERCICE PREMIER : Vecteurs ── */}
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2 : Symétrie et Médianes</div>
-                <div className="space-y-3">
-                  <p>Soit OMN un triangle tel que OM = 7,5 cm.</p>
-                  <p className="mt-3"><strong>1.</strong> Soit A le symétrique de N par rapport au point M.</p>
-                  <p className="mt-3"><strong>2.</strong> La médiane du triangle ACN issue de A coupe [CM] au point H.</p>
-                  <div className="ml-6 space-y-2 mt-2">
-                    <p><strong>a)</strong> Construire une figure précise.</p>
-                    <p><strong>b)</strong> Que représente la droite (OM) pour le triangle ACN ? Justifier.</p>
-                    <p><strong>c)</strong> Que représente le point H pour le triangle ACN ? Justifier.</p>
-                    <p><strong>d)</strong> Calculer la longueur CH.</p>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 2</div>
+
+                <p className="text-gray-800 mb-4">
+                  ABCD et BEFC sont deux parallélogrammes de côtés égaux.
+                </p>
+
+                {/* Schéma parallélogrammes */}
+                <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 mb-5 flex justify-center">
+                  <svg viewBox="0 0 300 180" className="w-full max-w-sm">
+                    {/* Parallélogramme ABCD */}
+                    <polygon points="30,140 100,140 130,60 60,60" fill="none" stroke="black" strokeWidth="2"/>
+                    {/* Parallélogramme BEFC (partage le côté AB/BE) */}
+                    <polygon points="100,140 170,140 200,60 130,60" fill="none" stroke="black" strokeWidth="2"/>
+                    {/* Point E supplémentaire relié */}
+                    <line x1="130" y1="60" x2="170" y2="140" stroke="black" strokeWidth="1.5" strokeDasharray="4,3"/>
+                    {/* Labels */}
+                    <text x="22" y="155" fontSize="13" fontWeight="bold">D</text>
+                    <text x="95" y="155" fontSize="13" fontWeight="bold">A</text>
+                    <text x="168" y="155" fontSize="13" fontWeight="bold">F</text>
+                    <text x="52" y="55" fontSize="13" fontWeight="bold">C</text>
+                    <text x="124" y="55" fontSize="13" fontWeight="bold">B</text>
+                    <text x="198" y="55" fontSize="13" fontWeight="bold">E</text>
+                  </svg>
+                </div>
+
+                <p className="font-semibold mb-3">① Compléter :</p>
+                <div className="ml-5 space-y-3 text-gray-800 bg-blue-50 p-4 rounded-lg">
+                  <div className="grid grid-cols-2 gap-4">
+                    <p>AD⃗ = ...... = ......</p>
+                    <p>AB⃗ = ......</p>
+                    <p>AB⃗ + AD⃗ = ......</p>
+                    <p>BE⃗ = ......</p>
+                    <p>AB⃗ + BE⃗ = ......</p>
+                    <p>BE⃗ + BC⃗ = ......</p>
+                  </div>
+                  <p className="mt-2">AE⃗ = DF⃗</p>
+                </div>
+
+                <p className="font-semibold mt-6 mb-2">② Prouver que : AE⃗ = DF⃗</p>
+              </div>
+
+              {/* ── EXERCICE DEUXIÈME : Vecteurs et translations ── */}
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 3</div>
+
+                <p className="text-gray-800 mb-4">
+                  Soit ABO un triangle quelconque. C et D sont deux points tels que C est la translatée de A et B est la translatée de A par rapport au point O.
+                </p>
+
+                <div className="space-y-3 text-gray-800">
+                  <p><span className="font-semibold">①</span> Reproduire la figure sur une feuille de papier calque puis la déplacer pour la compléter.</p>
+                  <p><span className="font-semibold">②</span> Montrer que le quadrilatère ABCD est un parallélogramme de côtés égaux.</p>
+                  <p className="font-semibold mt-2">③ Compléter :</p>
+                  <div className="ml-5 space-y-2 bg-yellow-50 p-4 rounded-lg">
+                    <p>D est l'image de A par la translation qui transforme ...... en ......</p>
+                  </div>
+                  <p><span className="font-semibold">④</span> Soit E l'image de C par la translation qui transforme A en B :</p>
+                  <div className="ml-5 space-y-2">
+                    <p>a) Construire le point E.</p>
+                    <p>b) Prouver que : AC⃗ = BE⃗</p>
                   </div>
                 </div>
               </div>
+
+              {/* ── EXERCICE TROISIÈME : Points non alignés, vecteurs ── */}
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 3 : Propriétés des quadrilatères</div>
-                <div className="space-y-3">
-                  <p>Soit ABCD un quadrilatère quelconque. On note I, J, K et L les milieux respectifs des segments [AB], [BC], [CD] et [DA].</p>
-                  <p className="mt-3"><strong>1.</strong> Construire la figure.</p>
-                  <p><strong>2.</strong> Démontrer que le quadrilatère IJKL est un parallélogramme.</p>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 4</div>
+
+                <p className="text-gray-800 mb-4">
+                  Soient A, B et C trois points non alignés. I est le milieu de [BC].
+                </p>
+
+                <div className="space-y-3 text-gray-800">
+                  <p><span className="font-semibold">①</span> Construire le point D tel que : AD⃗ = AB⃗ + AC⃗</p>
+                  <p><span className="font-semibold">②</span> Montrer que le point I est milieu de [AD].</p>
                 </div>
               </div>
-              <div className="bg-orange-50 p-4 rounded-lg border-2 border-orange-300 mt-8">
-                <h2 className="text-2xl font-bold text-orange-800">🥖 Applications pratiques et Constructions</h2>
-              </div>
+
+              {/* ── EXERCICE SUR 2 POINTS : Triangle et cercle ── */}
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 4 : Le problème de la baguette (Thalès)</div>
-                <div className="space-y-3">
-                  <p className="font-semibold">Situation :</p>
-                  <p>Vous avez une baguette de pain [AB]. Vous devez la partager en 7 morceaux égaux pour 7 personnes.</p>
-                  <p className="font-semibold mt-3">Contrainte :</p>
-                  <p>Vous n'avez pas de règle graduée. Vous disposez uniquement d'une règle non graduée, d'un compas et d'une équerre.</p>
-                  <p className="font-semibold mt-3">Mission :</p>
-                  <p>Expliquer et tracer la construction géométrique permettant de trouver les 6 points de coupe exacts.</p>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 5</div>
+
+                <p className="text-gray-800 mb-4">
+                  Soit ABC un triangle tel que : AB = 3, AC = 4 et BC = 5.
+                </p>
+
+                <div className="space-y-3 text-gray-800">
+                  <p><span className="font-semibold">①</span> Tracer le triangle ABC avec les bonnes mesures.</p>
+                  <p><span className="font-semibold">②</span> Soit I le milieu de [BC]. Construire le cercle (C) de centre I et de rayon IA.</p>
+                  <p><span className="font-semibold">③</span> Déduire la nature du triangle ABC.</p>
+                  <p><span className="font-semibold">④</span> Vérifier en utilisant le théorème de Pythagore (ou sa réciproque).</p>
+                  <p><span className="font-semibold">⑤</span> Calculer le cosinus des angles ABC et ACB.</p>
                 </div>
               </div>
-              <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 5 : Triangle Isocèle</div>
-                <div className="space-y-3">
-                  <p><strong>1.</strong> Construire un triangle ABC isocèle en A tel que l'angle au sommet B̂AC = 80°.</p>
-                  <p><strong>2.</strong> Construire le cercle circonscrit à ce triangle ABC.</p>
-                </div>
-              </div>
-            </div>
+
+            </div>{/* fin space-y-8 */}
+
+            {/* Consignes */}
             <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300 no-print">
               <h3 className="text-lg font-bold text-gray-800 mb-2">📝 Consignes importantes :</h3>
               <ul className="list-disc list-inside space-y-1 text-gray-700">
                 <li>Tous les calculs doivent être détaillés et justifiés</li>
                 <li>Les constructions géométriques doivent être précises et soignées</li>
-                <li>Utilisez les instruments de géométrie appropriés</li>
+                <li>Utiliser les instruments de géométrie appropriés</li>
                 <li>Rendre le devoir sur copie double</li>
                 <li>Mettre votre nom, prénom et classe sur la première page</li>
               </ul>
             </div>
-          </div>
-        </div>
-      );
-    }
 
-    // ── DEVOIR N°3 — 2ÈME ANNÉE ───────────────────────────────────────────────
-    if (homeworkView === '2apic-devoir3') {
-      return (
-        <div className="min-h-screen bg-gray-100 py-8 px-4">
-          <style>{`@media print { .no-print { display: none !important; } }`}</style>
-          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
-              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°3 - Mathématiques</h1>
-              <p className="text-xl text-gray-600 mb-2">2ème Année APIC</p>
-              <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal - Salé</p>
-              <div className="mt-4 flex justify-center gap-4 no-print">
-                <button onClick={handlePrint} className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"><Printer className="w-4 h-4 mr-2" />Imprimer</button>
-                <button onClick={() => setHomeworkView('2apic-list')} className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"><ChevronLeft className="w-4 h-4 mr-2" />Retour</button>
-              </div>
-            </div>
-            <div className="space-y-8">
-              <div className="bg-purple-50 p-4 rounded-lg border-2 border-purple-300">
-                <h2 className="text-2xl font-bold text-purple-800">🧮 Puissances et Calculs</h2>
-              </div>
-              <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 1</div>
-                <div className="space-y-4">
-                  <p className="font-semibold mb-3">Calculer selon la méthode :</p>
-                  <div className="space-y-3 ml-4">
-                    <p>(-4)³ = (-4)² × (-4) = ... × ... = ...</p>
-                    <p>(-27)⁻¹ :: [(-6)/7]⁻² :: [(2/8)]⁴ :: [(-23)/14]⁰</p>
-                    <p>x = [(9/4)]⁻² · [(1/3)]⁴</p>
-                    <p>z = (-0,5)⁸⁷ × 2⁸⁷ :: z = (-4)¹³ + (8¹¹/2³³)</p>
-                  </div>
-                </div>
-              </div>
-              <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2</div>
-                <div className="space-y-4">
-                  <p className="font-semibold mb-3">Écrire sous la forme a<sup>n</sup> :</p>
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <div className="space-y-3">
-                      <p className="font-mono">[(12/7)²]³</p>
-                      <p className="font-mono">E² × 15 × 15⁻² = a<sup>n</sup>/b<sup>m</sup></p>
-                      <p className="font-mono">[15²⁰ × (15 × 2¹¹)²] / [(6⁵)³ × 6⁻²]</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300 no-print">
-              <h3 className="text-lg font-bold text-gray-800 mb-2">📝 Consignes importantes :</h3>
-              <ul className="list-disc list-inside space-y-1 text-gray-700">
-                <li>Tous les calculs doivent être détaillés et justifiés</li>
-                <li>Simplifier les résultats au maximum</li>
-                <li>Écrire les puissances clairement</li>
-                <li>Rendre le devoir sur copie double</li>
-                <li>Mettre votre nom, prénom et classe sur la première page</li>
-              </ul>
-            </div>
           </div>
         </div>
       );
