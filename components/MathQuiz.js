@@ -172,6 +172,10 @@ const MathApp = () => {
                 <div className="text-2xl font-bold mb-2">📐 Devoir N°2 — Semestre 2</div>
                 <div className="text-sm opacity-90">Angles · Droites parallèles · Parallélogrammes · Symétrie</div>
               </button>
+              <button onClick={() => setHomeworkView('1apic-devoir3')} className="w-full bg-gradient-to-r from-rose-600 to-pink-600 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
+                <div className="text-2xl font-bold mb-2">📊 Devoir N°3 — Semestre 2</div>
+                <div className="text-sm opacity-90">Proportionnalité · Repérage · Statistiques · Géométrie dans l'espace</div>
+              </button>
             </div>
             <div className="text-center">
               <button onClick={() => setHomeworkView('selection')} className="inline-flex items-center px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
@@ -267,14 +271,12 @@ const MathApp = () => {
       );
     }
 
-    // ── DEVOIR N°2 — SEMESTRE 2 — 1ÈRE ANNÉE (NOUVEAU) ──────────────────────
+    // ── DEVOIR N°2 — SEMESTRE 2 — 1ÈRE ANNÉE ────────────────────────────────
     if (homeworkView === '1apic-devoir2') {
       return (
         <div className="min-h-screen bg-gray-100 py-8 px-4">
           <style>{`@media print { .no-print { display: none !important; } }`}</style>
           <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-
-            {/* En-tête */}
             <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
               <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°2 — Mathématiques</h1>
               <p className="text-xl text-gray-600 mb-1">1ère Année APIC — Semestre 2</p>
@@ -291,59 +293,33 @@ const MathApp = () => {
             </div>
 
             <div className="space-y-8">
-
-              {/* ── EXERCICE 1 : Angles avec droites sécantes ── */}
               <div className="border-2 border-gray-800 rounded-lg p-6">
                 <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 1</div>
-
                 <p className="text-gray-800 mb-4 italic">Voir la figure ci-contre : deux droites parallèles (BE) et (CF) coupées par deux sécantes passant par A et D.</p>
-
                 <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 mb-5">
-                  {/* Figure corrigée : droites (BE) et (CF) parallèles, sécante (HAD) et sécante (EAD→) */}
                   <svg viewBox="0 0 340 270" className="w-full max-w-sm mx-auto">
-                    {/* Droite (BE) horizontale supérieure */}
                     <line x1="20" y1="100" x2="310" y2="100" stroke="black" strokeWidth="2"/>
-                    {/* Droite (CF) horizontale inférieure */}
                     <line x1="20" y1="190" x2="310" y2="190" stroke="black" strokeWidth="2"/>
-
-                    {/* Sécante 1 : H (en haut) → A (sur BE) → D (sur CF) → G (en bas) */}
                     <line x1="130" y1="20" x2="210" y2="260" stroke="black" strokeWidth="2"/>
-
-                    {/* Sécante 2 : passe par A (sur BE) vers bas-droite et haut-gauche */}
                     <line x1="60" y1="20" x2="310" y2="200" stroke="black" strokeWidth="2"/>
-
-                    {/* Points droite BE */}
                     <circle cx="75" cy="100" r="5" fill="#5b6acd"/>
                     <text x="58" y="96" fontSize="13" fill="#5b6acd" fontWeight="bold">B</text>
-
-                    {/* A = intersection sécante1 et droite BE */}
                     <circle cx="152" cy="100" r="5" fill="black"/>
                     <text x="155" y="89" fontSize="13" fill="#333" fontWeight="bold">A</text>
-
                     <circle cx="245" cy="100" r="5" fill="#5b6acd"/>
                     <text x="250" y="96" fontSize="13" fill="#5b6acd" fontWeight="bold">E</text>
-
-                    {/* H au-dessus de A sur sécante 1 */}
                     <circle cx="138" cy="48" r="5" fill="#5b6acd"/>
                     <text x="143" y="46" fontSize="13" fill="#5b6acd" fontWeight="bold">H</text>
-
-                    {/* Points droite CF */}
                     <circle cx="90" cy="190" r="5" fill="#5b6acd"/>
                     <text x="73" y="187" fontSize="13" fill="#5b6acd" fontWeight="bold">C</text>
-
-                    {/* D = intersection sécante1 et droite CF */}
                     <circle cx="178" cy="190" r="5" fill="black"/>
                     <text x="181" y="183" fontSize="13" fill="#333" fontWeight="bold">D</text>
-
                     <circle cx="265" cy="190" r="5" fill="#5b6acd"/>
                     <text x="270" y="187" fontSize="13" fill="#5b6acd" fontWeight="bold">F</text>
-
-                    {/* G en bas de sécante 1 */}
                     <circle cx="196" cy="238" r="5" fill="#5b6acd"/>
                     <text x="201" y="252" fontSize="13" fill="#5b6acd" fontWeight="bold">G</text>
                   </svg>
                 </div>
-
                 <p className="font-semibold text-base mb-3">① À partir de la figure :</p>
                 <div className="ml-5 space-y-2 text-gray-800">
                   <p>• Citer les angles alternes-internes.</p>
@@ -352,16 +328,13 @@ const MathApp = () => {
                   <p>• Citer deux angles supplémentaires.</p>
                   <p>• Citer deux angles adjacents.</p>
                 </div>
-
                 <p className="font-semibold text-base mt-6 mb-3">
                   ② Si les droites (BE) et (CF) sont parallèles et B̂AD = 158°, déterminer la mesure de l'angle ÂDF.
                 </p>
               </div>
 
-              {/* ── EXERCICE 2 : Parallélogrammes et symétrie ── */}
               <div className="border-2 border-gray-800 rounded-lg p-6">
                 <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 2</div>
-
                 <p className="font-semibold text-base mb-3">① Répondre par « Vrai » ou « Faux » :</p>
                 <div className="ml-5 space-y-2 text-gray-800 bg-blue-50 p-4 rounded-lg">
                   <p>a) Le losange possède quatre axes de symétrie. « ...... »</p>
@@ -369,7 +342,6 @@ const MathApp = () => {
                   <p>c) Les axes de symétrie d'un rectangle sont ses diagonales. « ...... »</p>
                   <p>d) Le rectangle possède seulement deux axes de symétrie. « ...... »</p>
                 </div>
-
                 <p className="font-semibold text-base mt-6 mb-3">② Compléter par « Parallélogramme / Rectangle / Losange / Carré » :</p>
                 <div className="overflow-x-auto">
                   <table className="w-full border-2 border-gray-800 text-sm">
@@ -383,222 +355,360 @@ const MathApp = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td className="border-2 border-gray-800 p-3">Côtés 6 et 4, angles droits</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                      </tr>
-                      <tr>
-                        <td className="border-2 border-gray-800 p-3">Côtés 7 et 3, angle 100°</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                      </tr>
-                      <tr>
-                        <td className="border-2 border-gray-800 p-3">Côtés tous égaux à 5, angles droits</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                      </tr>
-                      <tr>
-                        <td className="border-2 border-gray-800 p-3">Diagonales égales de 6, côtés 3 et 4</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                      </tr>
-                      <tr>
-                        <td className="border-2 border-gray-800 p-3">Côtés tous égaux à 3, diagonales perpendiculaires</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                        <td className="border-2 border-gray-800 p-3 text-center">............</td>
-                      </tr>
+                      {[
+                        "Côtés 6 et 4, angles droits",
+                        "Côtés 7 et 3, angle 100°",
+                        "Côtés tous égaux à 5, angles droits",
+                        "Diagonales égales de 6, côtés 3 et 4",
+                        "Côtés tous égaux à 3, diagonales perpendiculaires"
+                      ].map((desc, i) => (
+                        <tr key={i}>
+                          <td className="border-2 border-gray-800 p-3">{desc}</td>
+                          {[0,1,2,3].map(j => <td key={j} className="border-2 border-gray-800 p-3 text-center">............</td>)}
+                        </tr>
+                      ))}
                     </tbody>
                   </table>
                 </div>
               </div>
 
-              {/* ── EXERCICE 3 : Construction parallélogramme ── */}
               <div className="border-2 border-gray-800 rounded-lg p-6">
                 <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 3</div>
-
-                <p className="font-semibold text-base mb-4">
-                  ① Construire un parallélogramme ABCD tel que : AB = 3 cm, BC = 4 cm et B̂ = 60°.
-                </p>
-
-                <p className="font-semibold text-base mb-3">② En justifiant votre réponse, déterminer dans chacun des cas suivants si le quadrilatère ABCD est un parallélogramme ou non :</p>
-
+                <p className="font-semibold text-base mb-4">① Construire un parallélogramme ABCD tel que : AB = 3 cm, BC = 4 cm et B̂ = 60°.</p>
+                <p className="font-semibold text-base mb-3">② Déterminer dans chacun des cas si le quadrilatère ABCD est un parallélogramme ou non :</p>
                 <div className="grid md:grid-cols-2 gap-6 mt-4">
                   <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-4">
                     <p className="font-semibold text-center mb-3">1er cas</p>
-                    {/* 1er cas : ABCD avec A haut-gauche, B haut-droite, C bas-droite, D bas-gauche
-                        angles A=120°, B=60°, C=120°, D=60° — c'est un parallélogramme */}
                     <svg viewBox="0 0 220 170" className="w-full max-w-xs mx-auto mb-3">
-                      {/* Forme : côté AB horizontal en haut, D et C décalés vers la droite */}
                       <polygon points="30,50 170,50 190,130 50,130" fill="none" stroke="black" strokeWidth="2"/>
                       <text x="18" y="47" fontSize="12" fontWeight="bold">A</text>
                       <text x="174" y="47" fontSize="12" fontWeight="bold">B</text>
                       <text x="194" y="142" fontSize="12" fontWeight="bold">C</text>
                       <text x="36" y="142" fontSize="12" fontWeight="bold">D</text>
-                      {/* Arcs d'angles */}
-                      <path d="M 45,50 A 15,15 0 0,1 30,63" fill="none" stroke="black" strokeWidth="1.2"/>
-                      <path d="M 170,63 A 15,15 0 0,1 155,50" fill="none" stroke="black" strokeWidth="1.2"/>
-                      <path d="M 50,118 A 15,15 0 0,0 64,130" fill="none" stroke="black" strokeWidth="1.2"/>
-                      <path d="M 176,130 A 15,15 0 0,0 190,117" fill="none" stroke="black" strokeWidth="1.2"/>
                       <text x="48" y="72" fontSize="11" fill="#333">120°</text>
                       <text x="140" y="72" fontSize="11" fill="#333">60°</text>
                       <text x="55" y="122" fontSize="11" fill="#333">60°</text>
                       <text x="155" y="122" fontSize="11" fill="#333">120°</text>
                     </svg>
                     <p className="text-sm mt-2">Réponse : ..........</p>
-                    <p className="text-sm mt-1">Justification :</p>
-                    <p className="text-sm text-gray-400">......</p>
                   </div>
-
                   <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-4">
                     <p className="font-semibold text-center mb-3">2ème cas</p>
-                    {/* 2ème cas : ABCD avec A haut-gauche, B haut-droite, C bas-droite, D bas-gauche
-                        angle A=70°, angle D=130° — pas un parallélogramme */}
                     <svg viewBox="0 0 220 170" className="w-full max-w-xs mx-auto mb-3">
-                      {/* Forme trapèze : côté AB en haut plus court, base DC plus large */}
                       <polygon points="40,45 175,45 200,135 15,135" fill="none" stroke="black" strokeWidth="2"/>
                       <text x="24" y="42" fontSize="12" fontWeight="bold">A</text>
                       <text x="178" y="42" fontSize="12" fontWeight="bold">B</text>
                       <text x="204" y="147" fontSize="12" fontWeight="bold">C</text>
                       <text x="5" y="147" fontSize="12" fontWeight="bold">D</text>
-                      {/* Arc angle A */}
-                      <path d="M 55,45 A 15,15 0 0,1 40,58" fill="none" stroke="black" strokeWidth="1.2"/>
-                      {/* Arc angle D */}
-                      <path d="M 15,122 A 15,15 0 0,0 28,135" fill="none" stroke="black" strokeWidth="1.2"/>
                       <text x="45" y="65" fontSize="11" fill="#333">70°</text>
                       <text x="22" y="120" fontSize="11" fill="#333">130°</text>
                     </svg>
                     <p className="text-sm mt-2">Réponse : ..........</p>
-                    <p className="text-sm mt-1">Justification :</p>
-                    <p className="text-sm text-gray-400">......</p>
                   </div>
                 </div>
               </div>
 
-              {/* ── EXERCICE 4 : Droites parallèles, angle ABC ── */}
               <div className="border-2 border-gray-800 rounded-lg p-6">
                 <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 4</div>
-
-                <p className="text-gray-800 mb-4 italic">On considère la figure suivante :</p>
-
                 <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 mb-5">
-                  {/* Figure corrigée : deux droites parallèles EAF (haut) et HBC (bas),
-                      une seule sécante passant par G (haut), A, B, puis vers le bas-gauche
-                      angle GAF = 30° en A, angle HBA = 150° en B */}
                   <svg viewBox="0 0 340 240" className="w-full max-w-sm mx-auto">
-                    {/* Droite (EAF) horizontale supérieure */}
                     <line x1="20" y1="80" x2="310" y2="80" stroke="black" strokeWidth="2"/>
-                    {/* Droite (HBC) horizontale inférieure */}
                     <line x1="20" y1="165" x2="310" y2="165" stroke="black" strokeWidth="2"/>
-
-                    {/* Sécante : de G (haut-droite) passant par A puis B puis sortant en bas-gauche */}
-                    {/* G est en haut à droite, la sécante descend vers gauche passant par A puis B */}
                     <line x1="270" y1="15" x2="80" y2="220" stroke="black" strokeWidth="2"/>
-
-                    {/* Points droite EAF */}
                     <circle cx="95" cy="80" r="5" fill="#5b6acd"/>
                     <text x="78" y="76" fontSize="13" fill="#5b6acd" fontWeight="bold">E</text>
-
-                    {/* A = intersection sécante et droite EAF */}
                     <circle cx="197" cy="80" r="5" fill="black"/>
                     <text x="202" y="70" fontSize="13" fill="#333" fontWeight="bold">A</text>
-
                     <circle cx="275" cy="80" r="5" fill="#5b6acd"/>
                     <text x="280" y="76" fontSize="13" fill="#5b6acd" fontWeight="bold">F</text>
-
-                    {/* G au-dessus de A sur la sécante */}
                     <circle cx="242" cy="32" r="5" fill="#5b6acd"/>
                     <text x="248" y="30" fontSize="13" fill="#5b6acd" fontWeight="bold">G</text>
-
-                    {/* Points droite HBC */}
                     <circle cx="80" cy="165" r="5" fill="#5b6acd"/>
                     <text x="60" y="161" fontSize="13" fill="#5b6acd" fontWeight="bold">H</text>
-
-                    {/* B = intersection sécante et droite HBC */}
                     <circle cx="152" cy="165" r="5" fill="black"/>
                     <text x="157" y="158" fontSize="13" fill="#333" fontWeight="bold">B</text>
-
                     <circle cx="245" cy="165" r="5" fill="#5b6acd"/>
                     <text x="250" y="161" fontSize="13" fill="#5b6acd" fontWeight="bold">C</text>
-
-                    {/* Angle 30° à A (entre sécante descendant vers B et direction AF→droite) */}
-                    <path d="M 215,80 A 18,18 0 0,1 205,66" fill="none" stroke="black" strokeWidth="1.2"/>
                     <text x="210" y="100" fontSize="12" fill="#333">30°</text>
-
-                    {/* Angle 150° à B (angle entre HB← et sécante descendant depuis A) */}
-                    <path d="M 130,165 A 18,18 0 0,1 140,150" fill="none" stroke="black" strokeWidth="1.2"/>
                     <text x="100" y="158" fontSize="12" fill="#333">150°</text>
                   </svg>
                 </div>
-
-                <p className="font-semibold text-base mb-3">
-                  ① Calculer la mesure de l'angle ÂBC.
-                </p>
-                <div className="ml-5 space-y-1 text-gray-400 text-sm mb-5">
-                  <p>......</p>
-                  <p>......</p>
-                </div>
-
-                <p className="font-semibold text-base mb-3">
-                  ② Montrer que (EF) ∥ (HC) puis déduire que G̃AF = ÃBC.
-                </p>
-                <div className="ml-5 space-y-1 text-gray-400 text-sm">
-                  <p>......</p>
-                  <p>......</p>
-                  <p>......</p>
-                </div>
+                <p className="font-semibold text-base mb-3">① Calculer la mesure de l'angle ÂBC.</p>
+                <p className="font-semibold text-base mb-3">② Montrer que (EF) ∥ (HC) puis déduire que G̃AF = ÃBC.</p>
               </div>
 
-              {/* ── EXERCICE 5 : Triangle rectangle, symétrique, losange ── */}
               <div className="border-2 border-gray-800 rounded-lg p-6">
                 <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 5</div>
-
-                <p className="text-gray-800 mb-4">Sur la figure ci-dessous, ABC est un triangle rectangle en A. I est le milieu de [BC].</p>
-
+                <p className="text-gray-800 mb-4">ABC est un triangle rectangle en A. I est le milieu de [BC].</p>
                 <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 mb-5">
                   <svg viewBox="0 0 280 200" className="w-full max-w-xs mx-auto">
-                    {/* Triangle rectangle en A */}
                     <polygon points="70,160 70,40 230,160" fill="none" stroke="black" strokeWidth="2"/>
-                    {/* Angle droit en A */}
                     <polyline points="70,145 85,145 85,160" fill="none" stroke="black" strokeWidth="1.5"/>
-                    {/* Points */}
                     <circle cx="70" cy="160" r="5" fill="black"/>
                     <text x="56" y="175" fontSize="13" fill="#333" fontWeight="bold">A</text>
                     <circle cx="230" cy="160" r="5" fill="black"/>
                     <text x="235" y="175" fontSize="13" fill="#333" fontWeight="bold">B</text>
                     <circle cx="70" cy="40" r="5" fill="black"/>
                     <text x="55" y="38" fontSize="13" fill="#333" fontWeight="bold">C</text>
-                    {/* Point I milieu de BC */}
                     <circle cx="150" cy="100" r="4" fill="black"/>
                     <text x="158" y="98" fontSize="13" fill="#333" fontStyle="italic">I</text>
-                    {/* Marques de milieu */}
-                    <line x1="135" y1="85" x2="145" y2="95" stroke="black" strokeWidth="2"/>
-                    <line x1="140" y1="80" x2="150" y2="90" stroke="black" strokeWidth="2"/>
-                    <line x1="153" y1="108" x2="163" y2="118" stroke="black" strokeWidth="2"/>
-                    <line x1="158" y1="103" x2="168" y2="113" stroke="black" strokeWidth="2"/>
                   </svg>
                 </div>
-
                 <p className="font-semibold text-base mb-3">① :</p>
                 <div className="ml-5 space-y-3 text-gray-800">
-                  <p>a) Sur la figure ci-dessus, construire le point D le symétrique de A par rapport à I.</p>
+                  <p>a) Construire le point D le symétrique de A par rapport à I.</p>
                   <p>b) Prouver que ABDC est un parallélogramme, puis déduire sa nature.</p>
                 </div>
-
                 <p className="font-semibold text-base mt-6 mb-3">② :</p>
                 <div className="ml-5 space-y-3 text-gray-800">
                   <p>a) Construire les points F et G les symétriques respectifs de B et C par rapport à A.</p>
                   <p>b) Prouver que le quadrilatère FCBG est un losange.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300 no-print">
+              <h3 className="text-lg font-bold text-gray-800 mb-2">📝 Consignes importantes :</h3>
+              <ul className="list-disc list-inside space-y-1 text-gray-700">
+                <li>Tous les calculs doivent être détaillés et justifiés</li>
+                <li>Les constructions géométriques doivent être précises et soignées</li>
+                <li>Utiliser les instruments de géométrie appropriés</li>
+                <li>Rendre le devoir sur copie double</li>
+                <li>Mettre votre nom, prénom et classe sur la première page</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // ── DEVOIR N°3 — SEMESTRE 2 — 1ÈRE ANNÉE (NOUVEAU) ──────────────────────
+    if (homeworkView === '1apic-devoir3') {
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <style>{`@media print { .no-print { display: none !important; } }`}</style>
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+
+            {/* En-tête */}
+            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°3 — Mathématiques</h1>
+              <p className="text-xl text-gray-600 mb-1">1ère Année APIC — Semestre 2</p>
+              <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal — Salé</p>
+              <p className="text-lg font-semibold text-gray-700">Année Scolaire 2024-2025</p>
+              <div className="mt-4 flex justify-center gap-4 no-print">
+                <button onClick={handlePrint} className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                  <Printer className="w-4 h-4 mr-2" /> Imprimer
+                </button>
+                <button onClick={() => setHomeworkView('1apic-list')} className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                  <ChevronLeft className="w-4 h-4 mr-2" /> Retour
+                </button>
+              </div>
+            </div>
+
+            <div className="space-y-8">
+
+              {/* ── EXERCICE 1 : Proportionnalité ── */}
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 1 — Proportionnalité</div>
+
+                <p className="font-semibold text-base mb-4">① Compléter le tableau de proportionnalité suivant :</p>
+                <div className="overflow-x-auto mb-6">
+                  <table className="w-full border-2 border-gray-800 text-center">
+                    <tbody>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-3 font-semibold bg-gray-100">x</td>
+                        <td className="border-2 border-gray-800 p-3">7</td>
+                        <td className="border-2 border-gray-800 p-3"></td>
+                        <td className="border-2 border-gray-800 p-3">22</td>
+                      </tr>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-3 font-semibold bg-gray-100">y</td>
+                        <td className="border-2 border-gray-800 p-3"></td>
+                        <td className="border-2 border-gray-800 p-3">12</td>
+                        <td className="border-2 border-gray-800 p-3">7,5</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <p className="font-semibold text-base mb-3">
+                  ② Ahmed achète 3 kg de pommes au prix de 15 DH. Quel est le prix qu'il doit payer pour acheter 2 kg de la même pomme ?
+                </p>
+                <div className="ml-5 text-gray-400 text-sm space-y-1">
+                  <p>......</p>
+                  <p>......</p>
+                  <p>Réponse : .........</p>
+                </div>
+
+                <p className="font-semibold text-base mt-6 mb-3">
+                  ③ Dans un collège de 360 élèves, 175 d'entre eux sont des garçons. Calculer le pourcentage des garçons.
+                </p>
+                <div className="ml-5 text-gray-400 text-sm space-y-1">
+                  <p>......</p>
+                  <p>Réponse : .........</p>
+                </div>
+              </div>
+
+              {/* ── EXERCICE 2 : Repérage dans le plan ── */}
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 2 — Repérage dans le plan</div>
+
+                <p className="font-semibold text-base mb-4">① Donner les coordonnées des points A, B, C, D et E représentés sur le graphique ci-dessous :</p>
+
+                <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 mb-5 flex justify-center">
+                  <svg viewBox="0 0 300 300" className="w-full max-w-xs">
+                    {/* Grille */}
+                    {[-4,-3,-2,-1,0,1,2,3,4].map(i => (
+                      <g key={i}>
+                        <line x1={150+i*30} y1="20" x2={150+i*30} y2="280" stroke="#ddd" strokeWidth="1"/>
+                        <line x1="20" y1={150+i*30} x2="280" y2={150+i*30} stroke="#ddd" strokeWidth="1"/>
+                      </g>
+                    ))}
+                    {/* Axes */}
+                    <line x1="20" y1="150" x2="285" y2="150" stroke="black" strokeWidth="2"/>
+                    <line x1="150" y1="20" x2="150" y2="285" stroke="black" strokeWidth="2"/>
+                    {/* Flèches */}
+                    <polygon points="285,147 280,150 285,153" fill="black"/>
+                    <polygon points="147,20 150,15 153,20" fill="black"/>
+                    {/* Labels axes */}
+                    <text x="288" y="154" fontSize="12" fontWeight="bold">x</text>
+                    <text x="154" y="16" fontSize="12" fontWeight="bold">y</text>
+                    <text x="154" y="163" fontSize="11">O</text>
+                    {/* Graduations */}
+                    {[-4,-3,-2,-1,1,2,3,4].map(i => (
+                      <g key={i}>
+                        <text x={150+i*30-4} y="164" fontSize="9" fill="#555">{i}</text>
+                        <text x="138" y={150-i*30+4} fontSize="9" fill="#555">{i}</text>
+                      </g>
+                    ))}
+                    {/* Points */}
+                    <circle cx={150+3*30} cy={150-2*30} r="5" fill="#e74c3c"/>
+                    <text x={150+3*30+6} y={150-2*30-5} fontSize="12" fontWeight="bold" fill="#e74c3c">A</text>
+                    <circle cx={150-2*30} cy={150+1*30} r="5" fill="#2980b9"/>
+                    <text x={150-2*30+6} y={150+1*30-5} fontSize="12" fontWeight="bold" fill="#2980b9">B</text>
+                    <circle cx={150+1*30} cy={150+3*30} r="5" fill="#27ae60"/>
+                    <text x={150+1*30+6} y={150+3*30-5} fontSize="12" fontWeight="bold" fill="#27ae60">C</text>
+                    <circle cx={150-3*30} cy={150-3*30} r="5" fill="#8e44ad"/>
+                    <text x={150-3*30+6} y={150-3*30-5} fontSize="12" fontWeight="bold" fill="#8e44ad">D</text>
+                    <circle cx={150} cy={150-2*30} r="5" fill="#e67e22"/>
+                    <text x={150+6} y={150-2*30-5} fontSize="12" fontWeight="bold" fill="#e67e22">E</text>
+                  </svg>
+                </div>
+
+                <div className="ml-5 space-y-2 text-gray-800 bg-gray-50 p-4 rounded-lg">
+                  <p>A ( ...... ; ...... )&nbsp;&nbsp;&nbsp; B ( ...... ; ...... )&nbsp;&nbsp;&nbsp; C ( ...... ; ...... )</p>
+                  <p>D ( ...... ; ...... )&nbsp;&nbsp;&nbsp; E ( ...... ; ...... )</p>
+                </div>
+
+                <p className="font-semibold text-base mt-6 mb-3">② Placer les points suivants dans le repère ci-dessus :</p>
+                <div className="ml-5 text-gray-800 bg-blue-50 p-4 rounded-lg">
+                  <p>F(−2 ; 2) &nbsp;&nbsp; ; &nbsp;&nbsp; G(1 ; −2) &nbsp;&nbsp; ; &nbsp;&nbsp; H(−4 ; 1) &nbsp;&nbsp; ; &nbsp;&nbsp; I(3,5)</p>
+                </div>
+              </div>
+
+              {/* ── EXERCICE 3 : Statistiques ── */}
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 3 — Statistiques</div>
+
+                <p className="text-gray-800 mb-4">
+                  Voici les notes d'un devoir de mathématiques relevées dans une classe :
+                </p>
+                <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 mb-5 text-center">
+                  <p className="font-mono text-lg tracking-wide">16 · 16 · 15 · 14 · 10 · 7 · 7 · 4 · 4 · 3 · 3</p>
+                </div>
+
+                <p className="font-semibold text-base mb-3">① Compléter le tableau suivant :</p>
+                <div className="overflow-x-auto mb-6">
+                  <table className="w-full border-2 border-gray-800 text-sm text-center">
+                    <thead>
+                      <tr className="bg-gray-200">
+                        <th className="border-2 border-gray-800 p-3 text-left">Effectif (notes)</th>
+                        <th className="border-2 border-gray-800 p-3">A : Succès<br/>(note ≥ 10)</th>
+                        <th className="border-2 border-gray-800 p-3">B : Insuffisant<br/>(note &lt; 10)</th>
+                        <th className="border-2 border-gray-800 p-3">C : Très bien<br/>(note ≥ 14)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-3 text-left">Effectif cumulé</td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                      </tr>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-3 text-left">Pourcentage</td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <p className="font-semibold text-base mb-3">② Représenter ces données par un diagramme circulaire.</p>
+                <div className="ml-5 bg-gray-50 border border-gray-300 rounded-lg p-6 h-48 flex items-center justify-center text-gray-400">
+                  <p className="text-sm italic">Espace pour le diagramme circulaire</p>
+                </div>
+              </div>
+
+              {/* ── EXERCICE 4 : Prisme droit et cylindre ── */}
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 4 — Géométrie dans l'espace</div>
+
+                <p className="text-gray-800 mb-2">
+                  Soit <strong>ABCDEF</strong> un prisme droit et <strong>(C)</strong> un cylindre droit de rayon <strong>GH</strong>, dont les bases sont les cercles inscrits aux deux triangles rectangles <strong>ABC</strong> et <strong>DEF</strong>.
+                </p>
+                <p className="text-gray-800 mb-5">
+                  On donne : <span className="font-mono font-semibold">AB = 3 cm ; BC = 4 cm ; AC = 5 cm ; FC = G</span>
+                </p>
+
+                <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 mb-6 flex justify-center">
+                  <svg viewBox="0 0 340 260" className="w-full max-w-sm">
+                    {/* Prisme : base arrière DEF en haut, base avant ABC en bas */}
+                    {/* Base avant ABC */}
+                    <polygon points="60,200 240,200 150,240" fill="none" stroke="black" strokeWidth="2"/>
+                    {/* Base arrière DEF */}
+                    <polygon points="90,80 270,80 180,120" fill="none" stroke="black" strokeWidth="1.5" strokeDasharray="5,3"/>
+                    {/* Arêtes latérales */}
+                    <line x1="60" y1="200" x2="90" y2="80" stroke="black" strokeWidth="2"/>
+                    <line x1="240" y1="200" x2="270" y2="80" stroke="black" strokeWidth="2"/>
+                    <line x1="150" y1="240" x2="180" y2="120" stroke="black" strokeWidth="1.5" strokeDasharray="5,3"/>
+                    {/* Labels */}
+                    <text x="43" y="210" fontSize="13" fontWeight="bold">C</text>
+                    <text x="244" y="210" fontSize="13" fontWeight="bold">B</text>
+                    <text x="148" y="258" fontSize="13" fontWeight="bold">A</text>
+                    <text x="73" y="75" fontSize="13" fontWeight="bold">F</text>
+                    <text x="274" y="75" fontSize="13" fontWeight="bold">D</text>
+                    <text x="178" y="118" fontSize="13" fontWeight="bold">E</text>
+                    {/* Cylindre inscrit (simplifié) */}
+                    <ellipse cx="150" cy="200" rx="35" ry="10" fill="rgba(100,150,255,0.15)" stroke="#4488cc" strokeWidth="1.5" strokeDasharray="4,3"/>
+                    <ellipse cx="150" cy="90" rx="35" ry="10" fill="rgba(100,150,255,0.15)" stroke="#4488cc" strokeWidth="1.5"/>
+                    <line x1="115" y1="200" x2="115" y2="90" stroke="#4488cc" strokeWidth="1.5"/>
+                    <line x1="185" y1="200" x2="185" y2="90" stroke="#4488cc" strokeWidth="1.5"/>
+                    {/* Points G, H, K */}
+                    <circle cx="150" cy="90" r="3" fill="#4488cc"/>
+                    <text x="155" y="88" fontSize="11" fill="#4488cc">G</text>
+                    <circle cx="150" cy="148" r="3" fill="#4488cc"/>
+                    <text x="155" y="148" fontSize="11" fill="#4488cc">K</text>
+                    <circle cx="115" cy="90" r="3" fill="#4488cc"/>
+                    <text x="100" y="88" fontSize="11" fill="#4488cc">H</text>
+                  </svg>
+                </div>
+
+                <div className="space-y-4 text-gray-800">
+                  <p><span className="font-semibold">①</span> Calculer la surface latérale du prisme <strong>ABCDEF</strong>.</p>
+                  <div className="ml-5 space-y-1 text-gray-400 text-sm">
+                    <p>......</p>
+                    <p>......</p>
+                    <p>Réponse : .........</p>
+                  </div>
+
+                  <p><span className="font-semibold">②</span> Calculer la surface totale du cylindre <strong>(C)</strong>.</p>
+                  <div className="ml-5 space-y-1 text-gray-400 text-sm">
+                    <p>......</p>
+                    <p>......</p>
+                    <p>Réponse : .........</p>
+                  </div>
                 </div>
               </div>
 
@@ -610,12 +720,11 @@ const MathApp = () => {
               <ul className="list-disc list-inside space-y-1 text-gray-700">
                 <li>Tous les calculs doivent être détaillés et justifiés</li>
                 <li>Les constructions géométriques doivent être précises et soignées</li>
-                <li>Utiliser les instruments de géométrie appropriés (règle, compas, équerre, rapporteur)</li>
+                <li>Utiliser les instruments de géométrie appropriés (règle, compas, rapporteur)</li>
                 <li>Rendre le devoir sur copie double</li>
                 <li>Mettre votre nom, prénom et classe sur la première page</li>
               </ul>
             </div>
-
           </div>
         </div>
       );
@@ -635,6 +744,10 @@ const MathApp = () => {
               <button onClick={() => setHomeworkView('2apic-devoir2')} className="w-full bg-gradient-to-r from-teal-600 to-cyan-700 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
                 <div className="text-2xl font-bold mb-2">📐 Devoir N°2 — Semestre 2</div>
                 <div className="text-sm opacity-90">Inégalités · Vecteurs · Triangle et Cercle</div>
+              </button>
+              <button onClick={() => setHomeworkView('2apic-devoir3')} className="w-full bg-gradient-to-r from-emerald-600 to-green-700 text-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all">
+                <div className="text-2xl font-bold mb-2">📊 Devoir N°3 — Semestre 2</div>
+                <div className="text-sm opacity-90">Proportionnalité · Statistiques · Cercle et tangentes · Prisme droit</div>
               </button>
             </div>
             <div className="text-center">
@@ -676,11 +789,7 @@ const MathApp = () => {
                 </div>
                 <p className="font-semibold mt-6 mb-3">② Comparer les nombres suivants :</p>
                 <div className="ml-5 text-gray-800 bg-green-50 p-4 rounded-lg">
-                  <p className="mb-2">
-                    <span className="font-mono text-lg">41/42</span> et <span className="font-mono text-lg">42/43</span>
-                    &nbsp;&nbsp; ; &nbsp;&nbsp;
-                    <span className="font-mono text-lg">−41/−42</span> et <span className="font-mono text-lg">−42/−43</span>
-                  </p>
+                  <p>41/42 et 42/43 &nbsp;&nbsp;;&nbsp;&nbsp; −41/−42 et −42/−43</p>
                 </div>
                 <p className="font-semibold mt-6 mb-3">③ Répondre par vrai ou faux :</p>
                 <div className="ml-5 space-y-2 text-gray-800 bg-yellow-50 p-4 rounded-lg">
@@ -691,25 +800,19 @@ const MathApp = () => {
                 <p className="font-semibold mt-6 mb-3">④ Soit u un nombre rationnel :</p>
                 <div className="ml-5 space-y-4 text-gray-800">
                   <div className="bg-purple-50 p-4 rounded-lg">
-                    <p className="font-semibold mb-2">① Sachant que :</p>
-                    <p className="text-center text-lg font-mono mb-2">11 ≤ 3u + 8 ≤ 26</p>
-                    <p>Montrer que <strong>1 ≤ u ≤ 6</strong></p>
+                    <p className="font-semibold mb-2">a) Sachant que 11 ≤ 3u + 8 ≤ 26, montrer que 1 ≤ u ≤ 6</p>
                   </div>
                   <div className="bg-orange-50 p-4 rounded-lg">
-                    <p className="font-semibold mb-2">② Donner un encadrement de :</p>
-                    <p className="text-center text-lg font-mono">6u + 16</p>
+                    <p className="font-semibold mb-2">b) Donner un encadrement de 6u + 16</p>
                   </div>
                   <div className="bg-red-50 p-4 rounded-lg">
-                    <p className="font-semibold mb-2">③ Comparer a et b dans les cas suivants :</p>
+                    <p className="font-semibold mb-2">c) Comparer a et b dans les cas suivants :</p>
                     <div className="space-y-1 ml-4">
-                      <p>• a − b = 7</p>
-                      <p>• a − b = −7</p>
-                      <p>• a − b &gt; 1/3</p>
-                      <p>• a − b ≤ −1/3</p>
+                      <p>• a − b = 7 &nbsp;&nbsp; • a − b = −7 &nbsp;&nbsp; • a − b &gt; 1/3 &nbsp;&nbsp; • a − b ≤ −1/3</p>
                     </div>
                   </div>
                   <div className="bg-teal-50 p-4 rounded-lg">
-                    <p className="font-semibold mb-2">④ Comparer a² + b² et 2ab.</p>
+                    <p className="font-semibold">d) Comparer a² + b² et 2ab.</p>
                   </div>
                 </div>
               </div>
@@ -717,36 +820,24 @@ const MathApp = () => {
                 <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 2</div>
                 <p className="font-semibold mb-3">① Résoudre les équations suivantes :</p>
                 <div className="ml-5 space-y-2 text-gray-800 bg-blue-50 p-4 rounded-lg font-mono">
-                  <p>4x + 6 = 2</p>
-                  <p>−2x − 9 = 13</p>
-                  <p>−28x / 7 = 14</p>
-                  <p>(x − 1)/2 = (x + 1)/3</p>
+                  <p>4x + 6 = 2 &nbsp;&nbsp;&nbsp; −2x − 9 = 13 &nbsp;&nbsp;&nbsp; −28x / 7 = 14 &nbsp;&nbsp;&nbsp; (x − 1)/2 = (x + 1)/3</p>
                 </div>
                 <p className="font-semibold mt-6 mb-3">② Résoudre le problème :</p>
                 <div className="ml-5 text-gray-800 bg-yellow-50 p-4 rounded-lg">
                   <p className="mb-2">Jamal et Omar partagent la somme de <strong>5 000 DH</strong>.</p>
-                  <p className="mb-2">Jamal et Omar ont dépensé respectivement <strong>3/5</strong> et <strong>4/7</strong> de leur part.</p>
-                  <p className="mb-2">Sachant qu'ils ont épargné la <strong>même somme d'argent</strong>,</p>
-                  <p className="font-semibold">déterminer la somme de départ de chacun d'entre eux.</p>
-                  <p className="mt-3 text-sm text-gray-600 italic">Poser x la part de l'un d'eux et former une équation.</p>
+                  <p className="mb-2">Ils ont dépensé respectivement <strong>3/5</strong> et <strong>4/7</strong> de leur part.</p>
+                  <p className="font-semibold">Sachant qu'ils ont épargné la même somme, déterminer la part de départ de chacun.</p>
                 </div>
               </div>
               <div className="border-2 border-gray-800 rounded-lg p-6">
                 <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 3</div>
                 <p className="font-semibold mb-3">① Développer :</p>
-                <div className="ml-5 space-y-2 text-gray-800 bg-green-50 p-4 rounded-lg">
-                  <p>(3n − 1)(n + 2)</p>
-                  <p>(n − 1) × 2n</p>
-                  <p>(n + 3)²</p>
-                  <p>(2x − 1)²</p>
-                  <p>(x + 5)(5 − x)</p>
+                <div className="ml-5 space-y-1 text-gray-800 bg-green-50 p-4 rounded-lg">
+                  <p>(3n − 1)(n + 2) &nbsp;&nbsp; (n − 1) × 2n &nbsp;&nbsp; (n + 3)² &nbsp;&nbsp; (2x − 1)² &nbsp;&nbsp; (x + 5)(5 − x)</p>
                 </div>
                 <p className="font-semibold mt-6 mb-3">② Factoriser :</p>
-                <div className="ml-5 space-y-2 text-gray-800 bg-purple-50 p-4 rounded-lg">
-                  <p>(n + 1)² − 2(n + 1)</p>
-                  <p>n² − 2n + 1</p>
-                  <p>9x² − 49</p>
-                  <p>x² − x</p>
+                <div className="ml-5 space-y-1 text-gray-800 bg-purple-50 p-4 rounded-lg">
+                  <p>(n + 1)² − 2(n + 1) &nbsp;&nbsp; n² − 2n + 1 &nbsp;&nbsp; 9x² − 49 &nbsp;&nbsp; x² − x</p>
                 </div>
               </div>
             </div>
@@ -754,8 +845,6 @@ const MathApp = () => {
               <h3 className="text-lg font-bold text-gray-800 mb-2">📝 Consignes importantes :</h3>
               <ul className="list-disc list-inside space-y-1 text-gray-700">
                 <li>Tous les calculs doivent être détaillés et justifiés</li>
-                <li>Rédiger clairement les étapes de résolution des équations</li>
-                <li>Pour le problème, poser l'inconnue et écrire l'équation avant de résoudre</li>
                 <li>Rendre le devoir sur copie double</li>
                 <li>Mettre votre nom, prénom et classe sur la première page</li>
               </ul>
@@ -765,8 +854,80 @@ const MathApp = () => {
       );
     }
 
-    // ── DEVOIR N°2 — SEMESTRE 2 — 2ÈME ANNÉE (NOUVEAU) ──────────────────────
+    // ── DEVOIR N°2 — SEMESTRE 2 — 2ÈME ANNÉE ────────────────────────────────
     if (homeworkView === '2apic-devoir2') {
+      return (
+        <div className="min-h-screen bg-gray-100 py-8 px-4">
+          <style>{`@media print { .no-print { display: none !important; } }`}</style>
+          <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+            <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°2 — Mathématiques</h1>
+              <p className="text-xl text-gray-600 mb-1">2ème Année APIC — Semestre 2</p>
+              <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal — Salé</p>
+              <p className="text-lg font-semibold text-gray-700">Année Scolaire 2024-2025</p>
+              <div className="mt-4 flex justify-center gap-4 no-print">
+                <button onClick={handlePrint} className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                  <Printer className="w-4 h-4 mr-2" /> Imprimer
+                </button>
+                <button onClick={() => setHomeworkView('2apic-list')} className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                  <ChevronLeft className="w-4 h-4 mr-2" /> Retour
+                </button>
+              </div>
+            </div>
+            <div className="space-y-8">
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 1</div>
+                <p className="font-semibold mb-3">① Comparer 5/3 et 3/2.</p>
+                <p className="font-semibold mt-6 mb-3">② Soit a ≤ b + 2. Montrer que a + b − 2 ≤ 2b.</p>
+                <p className="font-semibold mt-6 mb-3">③ Avec 2 ≤ x ≤ 5 et −4 ≤ y ≤ 3, trouver un encadrement de :</p>
+                <div className="ml-5 text-gray-800 bg-green-50 p-4 rounded-lg">
+                  <p>2x &nbsp;;&nbsp; −3y &nbsp;;&nbsp; x + y &nbsp;;&nbsp; x − y &nbsp;;&nbsp; 2x + 3y</p>
+                </div>
+              </div>
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 2</div>
+                <p className="text-gray-800 mb-4">ABCD et BEFC sont deux parallélogrammes de côtés égaux.</p>
+                <div className="ml-5 space-y-3 text-gray-800 bg-blue-50 p-4 rounded-lg">
+                  <p>AD⃗ = ...... = ......&nbsp;&nbsp;&nbsp; AB⃗ = ......&nbsp;&nbsp;&nbsp; AB⃗ + AD⃗ = ......</p>
+                  <p>BE⃗ = ......&nbsp;&nbsp;&nbsp; AB⃗ + BE⃗ = ......&nbsp;&nbsp;&nbsp; BE⃗ + BC⃗ = ......</p>
+                </div>
+                <p className="font-semibold mt-6 mb-2">② Prouver que : AE⃗ = DF⃗</p>
+              </div>
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 3 — Vecteurs et translations</div>
+                <div className="space-y-3 text-gray-800">
+                  <p>① Construire le point D tel que : AD⃗ = AB⃗ + AC⃗</p>
+                  <p>② Montrer que le point I (milieu de [BC]) est aussi milieu de [AD].</p>
+                </div>
+              </div>
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 4 — Triangle et cercle</div>
+                <p className="text-gray-800 mb-4">Soit ABC un triangle tel que : AB = 3, AC = 4 et BC = 5.</p>
+                <div className="space-y-3 text-gray-800">
+                  <p>① Tracer le triangle ABC avec les bonnes mesures.</p>
+                  <p>② Soit I le milieu de [BC]. Construire le cercle de centre I et de rayon IA.</p>
+                  <p>③ Déduire la nature du triangle ABC.</p>
+                  <p>④ Vérifier en utilisant le théorème de Pythagore.</p>
+                  <p>⑤ Calculer le cosinus des angles ABC et ACB.</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-8 p-4 bg-gray-100 rounded-lg border border-gray-300 no-print">
+              <h3 className="text-lg font-bold text-gray-800 mb-2">📝 Consignes importantes :</h3>
+              <ul className="list-disc list-inside space-y-1 text-gray-700">
+                <li>Tous les calculs doivent être détaillés et justifiés</li>
+                <li>Utiliser les instruments de géométrie appropriés</li>
+                <li>Rendre le devoir sur copie double</li>
+                <li>Mettre votre nom, prénom et classe sur la première page</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // ── DEVOIR N°3 — SEMESTRE 2 — 2ÈME ANNÉE (NOUVEAU) ──────────────────────
+    if (homeworkView === '2apic-devoir3') {
       return (
         <div className="min-h-screen bg-gray-100 py-8 px-4">
           <style>{`@media print { .no-print { display: none !important; } }`}</style>
@@ -774,7 +935,7 @@ const MathApp = () => {
 
             {/* En-tête */}
             <div className="text-center mb-8 border-b-2 border-gray-300 pb-6">
-              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°2 — Mathématiques</h1>
+              <h1 className="text-3xl font-bold text-gray-800 mb-2">Devoir N°3 — Mathématiques</h1>
               <p className="text-xl text-gray-600 mb-1">2ème Année APIC — Semestre 2</p>
               <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal — Salé</p>
               <p className="text-lg font-semibold text-gray-700">Année Scolaire 2024-2025</p>
@@ -790,127 +951,207 @@ const MathApp = () => {
 
             <div className="space-y-8">
 
-              {/* ── EXERCICE QUATRIÈME : Inégalités et encadrements ── */}
+              {/* ── EXERCICE 1 : Proportionnalité ── */}
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 1</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 1 — Proportionnalité</div>
 
-                <p className="font-semibold mb-3">① Comparer 5/3 et 3/2.</p>
-
-                <p className="font-semibold mt-6 mb-3">
-                  ② Soit a et b deux nombres entiers tels que : a ≤ b + 2.
-                  Montrer que : a + b − 2 ≤ 2b.
-                </p>
-
-                <p className="font-semibold mt-6 mb-3">
-                  ③ Soit x et y deux nombres entiers tels que :
-                </p>
-                <div className="ml-5 text-gray-800 bg-blue-50 p-4 rounded-lg font-mono">
-                  <p>2 ≤ x ≤ 5 &nbsp;&nbsp; et &nbsp;&nbsp; −4 ≤ y ≤ 3</p>
+                <p className="font-semibold text-base mb-4">① On considère le tableau de proportionnalité suivant :</p>
+                <div className="overflow-x-auto mb-4">
+                  <table className="w-full border-2 border-gray-800 text-center">
+                    <tbody>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-3">3</td>
+                        <td className="border-2 border-gray-800 p-3">7</td>
+                        <td className="border-2 border-gray-800 p-3"></td>
+                        <td className="border-2 border-gray-800 p-3">5</td>
+                      </tr>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-3">12</td>
+                        <td className="border-2 border-gray-800 p-3">45</td>
+                        <td className="border-2 border-gray-800 p-3">15,5</td>
+                        <td className="border-2 border-gray-800 p-3"></td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <p className="mt-4 text-gray-800">Trouver un encadrement des expressions suivantes :</p>
-                <div className="ml-5 mt-2 space-y-1 text-gray-800 bg-green-50 p-4 rounded-lg">
-                  <p>2x &nbsp;&nbsp;;&nbsp;&nbsp; −3y &nbsp;&nbsp;;&nbsp;&nbsp; x + y &nbsp;&nbsp;;&nbsp;&nbsp; x − y &nbsp;&nbsp;;&nbsp;&nbsp; 2x + 3y</p>
+
+                <div className="ml-5 space-y-3 text-gray-800">
+                  <p>a) Calculer le coefficient de proportionnalité.</p>
+                  <div className="text-gray-400 text-sm ml-4 space-y-1"><p>......</p><p>Coefficient : .........</p></div>
+                  <p>b) Compléter le tableau en utilisant le coefficient de proportionnalité.</p>
+                  <div className="text-gray-400 text-sm ml-4 space-y-1"><p>......</p><p>......</p></div>
                 </div>
 
-                <p className="font-semibold mt-6 mb-3">
-                  ④ Si l'on sait que : 3 ≤ 2m − 3 ≤ 3, déterminer m sachant que 1 ≤ m ≤ 3.
+                <p className="font-semibold text-base mt-6 mb-3">
+                  ② Un train à grande vitesse (TGV) roule pendant 90 minutes à la vitesse de 300 km/h. Quelle distance parcourt-il ?
                 </p>
+                <div className="ml-5 space-y-1 text-gray-400 text-sm">
+                  <p>......</p>
+                  <p>Réponse : .........</p>
+                </div>
               </div>
 
-              {/* ── EXERCICE PREMIER : Vecteurs ── */}
+              {/* ── EXERCICE 2 : Statistiques ── */}
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 2</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 2 — Statistiques</div>
 
                 <p className="text-gray-800 mb-4">
-                  ABCD et BEFC sont deux parallélogrammes de côtés égaux.
+                  Le tableau suivant représente le nombre d'enfants par famille dans un quartier :
                 </p>
 
-                {/* Schéma parallélogrammes */}
-                <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 mb-5 flex justify-center">
-                  <svg viewBox="0 0 300 180" className="w-full max-w-sm">
-                    {/* Parallélogramme ABCD */}
-                    <polygon points="30,140 100,140 130,60 60,60" fill="none" stroke="black" strokeWidth="2"/>
-                    {/* Parallélogramme BEFC (partage le côté AB/BE) */}
-                    <polygon points="100,140 170,140 200,60 130,60" fill="none" stroke="black" strokeWidth="2"/>
-                    {/* Point E supplémentaire relié */}
-                    <line x1="130" y1="60" x2="170" y2="140" stroke="black" strokeWidth="1.5" strokeDasharray="4,3"/>
-                    {/* Labels */}
-                    <text x="22" y="155" fontSize="13" fontWeight="bold">D</text>
-                    <text x="95" y="155" fontSize="13" fontWeight="bold">A</text>
-                    <text x="168" y="155" fontSize="13" fontWeight="bold">F</text>
-                    <text x="52" y="55" fontSize="13" fontWeight="bold">C</text>
-                    <text x="124" y="55" fontSize="13" fontWeight="bold">B</text>
-                    <text x="198" y="55" fontSize="13" fontWeight="bold">E</text>
+                <div className="overflow-x-auto mb-6">
+                  <table className="w-full border-2 border-gray-800 text-sm text-center">
+                    <thead>
+                      <tr className="bg-gray-200">
+                        <th className="border-2 border-gray-800 p-3 text-left">Nombre d'enfants</th>
+                        <th className="border-2 border-gray-800 p-3">1</th>
+                        <th className="border-2 border-gray-800 p-3">2</th>
+                        <th className="border-2 border-gray-800 p-3">3</th>
+                        <th className="border-2 border-gray-800 p-3">4</th>
+                        <th className="border-2 border-gray-800 p-3">5</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-3 text-left font-semibold">Nombre de familles</td>
+                        <td className="border-2 border-gray-800 p-3">3</td>
+                        <td className="border-2 border-gray-800 p-3">10</td>
+                        <td className="border-2 border-gray-800 p-3">7</td>
+                        <td className="border-2 border-gray-800 p-3">4</td>
+                        <td className="border-2 border-gray-800 p-3">1</td>
+                      </tr>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-3 text-left font-semibold">Fréquence</td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                      </tr>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-3 text-left font-semibold">Pourcentage</td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                      </tr>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-3 text-left font-semibold">Angle α (degrés)</td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                        <td className="border-2 border-gray-800 p-3 h-10"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="space-y-3 text-gray-800">
+                  <p><span className="font-semibold">a)</span> Compléter le tableau.</p>
+                  <p><span className="font-semibold">b)</span> Quel est le caractère de cette série statistique ?</p>
+                  <div className="ml-5 text-gray-400 text-sm"><p>Réponse : .........</p></div>
+                  <p><span className="font-semibold">c)</span> Quel est l'effectif total de cette série statistique ?</p>
+                  <div className="ml-5 text-gray-400 text-sm"><p>Réponse : .........</p></div>
+                  <p><span className="font-semibold">d)</span> Tracer le diagramme en bâtons des effectifs.</p>
+                  <div className="ml-5 bg-gray-50 border border-gray-300 rounded-lg p-4 h-40 flex items-center justify-center text-gray-400">
+                    <p className="text-sm italic">Espace pour le diagramme en bâtons</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* ── EXERCICE 3 : Cercle et tangentes ── */}
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 3 — Cercle et tangentes</div>
+
+                <p className="text-gray-800 mb-5">
+                  On considère un cercle <strong>(C)</strong> de centre <strong>O</strong> et de rayon <strong>3 cm</strong>.
+                </p>
+
+                <div className="space-y-4 text-gray-800">
+                  <p><span className="font-semibold">①</span> Tracer le cercle (C) de centre O et de rayon 3 cm.</p>
+                  <p><span className="font-semibold">②</span> Tracer une corde [EF] du cercle (C) telle que EF = 3 cm.</p>
+                  <p><span className="font-semibold">③</span> Tracer un diamètre [AB] du cercle (C).</p>
+                  <p><span className="font-semibold">④</span> Tracer la tangente (D) au cercle (C) au point A.</p>
+                  <p><span className="font-semibold">⑤</span> Tracer la tangente (D') au cercle (C) au point B.</p>
+                  <p><span className="font-semibold">⑥</span> Que peut-on dire des droites (D) et (D') ? Justifier.</p>
+                  <div className="ml-5 space-y-1 text-gray-400 text-sm">
+                    <p>......</p>
+                    <p>......</p>
+                    <p>Réponse : .........</p>
+                  </div>
+                </div>
+
+                <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 mt-5 h-48 flex items-center justify-center text-gray-400">
+                  <p className="text-sm italic">Espace pour les constructions géométriques</p>
+                </div>
+              </div>
+
+              {/* ── EXERCICE 4 : Prisme droit ── */}
+              <div className="border-2 border-gray-800 rounded-lg p-6">
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 4 — Prisme droit ABCDEF</div>
+
+                <p className="text-gray-800 mb-5">
+                  On considère un prisme droit <strong>ABCDEF</strong> dont la base est un triangle rectangle en B, avec :
+                  <span className="font-mono font-semibold ml-2">AB = 3 cm ; BC = 4 cm ; AC = 5 cm ; FC = 6 cm</span>
+                </p>
+
+                <div className="bg-gray-50 border border-gray-300 rounded-lg p-4 mb-6 flex justify-center">
+                  <svg viewBox="0 0 320 250" className="w-full max-w-sm">
+                    {/* Prisme droit : base ABC en bas (avant), DEF en haut (arrière) */}
+                    {/* Base avant ABC */}
+                    <polygon points="50,210 200,210 120,240" fill="none" stroke="black" strokeWidth="2"/>
+                    {/* Base arrière DEF */}
+                    <polygon points="80,90 230,90 150,120" fill="none" stroke="black" strokeWidth="1.5" strokeDasharray="5,3"/>
+                    {/* Arêtes latérales */}
+                    <line x1="50" y1="210" x2="80" y2="90" stroke="black" strokeWidth="2"/>
+                    <line x1="200" y1="210" x2="230" y2="90" stroke="black" strokeWidth="2"/>
+                    <line x1="120" y1="240" x2="150" y2="120" stroke="black" strokeWidth="1.5" strokeDasharray="5,3"/>
+                    {/* Angle droit en B (bas) */}
+                    <polyline points="185,210 185,195 200,195" fill="none" stroke="black" strokeWidth="1.5"/>
+                    {/* Labels base avant */}
+                    <text x="30" y="218" fontSize="13" fontWeight="bold">A</text>
+                    <text x="206" y="218" fontSize="13" fontWeight="bold">B</text>
+                    <text x="118" y="258" fontSize="13" fontWeight="bold">C</text>
+                    {/* Labels base arrière */}
+                    <text x="62" y="86" fontSize="13" fontWeight="bold">D</text>
+                    <text x="234" y="86" fontSize="13" fontWeight="bold">E</text>
+                    <text x="148" y="118" fontSize="13" fontWeight="bold">F</text>
+                    {/* Mesures */}
+                    <text x="112" y="207" fontSize="10" fill="#555">AB=3</text>
+                    <text x="205" y="232" fontSize="10" fill="#555">BC=4</text>
+                    <text x="222" y="155" fontSize="10" fill="#555">FC=6</text>
                   </svg>
                 </div>
 
-                <p className="font-semibold mb-3">① Compléter :</p>
-                <div className="ml-5 space-y-3 text-gray-800 bg-blue-50 p-4 rounded-lg">
-                  <div className="grid grid-cols-2 gap-4">
-                    <p>AD⃗ = ...... = ......</p>
-                    <p>AB⃗ = ......</p>
-                    <p>AB⃗ + AD⃗ = ......</p>
-                    <p>BE⃗ = ......</p>
-                    <p>AB⃗ + BE⃗ = ......</p>
-                    <p>BE⃗ + BC⃗ = ......</p>
+                <div className="space-y-4 text-gray-800">
+                  <p className="font-semibold">① Compléter les informations suivantes :</p>
+                  <div className="ml-5 space-y-2 bg-blue-50 p-4 rounded-lg">
+                    <p>• Nombre de faces du prisme : ......</p>
+                    <p>• Nombre de sommets du prisme : ......</p>
+                    <p>• Nombre d'arêtes du prisme : ......</p>
+                    <p>• La hauteur du prisme est : ......</p>
+                    <p>• La nature du quadrilatère ABDE est : ......</p>
                   </div>
-                  <p className="mt-2">AE⃗ = DF⃗</p>
-                </div>
 
-                <p className="font-semibold mt-6 mb-2">② Prouver que : AE⃗ = DF⃗</p>
-              </div>
-
-              {/* ── EXERCICE DEUXIÈME : Vecteurs et translations ── */}
-              <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 3</div>
-
-                <p className="text-gray-800 mb-4">
-                  Soit ABO un triangle quelconque. C et D sont deux points tels que C est la translatée de A et B est la translatée de A par rapport au point O.
-                </p>
-
-                <div className="space-y-3 text-gray-800">
-                  <p><span className="font-semibold">①</span> Reproduire la figure sur une feuille de papier calque puis la déplacer pour la compléter.</p>
-                  <p><span className="font-semibold">②</span> Montrer que le quadrilatère ABCD est un parallélogramme de côtés égaux.</p>
-                  <p className="font-semibold mt-2">③ Compléter :</p>
-                  <div className="ml-5 space-y-2 bg-yellow-50 p-4 rounded-lg">
-                    <p>D est l'image de A par la translation qui transforme ...... en ......</p>
+                  <p><span className="font-semibold">②</span> Calculer l'aire de la base triangulaire ABC.</p>
+                  <div className="ml-5 space-y-1 text-gray-400 text-sm">
+                    <p>......</p>
+                    <p>Réponse : .........</p>
                   </div>
-                  <p><span className="font-semibold">④</span> Soit E l'image de C par la translation qui transforme A en B :</p>
-                  <div className="ml-5 space-y-2">
-                    <p>a) Construire le point E.</p>
-                    <p>b) Prouver que : AC⃗ = BE⃗</p>
+
+                  <p><span className="font-semibold">③</span> Calculer le volume du prisme droit ABCDEF.</p>
+                  <div className="ml-5 space-y-1 text-gray-400 text-sm">
+                    <p>......</p>
+                    <p>Réponse : .........</p>
                   </div>
-                </div>
-              </div>
 
-              {/* ── EXERCICE TROISIÈME : Points non alignés, vecteurs ── */}
-              <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 4</div>
-
-                <p className="text-gray-800 mb-4">
-                  Soient A, B et C trois points non alignés. I est le milieu de [BC].
-                </p>
-
-                <div className="space-y-3 text-gray-800">
-                  <p><span className="font-semibold">①</span> Construire le point D tel que : AD⃗ = AB⃗ + AC⃗</p>
-                  <p><span className="font-semibold">②</span> Montrer que le point I est milieu de [AD].</p>
-                </div>
-              </div>
-
-              {/* ── EXERCICE SUR 2 POINTS : Triangle et cercle ── */}
-              <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-5 rounded">Exercice 5</div>
-
-                <p className="text-gray-800 mb-4">
-                  Soit ABC un triangle tel que : AB = 3, AC = 4 et BC = 5.
-                </p>
-
-                <div className="space-y-3 text-gray-800">
-                  <p><span className="font-semibold">①</span> Tracer le triangle ABC avec les bonnes mesures.</p>
-                  <p><span className="font-semibold">②</span> Soit I le milieu de [BC]. Construire le cercle (C) de centre I et de rayon IA.</p>
-                  <p><span className="font-semibold">③</span> Déduire la nature du triangle ABC.</p>
-                  <p><span className="font-semibold">④</span> Vérifier en utilisant le théorème de Pythagore (ou sa réciproque).</p>
-                  <p><span className="font-semibold">⑤</span> Calculer le cosinus des angles ABC et ACB.</p>
+                  <p><span className="font-semibold">④</span> Calculer l'aire latérale du prisme ABCDEF.</p>
+                  <div className="ml-5 space-y-1 text-gray-400 text-sm">
+                    <p>......</p>
+                    <p>Réponse : .........</p>
+                  </div>
                 </div>
               </div>
 
@@ -922,12 +1163,11 @@ const MathApp = () => {
               <ul className="list-disc list-inside space-y-1 text-gray-700">
                 <li>Tous les calculs doivent être détaillés et justifiés</li>
                 <li>Les constructions géométriques doivent être précises et soignées</li>
-                <li>Utiliser les instruments de géométrie appropriés</li>
+                <li>Utiliser les instruments de géométrie appropriés (règle, compas, équerre, rapporteur)</li>
                 <li>Rendre le devoir sur copie double</li>
                 <li>Mettre votre nom, prénom et classe sur la première page</li>
               </ul>
             </div>
-
           </div>
         </div>
       );
@@ -971,7 +1211,7 @@ const MathApp = () => {
               <h1 className="text-3xl font-bold text-gray-800 mb-2">Test Diagnostique - Fin de Semestre</h1>
               <p className="text-xl text-gray-600 mb-2">1ère Année APIC</p>
               <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal - Salé</p>
-              <p className="text-lg font-semibold">Durée : 1 heure - Barème : /20 points</p>
+              <p className="text-lg font-semibold">Durée : 1 heure</p>
               <div className="mt-4 flex justify-center gap-4 no-print">
                 <button onClick={handlePrint} className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"><Printer className="w-4 h-4 mr-2" />Imprimer</button>
                 <button onClick={() => setDiagnosticView('selection')} className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"><ChevronLeft className="w-4 h-4 mr-2" />Retour</button>
@@ -982,7 +1222,7 @@ const MathApp = () => {
             </div>
             <div className="space-y-8">
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 1 : Calcul d'expressions (4 points)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 1 : Calcul d'expressions</div>
                 <div className="space-y-3 ml-4">
                   <p>1. A = 130 + 110 − 240 = ______________</p>
                   <p>2. B = 18 × 20 ÷ 60 = ______________</p>
@@ -991,7 +1231,7 @@ const MathApp = () => {
                 </div>
               </div>
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2 : Calcul et simplification (5 points)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2 : Calcul et simplification</div>
                 <div className="space-y-3 ml-4">
                   <p>1. I = 2/5 + 1/5 = ______________</p>
                   <p>2. J = 4/7 − 1/7 = ______________</p>
@@ -1001,36 +1241,24 @@ const MathApp = () => {
                 </div>
               </div>
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 3 : Droite graduée et fractions (4 points)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 3 : Droite graduée et fractions</div>
                 <div className="space-y-4">
-                  <p>1) Placer les fractions sur la droite : A = 1/3 ; B = 2/3 ; C = 4/3 ; D = 5/3</p>
-                  <div className="my-4 flex justify-center">
-                    <div className="inline-flex border-2 border-gray-800">
-                      {[0, 1, 2, 3, 4].map((i) => (<div key={i} className="w-16 h-12 border-r-2 border-gray-800 last:border-r-0"></div>))}
-                    </div>
-                  </div>
-                  <p className="text-center text-sm">0 _____________________ 1</p>
-                  <p className="mt-4">2) Ordre croissant : 1/4, 7/12, 5/6, 1/1</p>
-                  <p className="ml-4">Réponse : ______________</p>
-                  <p className="mt-4">3) Compléter avec {'<, >, ou ='} :</p>
-                  <div className="ml-4 space-y-2">
-                    <p>a) 2/6 ___ 3/5</p>
-                    <p>b) 3/4 ___ 8/10</p>
-                    <p>c) 1/10 ___ 2/5</p>
-                  </div>
+                  <p>1) Placer les fractions : A = 1/3 ; B = 2/3 ; C = 4/3 ; D = 5/3</p>
+                  <p>2) Ordre croissant : 1/4, 7/12, 5/6, 1</p>
+                  <p>3) Compléter avec {'<, >, ou ='} : &nbsp; 2/6 ___ 3/5 &nbsp; ; &nbsp; 3/4 ___ 8/10 &nbsp; ; &nbsp; 1/10 ___ 2/5</p>
                 </div>
               </div>
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 4 : Problème (5 points)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 4 : Problème</div>
                 <div className="space-y-3">
                   <p>Karim a une corde de 10,4 m. Il utilise 2/7 pour les plantes, puis coupe 2,5 m.</p>
-                  <p className="ml-4">1) Longueur pour les plantes ? Réponse : _______________</p>
-                  <p className="ml-4">2) Longueur totale utilisée ? Réponse : _______________</p>
-                  <p className="ml-4">3) Longueur restante ? Réponse : _______________</p>
+                  <p className="ml-4">1) Longueur utilisée pour les plantes : _______________</p>
+                  <p className="ml-4">2) Longueur totale utilisée : _______________</p>
+                  <p className="ml-4">3) Longueur restante : _______________</p>
                 </div>
               </div>
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 5 : Droites remarquables du triangle (4 points)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 5 : Droites remarquables du triangle</div>
                 <div className="space-y-3">
                   <p><strong>1)</strong> Soit ABC un triangle. Construire :</p>
                   <div className="ml-4 space-y-2">
@@ -1041,13 +1269,6 @@ const MathApp = () => {
                   </div>
                   <p className="mt-4"><strong>2)</strong> Le point d'intersection des médiatrices s'appelle : _______________</p>
                   <p><strong>3)</strong> Le point d'intersection des médianes s'appelle : _______________</p>
-                </div>
-              </div>
-              <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Bonus : Simplifier et calculer (2 points)</div>
-                <div className="space-y-2 text-center">
-                  <p className="text-xl mt-3">2 / (2 + 2/(2 + 2/4))</p>
-                  <p className="mt-3">Réponse : ______________</p>
                 </div>
               </div>
             </div>
@@ -1065,7 +1286,7 @@ const MathApp = () => {
               <h1 className="text-3xl font-bold text-gray-800 mb-2">Test Diagnostique - Fin de Semestre</h1>
               <p className="text-xl text-gray-600 mb-2">2ème Année APIC</p>
               <p className="text-sm text-gray-500 mb-2">Lycée Collège Mouad Ibn Jabal - Salé</p>
-              <p className="text-lg font-semibold">Durée : 1h30 - Barème : /20 points</p>
+              <p className="text-lg font-semibold">Durée : 1h30</p>
               <div className="mt-4 flex justify-center gap-4 no-print">
                 <button onClick={handlePrint} className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"><Printer className="w-4 h-4 mr-2" />Imprimer</button>
                 <button onClick={() => setDiagnosticView('selection')} className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"><ChevronLeft className="w-4 h-4 mr-2" />Retour</button>
@@ -1076,88 +1297,37 @@ const MathApp = () => {
             </div>
             <div className="space-y-8">
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 1 : Écriture scientifique (4 points)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 1 : Écriture scientifique</div>
                 <div className="space-y-3">
-                  <p><strong>1)</strong> On calcule : 5² × (15)⁴ × (−1)⁷²</p>
-                  <p className="ml-4">Calcul : _______________</p>
-                  <p className="mt-4"><strong>2)</strong> On écrit en écriture scientifique :</p>
-                  <p className="ml-4">26 × 10⁶ × 2026 × 10⁴ = _______________</p>
+                  <p><strong>1)</strong> Calculer : 5² × (15)⁴ × (−1)⁷²</p>
+                  <p><strong>2)</strong> Écrire en écriture scientifique : 26 × 10⁶ × 2026 × 10⁴</p>
                 </div>
               </div>
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2 : Géométrie (6 points)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 2 : Géométrie</div>
                 <div className="space-y-4">
                   <p><strong>1)</strong> Peut-on construire le triangle ABC tel que AB = 3 ; AC = 4 et BC = 5 ?</p>
-                  <p className="ml-4">Réponse : _______________</p>
-                  <p className="mt-4"><strong>2)</strong> Construire le triangle ABC tel que AB = 3 ; AC = 4 et BC = 5.</p>
-                  <p className="mt-4"><strong>3)</strong> Construire le cercle inscrit et circonscrit à ABC.</p>
-                  <p className="mt-4"><strong>4)</strong> Compléter le tableau :</p>
-                  <div className="overflow-x-auto mt-2">
-                    <table className="w-full border-2 border-gray-800">
-                      <thead>
-                        <tr className="bg-gray-200">
-                          <th className="border-2 border-gray-800 p-2">Â</th>
-                          <th className="border-2 border-gray-800 p-2">B̂</th>
-                          <th className="border-2 border-gray-800 p-2">Ĉ</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td className="border-2 border-gray-800 p-2">90°</td>
-                          <td className="border-2 border-gray-800 p-2">60°</td>
-                          <td className="border-2 border-gray-800 p-2"></td>
-                        </tr>
-                        <tr>
-                          <td className="border-2 border-gray-800 p-2">92°</td>
-                          <td className="border-2 border-gray-800 p-2"></td>
-                          <td className="border-2 border-gray-800 p-2">80°</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <p className="mt-4"><strong>5)</strong> 120° et 60° sont deux angles...</p>
-                  <p className="ml-4">Réponse : _______________</p>
-                  <p className="mt-4"><strong>6)</strong> 40° et 50° sont deux angles...</p>
-                  <p className="ml-4">Réponse : _______________</p>
+                  <p><strong>2)</strong> Construire le triangle ABC.</p>
+                  <p><strong>3)</strong> Construire le cercle inscrit et circonscrit à ABC.</p>
+                  <p><strong>4)</strong> Si Â = 90° et B̂ = 60°, trouver Ĉ. Si Â = 92° et Ĉ = 80°, trouver B̂.</p>
+                  <p><strong>5)</strong> 120° et 60° sont deux angles ... &nbsp;&nbsp; 40° et 50° sont deux angles ...</p>
                 </div>
               </div>
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 3 : Droites remarquables (4 points)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 3 : Droites remarquables</div>
                 <div className="space-y-3">
-                  <p><strong>1)</strong> Soit DEF un triangle. Construire :</p>
-                  <div className="ml-4 space-y-2">
-                    <p>a) La médiatrice du segment [DE]</p>
-                    <p>b) La hauteur issue de F</p>
-                    <p>c) La médiane issue de D</p>
-                    <p>d) La bissectrice de l'angle Ê</p>
-                  </div>
-                  <p className="mt-4"><strong>2)</strong> Compléter :</p>
-                  <div className="ml-4 space-y-2">
-                    <p>• Le centre du cercle circonscrit est l'intersection des _______________</p>
-                    <p>• Le centre de gravité est l'intersection des _______________</p>
-                    <p>• Le centre du cercle inscrit est l'intersection des _______________</p>
-                  </div>
+                  <p>Soit DEF un triangle. Construire la médiatrice de [DE], la hauteur issue de F, la médiane issue de D et la bissectrice de Ê.</p>
+                  <p>• Le centre du cercle circonscrit est l'intersection des _______________</p>
+                  <p>• Le centre de gravité est l'intersection des _______________</p>
+                  <p>• Le centre du cercle inscrit est l'intersection des _______________</p>
                 </div>
               </div>
               <div className="border-2 border-gray-800 rounded-lg p-6">
-                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 4 : Théorème de Thalès (6 points)</div>
+                <div className="bg-gray-200 p-3 font-bold text-lg mb-4 rounded">Exercice 4 : Théorème de Thalès</div>
                 <div className="space-y-3">
-                  <p><strong>Situation :</strong> Sur la figure ci-dessous, les droites (BC) et (MN) sont parallèles.</p>
-                  <p>On donne : AB = 4 cm ; AM = 3 cm ; AC = 6 cm ; BC = 5 cm</p>
-                  <div className="bg-blue-50 p-4 rounded-lg mt-3">
-                    <p><strong>1)</strong> Calculer AN en utilisant le théorème de Thalès.</p>
-                    <p className="ml-4 mt-2">Réponse : _______________</p>
-                    <p className="mt-3"><strong>2)</strong> Calculer MN.</p>
-                    <p className="ml-4 mt-2">Réponse : _______________</p>
-                    <p className="mt-3"><strong>3)</strong> Les triangles ABC et AMN sont-ils semblables ? Justifier.</p>
-                    <p className="ml-4 mt-2">Réponse : _______________</p>
-                  </div>
-                  <div className="bg-yellow-50 p-4 rounded-lg mt-4">
-                    <p><strong>Application :</strong></p>
-                    <p>Un arbre projette une ombre de 12 m. Au même moment, un bâton de 1,5 m projette une ombre de 2 m.</p>
-                    <p className="mt-2"><strong>4)</strong> Quelle est la hauteur de l'arbre ?</p>
-                    <p className="ml-4 mt-2">Réponse : _______________</p>
-                  </div>
+                  <p>Les droites (BC) et (MN) sont parallèles. On donne : AB = 4 cm ; AM = 3 cm ; AC = 6 cm ; BC = 5 cm.</p>
+                  <p><strong>1)</strong> Calculer AN. &nbsp;&nbsp; <strong>2)</strong> Calculer MN. &nbsp;&nbsp; <strong>3)</strong> Les triangles ABC et AMN sont-ils semblables ?</p>
+                  <p className="mt-3"><strong>Application :</strong> Un arbre projette une ombre de 12 m. Au même moment, un bâton de 1,5 m projette une ombre de 2 m. Quelle est la hauteur de l'arbre ?</p>
                 </div>
               </div>
             </div>
@@ -1212,71 +1382,48 @@ const MathApp = () => {
             <div className="space-y-8">
               <div className="border-2 border-yellow-600 rounded-lg p-6 bg-yellow-50">
                 <div className="bg-yellow-200 p-3 font-bold text-lg mb-4 rounded">🧩 Exercice 1 : Le carré magique</div>
-                <div className="space-y-3">
-                  <p>Compléter le carré magique suivant où chaque ligne, colonne et diagonale a la même somme :</p>
-                  <div className="overflow-x-auto my-4 flex justify-center">
-                    <table className="border-2 border-gray-800">
-                      <tbody>
-                        <tr>
-                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center font-bold">8</td>
-                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center"></td>
-                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center">6</td>
-                        </tr>
-                        <tr>
-                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center"></td>
-                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center font-bold">5</td>
-                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center"></td>
-                        </tr>
-                        <tr>
-                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center">4</td>
-                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center"></td>
-                          <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center font-bold">2</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <p className="font-semibold">La somme magique est : _______________</p>
+                <p>Compléter le carré magique où chaque ligne, colonne et diagonale a la même somme :</p>
+                <div className="overflow-x-auto my-4 flex justify-center">
+                  <table className="border-2 border-gray-800">
+                    <tbody>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center font-bold">8</td>
+                        <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center"></td>
+                        <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center">6</td>
+                      </tr>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center"></td>
+                        <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center font-bold">5</td>
+                        <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center"></td>
+                      </tr>
+                      <tr>
+                        <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center">4</td>
+                        <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center"></td>
+                        <td className="border-2 border-gray-800 p-4 w-16 h-16 text-center font-bold">2</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
               <div className="border-2 border-yellow-600 rounded-lg p-6 bg-yellow-50">
                 <div className="bg-yellow-200 p-3 font-bold text-lg mb-4 rounded">🎯 Exercice 2 : Le problème des âges</div>
-                <div className="space-y-3">
-                  <p>Ahmed dit à son père : "Dans 3 ans, ton âge sera le triple du mien."</p>
-                  <p>Le père répond : "Il y a 3 ans, mon âge était le quintuple du tien."</p>
-                  <p className="mt-4"><strong>Question :</strong> Quels sont leurs âges actuels ?</p>
-                  <div className="mt-4 bg-white p-4 rounded">
-                    <p>Âge actuel d'Ahmed : _______________</p>
-                    <p>Âge actuel du père : _______________</p>
-                  </div>
-                </div>
+                <p>Ahmed dit à son père : "Dans 3 ans, ton âge sera le triple du mien."</p>
+                <p>Le père répond : "Il y a 3 ans, mon âge était le quintuple du tien."</p>
+                <p className="mt-4 font-semibold">Quels sont leurs âges actuels ?</p>
               </div>
               <div className="border-2 border-yellow-600 rounded-lg p-6 bg-yellow-50">
                 <div className="bg-yellow-200 p-3 font-bold text-lg mb-4 rounded">🔢 Exercice 3 : Suite logique</div>
-                <div className="space-y-4">
-                  <p>Trouver le nombre manquant dans chaque suite :</p>
-                  <div className="ml-4 space-y-3">
-                    <p><strong>a)</strong> 2, 5, 10, 17, ___, 37</p>
-                    <p><strong>b)</strong> 1, 1, 2, 3, 5, 8, ___, 21</p>
-                    <p><strong>c)</strong> 3, 6, 12, 24, ___, 96</p>
-                    <p><strong>d)</strong> 100, 81, 64, ___, 36, 25</p>
-                  </div>
+                <div className="ml-4 space-y-3">
+                  <p><strong>a)</strong> 2, 5, 10, 17, ___, 37</p>
+                  <p><strong>b)</strong> 1, 1, 2, 3, 5, 8, ___, 21</p>
+                  <p><strong>c)</strong> 3, 6, 12, 24, ___, 96</p>
+                  <p><strong>d)</strong> 100, 81, 64, ___, 36, 25</p>
                 </div>
               </div>
               <div className="border-2 border-yellow-600 rounded-lg p-6 bg-yellow-50">
                 <div className="bg-yellow-200 p-3 font-bold text-lg mb-4 rounded">🍎 Exercice 4 : Le marchand de fruits</div>
-                <div className="space-y-3">
-                  <p>Un marchand a des pommes et des oranges. Il sait que :</p>
-                  <div className="ml-4 space-y-2">
-                    <p>• 3 pommes + 2 oranges coûtent 24 DH</p>
-                    <p>• 2 pommes + 3 oranges coûtent 26 DH</p>
-                  </div>
-                  <p className="mt-4"><strong>Questions :</strong></p>
-                  <div className="ml-4 space-y-2">
-                    <p>1) Quel est le prix d'une pomme ? _______________</p>
-                    <p>2) Quel est le prix d'une orange ? _______________</p>
-                    <p>3) Combien coûtent 5 pommes et 5 oranges ? _______________</p>
-                  </div>
-                </div>
+                <p>3 pommes + 2 oranges coûtent 24 DH. 2 pommes + 3 oranges coûtent 26 DH.</p>
+                <p className="mt-3">1) Prix d'une pomme ? &nbsp;&nbsp; 2) Prix d'une orange ? &nbsp;&nbsp; 3) Coût de 5 pommes et 5 oranges ?</p>
               </div>
             </div>
           </div>
@@ -1301,26 +1448,19 @@ const MathApp = () => {
             <div className="space-y-8">
               <div className="border-2 border-orange-600 rounded-lg p-6 bg-orange-50">
                 <div className="bg-orange-200 p-3 font-bold text-lg mb-4 rounded">🧩 Exercice 1 : Le triangle de nombres</div>
-                <div className="space-y-3">
-                  <p>Compléter le triangle suivant où chaque nombre est la somme des deux nombres au-dessus :</p>
-                  <div className="my-4 text-center space-y-2 font-mono">
-                    <p>1</p>
-                    <p>2 ___ 3</p>
-                    <p>4 ___ ___ 7</p>
-                    <p>___ 13 ___ ___ 18</p>
-                  </div>
+                <p>Compléter le triangle où chaque nombre est la somme des deux nombres au-dessus :</p>
+                <div className="my-4 text-center space-y-2 font-mono text-lg">
+                  <p>1</p>
+                  <p>2 ___ 3</p>
+                  <p>4 ___ ___ 7</p>
+                  <p>___ 13 ___ ___ 18</p>
                 </div>
               </div>
               <div className="border-2 border-orange-600 rounded-lg p-6 bg-orange-50">
                 <div className="bg-orange-200 p-3 font-bold text-lg mb-4 rounded">💎 Exercice 2 : Le défi des puissances</div>
-                <div className="space-y-3">
-                  <p><strong>1)</strong> Simplifier : (2²⁰²⁴ × 2²⁰²⁵) / 2²⁰²³</p>
-                  <p className="ml-4">Réponse : _______________</p>
-                  <p className="mt-3"><strong>2)</strong> Trouver le dernier chiffre de 7²⁰²⁴</p>
-                  <p className="ml-4">Réponse : _______________</p>
-                  <p className="mt-3"><strong>3)</strong> Sans calculatrice, lequel est le plus grand : 2³⁰⁰ ou 3²⁰⁰ ?</p>
-                  <p className="ml-4">Réponse : _______________</p>
-                </div>
+                <p><strong>1)</strong> Simplifier : (2²⁰²⁴ × 2²⁰²⁵) / 2²⁰²³</p>
+                <p className="mt-3"><strong>2)</strong> Trouver le dernier chiffre de 7²⁰²⁴</p>
+                <p className="mt-3"><strong>3)</strong> Sans calculatrice, lequel est le plus grand : 2³⁰⁰ ou 3²⁰⁰ ?</p>
               </div>
             </div>
           </div>
@@ -1423,7 +1563,7 @@ const MathApp = () => {
                       const isCorrect = index === q.correct;
                       return (
                         <button key={index} onClick={() => !showResults && handleAnswer(q.id, index)} disabled={showResults}
-                          className={`w-full text-left p-4 rounded-lg border-2 transition-all ${showResults ? isCorrect ? 'bg-green-100 border-green-500 font-semibold' : isSelected ? 'bg-red-100 border-red-500' : 'bg-white border-gray-300' : isSelected ? `bg-${accentColor}-100 border-${accentColor}-500` : 'bg-white border-gray-300 hover:border-gray-400'}`}>
+                          className={`w-full text-left p-4 rounded-lg border-2 transition-all ${showResults ? isCorrect ? 'bg-green-100 border-green-500 font-semibold' : isSelected ? 'bg-red-100 border-red-500' : 'bg-white border-gray-300' : isSelected ? 'bg-purple-100 border-purple-500' : 'bg-white border-gray-300 hover:border-gray-400'}`}>
                           <span className="font-semibold mr-2">{String.fromCharCode(65 + index)}.</span>
                           {option}
                           {showResults && isCorrect && <span className="ml-2">✓</span>}
