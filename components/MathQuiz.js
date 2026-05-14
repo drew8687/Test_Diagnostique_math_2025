@@ -967,8 +967,8 @@ const MathApp = () => {
                       </tr>
                       <tr>
                         <td className="border-2 border-gray-800 p-3">12</td>
-                        <td className="border-2 border-gray-800 p-3">45</td>
-                        <td className="border-2 border-gray-800 p-3">15,5</td>
+                        <td className="border-2 border-gray-800 p-3">28</td>
+                        <td className="border-2 border-gray-800 p-3">32</td>
                         <td className="border-2 border-gray-800 p-3"></td>
                       </tr>
                     </tbody>
